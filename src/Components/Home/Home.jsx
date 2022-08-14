@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import homeImg from '../../Assets/Pics/IMG_9728.jpg';
+import React from "react";
+import styled from "styled-components";
+import homeImg from "../../Assets/Pics/IMG_9728.jpg";
 
 const StyledContainer = styled.div`
   display: flex;

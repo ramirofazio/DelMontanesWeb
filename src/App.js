@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import NavBar from './Components/NavBar/NavBar';
-import Home from './Components/Home/Home';
-import AboutUs from './Components/AboutUs/AboutUs';
-import Alfajores from './Components/Alfajores/Alfajores';
-import Tienda from './Components/Tienda/Tienda';
-import Contact from './Components/Contact/Contact';
+import React from "react";
+import styled from "styled-components";
+import NavBar from "./Components/NavBar/NavBar";
+import Home from "./Components/Home/Home";
+import AboutUs from "./Components/AboutUs/AboutUs";
+import Alfajores from "./Components/Alfajores/Alfajores";
+import Tienda from "./Components/Tienda/Tienda";
+import Contact from "./Components/Contact/Contact";
 
 const StyledContainer = styled.div`
   width: 100%;

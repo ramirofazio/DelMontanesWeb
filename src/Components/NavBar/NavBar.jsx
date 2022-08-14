@@ -1,6 +1,6 @@
-import React from 'react';
-import { scrollLinks } from './scrollLinks.js';
-import styled from 'styled-components';
+import React from "react";
+import { scrollLinks } from "./scrollLinks.js";
+import styled from "styled-components";
 
 const NavBarContainer = styled.div`
   display: flex;
