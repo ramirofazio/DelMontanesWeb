@@ -1,14 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import GlobalStyles from "../../Styles/GlobalStyles";
 import homeImg from "../../Assets/Pics/IMG_9728.jpg";
-
-const StyledContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-`;
 
 const StyledImg = styled.img`
   height: 100%;
@@ -23,3 +16,7 @@ function Home() {
 }
 
 export default Home;
+
+const StyledContainer = styled.div`
+  ${GlobalStyles.container}
+`;

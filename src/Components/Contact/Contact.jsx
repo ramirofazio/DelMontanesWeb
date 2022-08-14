@@ -1,21 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import GlobalStyles from "../../Styles/GlobalStyles";
 
-const StyledContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: lightblue;
-`;
-
-function Contact() {
+function Alfajores() {
   return (
     <StyledContainer>
-      <h1> Contact</h1>
+      <h1>Contanct</h1>
     </StyledContainer>
   );
 }
 
-export default Contact;
+export default Alfajores;
+
+const StyledContainer = styled.div`
+  ${GlobalStyles.container}
+  background-color: white;
+`;

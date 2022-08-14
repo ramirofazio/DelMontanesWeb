@@ -1,24 +1,8 @@
 import React from "react";
-import { scrollLinks } from "./scrollLinks.js";
 import styled from "styled-components";
-
-const NavBarContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  height: 10%;
-  background-color: gray;
-  position: fixed;
-  z-index: 100;
-`;
-
-const HomeLinks = styled.a`
-  text-decoration: none;
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: black;
-`;
+import GlobalStyles from "../../Styles/GlobalStyles.js";
+import Variables from "../../Styles/Variables";
+import { scrollLinks } from "./scrollLinks.js";
 
 function NavBar() {
   return (
@@ -35,3 +19,20 @@ function NavBar() {
 }
 
 export default NavBar;
+
+const NavBarContainer = styled.div`
+  ${GlobalStyles.container}
+
+  position: fixed;
+  justify-content: space-evenly;
+  height: ${Variables.navBarHeight};
+  z-index: 100;
+
+  background-color: ${Variables.navBarColor};
+`;
+
+const HomeLinks = styled.a`
+  ${GlobalStyles.a}
+
+  font-size: 1.4rem;
+`;
