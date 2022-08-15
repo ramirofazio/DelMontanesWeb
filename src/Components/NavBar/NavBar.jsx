@@ -1,15 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
+//CSS
 import styled from "styled-components";
 import GlobalStyles from "../../Styles/GlobalStyles.js";
 import Variables from "../../Styles/Variables";
-import { scrollLinks } from "./scrollLinks.js";
+//Links
+import { Links } from "./scrollLinks.js";
 
 function NavBar() {
   return (
     <NavBarContainer>
-      {scrollLinks.map((link) => {
+      {Links.map((link) => {
         return (
-          <HomeLinks href={link.url} key={link.id}>
+          <HomeLinks to={link.link} key={link.id}>
             {link.text}
           </HomeLinks>
         );
@@ -31,7 +34,7 @@ const NavBarContainer = styled.div`
   background-color: ${Variables.navBarColor};
 `;
 
-const HomeLinks = styled.a`
+const HomeLinks = styled(Link)`
   ${GlobalStyles.a}
 
   font-size: 1.4rem;

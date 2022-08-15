@@ -2,7 +2,7 @@ const Variables = {
   //Display
   navBarHeight: "10%",
 
-  //Colours
+  //Colors
   baseColor: "#f7f5f2",
   principalColor: "#583625",
   secondaryColor: "#d9ccc0",
