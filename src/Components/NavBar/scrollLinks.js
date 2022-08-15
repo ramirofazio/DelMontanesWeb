@@ -1,27 +1,27 @@
-export const scrollLinks = [
+export const Links = [
   {
     id: 0,
     text: "Inicio",
-    url: "#inicio",
+    link: "/",
   },
   {
     id: 1,
     text: "Nosotros",
-    url: "#nosotros",
+    link: "/Nosotros",
   },
   {
     id: 2,
     text: "Alfajores",
-    url: "#alfajores",
+    link: "/Alfajores",
   },
   {
     id: 3,
     text: "Tienda",
-    url: "#tienda",
+    link: "/Tienda",
   },
   {
     id: 4,
     text: "Contacto",
-    url: "#contacto",
+    link: "/Contacto",
   },
 ];

@@ -1,5 +1,9 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+//CSS
 import styled from "styled-components";
+import GlobalStyles from "./Styles/GlobalStyles";
+//Components
 import NavBar from "./Components/NavBar/NavBar";
 import Home from "./Components/Home/Home";
 import AboutUs from "./Components/AboutUs/AboutUs";
@@ -7,37 +11,25 @@ import Alfajores from "./Components/Alfajores/Alfajores";
 import Tienda from "./Components/Tienda/Tienda";
 import Contact from "./Components/Contact/Contact";
 
-const StyledContainer = styled.div`
-  width: 100%;
-  height: 100%;
-`;
-
-const StyledSection = styled.section`
-  width: 100%;
-  height: 100%;
-`;
-
 function App() {
   return (
-    <StyledContainer id="inicio">
+    <Router>
       <NavBar />
-      <StyledSection id="inicio">
-        <Home />
-      </StyledSection>
-      <StyledSection id="nosotros">
-        <AboutUs />
-      </StyledSection>
-      <StyledSection id="alfajores">
-        <Alfajores />
-      </StyledSection>
-      <StyledSection id="tienda">
-        <Tienda />
-      </StyledSection>
-      <StyledSection id="contacto">
-        <Contact />
-      </StyledSection>
-    </StyledContainer>
+      <StyledContainer>
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/Nosotros" exact element={<AboutUs />} />
+          <Route path="/Alfajores" exact element={<Alfajores />} />
+          <Route path="/Tienda" exact element={<Tienda />} />
+          <Route path="/Contacto" exact element={<Contact />} />
+        </Routes>
+      </StyledContainer>
+    </Router>
   );
 }
 
 export default App;
+
+const StyledContainer = styled.div`
+  ${GlobalStyles.container}
+`;
