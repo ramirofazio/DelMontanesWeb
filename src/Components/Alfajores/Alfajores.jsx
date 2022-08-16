@@ -6,7 +6,7 @@ import GlobalStyles from "../../Styles/GlobalStyles";
 function Alfajores() {
   return (
     <StyledContainer>
-      <h1>Alfajores</h1>
+      <h1>Alfajore</h1>
     </StyledContainer>
   );
 }
