@@ -18,19 +18,20 @@ function HomeSwiper() {
   return (
     <StyledSwiper
       autoplay={{
-        delay: 4500,
+        delay: 3000,
         disableOnInteraction: false,
       }}
       slidesPerView={"auto"}
       loop={true}
       centeredSlides={true}
-      spaceBetween={50}
-      pagination={{ clickable: true }}
+      spaceBetween={10}
+      pagination={{ clickable: true, dynamicBullets: true }}
       modules={[Pagination, Autoplay]}
     >
       <SwiperSlide style={{ width: "75%" }}>
         <StyledImg src={image1}></StyledImg>
       </SwiperSlide>
+
       <SwiperSlide style={{ width: "75%" }}>
         <StyledImg src={image2}></StyledImg>
       </SwiperSlide>
@@ -58,5 +59,6 @@ const StyledSwiper = styled(Swiper)`
 
 const StyledImg = styled.img`
   height: 100%;
+  width: 100%;
   border-radius: 10px;
 `;

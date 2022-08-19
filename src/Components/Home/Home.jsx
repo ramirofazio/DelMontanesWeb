@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import GlobalStyles from "../../Styles/GlobalStyles";
 //Components
-import HomeSwiper from "./Swiper";
+import HomeSwiper from "./HomeSwiper";
 //import Footer from "../Footer/Footer";
 
 function Home() {
