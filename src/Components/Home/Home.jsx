@@ -2,17 +2,14 @@ import React from "react";
 //CSS
 import styled from "styled-components";
 import GlobalStyles from "../../Styles/GlobalStyles";
-//Assets
-import homeImg from "../../Assets/Pics/IMG_9728.jpg";
-
-const StyledImg = styled.img`
-  height: 200%;
-`;
+//Components
+import HomeSwiper from "./HomeSwiper";
+//import Footer from "../Footer/Footer";
 
 function Home() {
   return (
     <StyledContainer>
-      <StyledImg src={homeImg} alt="home" />
+      <HomeSwiper />
     </StyledContainer>
   );
 }
@@ -21,4 +18,6 @@ export default Home;
 
 const StyledContainer = styled.div`
   ${GlobalStyles.container}
+  flex-direction: column;
+  height: 100%;
 `;
