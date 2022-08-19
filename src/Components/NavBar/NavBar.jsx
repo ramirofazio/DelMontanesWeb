@@ -1,24 +1,64 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 //CSS
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Variables from "../../Styles/Variables";
 import GlobalStyles from "../../Styles/GlobalStyles";
 //Assets
 import Logo from "../../Assets/LogoConSombra.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function NavBar() {
+  const location = useLocation();
+  const [fixedOrStatic, setFixedOrStatic] = useState("Fixed");
+  const [selected, setSelected] = useState(null);
+
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setFixedOrStatic("Static");
+    } else {
+      setFixedOrStatic("Fixed");
+    }
+    setSelected(location.pathname);
+    console.log(location.pathname);
+  }, [location]);
+
   return (
-    <NavBarContainer>
+    <NavBarContainer fixedOrStatic={fixedOrStatic}>
       <Container>
-        <HomeLinks to="/">Inicio</HomeLinks>
-        <HomeLinks to="/Nosotros">Nosotros</HomeLinks>
-        <HomeLinks to="/Alfajores">Alfajores</HomeLinks>
+        <HomeLinks fixedOrStatic={fixedOrStatic} to="/">
+          Inicio
+        </HomeLinks>
+        <HomeLinks
+          fixedOrStatic={fixedOrStatic}
+          to="/Nosotros"
+          selected={selected === "/Nosotros" ? true : false}
+        >
+          Nosotros
+        </HomeLinks>
+        <HomeLinks
+          fixedOrStatic={fixedOrStatic}
+          to="/Alfajores"
+          selected={selected === "/Alfajores" ? true : false}
+        >
+          Alfajores
+        </HomeLinks>
       </Container>
-      <Img src={Logo} alt="" />
+      <Img src={Logo} alt="" fixedOrStatic={fixedOrStatic} />
       <Container>
-        <HomeLinks to="/Tienda">Tienda</HomeLinks>
-        <HomeLinks to="/Contacto">Contacto</HomeLinks>
+        <HomeLinks
+          fixedOrStatic={fixedOrStatic}
+          to="/Tienda"
+          selected={selected === "/Tienda" ? true : false}
+        >
+          Tienda
+        </HomeLinks>
+        <HomeLinks
+          fixedOrStatic={fixedOrStatic}
+          to="/Contacto"
+          selected={selected === "/Contacto" ? true : false}
+        >
+          Contacto
+        </HomeLinks>
       </Container>
     </NavBarContainer>
   );
@@ -29,12 +69,7 @@ export default NavBar;
 const NavBarContainer = styled.div`
   ${GlobalStyles.container}
   justify-content: space-evenly;
-  height: ${Variables.navBarHeight};
-  background-color: ${Variables.navBarColor};
-  position: fixed;
-  background: ${Variables.navBarTransparentColor};
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+
   animation: fadeIn 1s ease-in;
   z-index: 100;
   transition: ${Variables.basicTransition};
@@ -58,11 +93,27 @@ const NavBarContainer = styled.div`
     }
   }
 
-  &:hover {
-    height: ${Variables.navBarHoverHeight};
-    background-color: ${Variables.navBarColor};
-    transition: all 1.5s ease;
-  }
+  ${(props) =>
+    props.fixedOrStatic === "Fixed" &&
+    css`
+      height: ${Variables.navBarHeight};
+      position: fixed;
+      background: ${Variables.navBarTransparentColor};
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      &:hover {
+        height: ${Variables.navBarHoverHeight};
+        background-color: ${Variables.navBarColor};
+      }
+    `}
+
+  ${(props) =>
+    props.fixedOrStatic === "Static" &&
+    css`
+      height: ${Variables.navBarHoverHeight};
+      position: static;
+      background-color: ${Variables.navBarColor};
+    `}
 `;
 
 const Container = styled.div`
@@ -79,18 +130,48 @@ const HomeLinks = styled(Link)`
   color: ${Variables.principalColor};
   transition: ${Variables.basicTransition};
 
-  ${NavBarContainer}:hover & {
-    font-size: 1rem;
-  }
+  ${(props) =>
+    props.fixedOrStatic === "Fixed" &&
+    css`
+      font-size: 1.2rem;
+
+      ${NavBarContainer}:hover & {
+        font-size: 1rem;
+      }
+    `}
+
+  ${(props) =>
+    props.fixedOrStatic === "Static" &&
+    css`
+      font-size: 1rem;
+    `}
+
+    ${(props) =>
+    props.selected === true &&
+    css`
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    `}
 `;
 
 const Img = styled.img`
-  width: 100px;
-  margin-top: 20px;
-  transition: ${Variables.basicTransition};
+  ${(props) =>
+    props.fixedOrStatic === "Fixed" &&
+    css`
+      width: 100px;
+      margin-top: 20px;
+      transition: ${Variables.basicTransition};
 
-  ${NavBarContainer}:hover & {
-    width: 70px;
-    margin-top: 0px;
-  }
+      ${NavBarContainer}:hover & {
+        width: 70px;
+        margin-top: 0px;
+      }
+    `}
+
+  ${(props) =>
+    props.fixedOrStatic === "Static" &&
+    css`
+      width: 70px;
+      transition: ${Variables.basicTransition};
+    `}
 `;
