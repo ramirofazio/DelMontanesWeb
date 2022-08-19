@@ -128,6 +128,10 @@ const HomeLinks = styled(Link)`
   color: ${Variables.principalColor};
   transition: ${Variables.basicTransition};
 
+  &:hover {
+    color: ${Variables.secondaryColor};
+  }
+
   ${(props) =>
     props.fixedorstatic === "Fixed" &&
     css`
