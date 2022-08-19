@@ -13,7 +13,6 @@
   },
   "plugins": ["react"],
   "rules": {
-    "linebreak-style": ["error", "windows"],
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
     "react/prop-types": "off"

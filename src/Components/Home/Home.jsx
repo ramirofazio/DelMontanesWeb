@@ -6,7 +6,7 @@ import GlobalStyles from "../../Styles/GlobalStyles";
 import homeImg from "../../Assets/Pics/IMG_9728.jpg";
 
 const StyledImg = styled.img`
-  height: 100%;
+  height: 200%;
 `;
 
 function Home() {
