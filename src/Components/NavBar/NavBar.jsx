@@ -71,7 +71,7 @@ const NavBarContainer = styled.div`
   justify-content: space-evenly;
 
   animation: fadeIn 1s ease-in;
-  z-index: 100;
+  z-index: auto;
   transition: ${Variables.basicTransition};
 
   @keyframes fadeIn {
@@ -111,7 +111,7 @@ const NavBarContainer = styled.div`
     props.fixedOrStatic === "Static" &&
     css`
       height: ${Variables.navBarHoverHeight};
-      position: static;
+      position: relative;
       background-color: ${Variables.navBarColor};
     `}
 `;
