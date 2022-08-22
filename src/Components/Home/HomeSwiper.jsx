@@ -10,9 +10,9 @@ import { Pagination, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import image1 from "../../Assets/Pics/IMG_7056.jpg";
-import image2 from "../../Assets/Pics/IMG_2835-2.jpg";
-import image3 from "../../Assets/Pics/IMG_2856-2.jpg";
-import image4 from "../../Assets/Pics/IMG_2872-2.jpg";
+import image2 from "../../Assets/Pics/IMG_2835-2.JPG";
+import image3 from "../../Assets/Pics/IMG_2856-2.JPG";
+import image4 from "../../Assets/Pics/IMG_2872-2.JPG";
 
 function HomeSwiper() {
   return (
