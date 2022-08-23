@@ -53,8 +53,6 @@ const StyledSwiper = styled(Swiper)`
   justify-content: center;
   width: 100%;
   height: 100vh;
-
-  outline: 1px solid red;
 `;
 
 const StyledImg = styled.img`
