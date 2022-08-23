@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import Variables from "../../Styles/Variables";
 import TimeLine from "./AboutUsTimeLine";
+import Footer from "../Footer/Footer";
 import AboutUsCarrousel from "./AboutUsCarrousel";
 import image1 from "../../Assets/Pics/IMG_7056.jpg";
 import image2 from "../../Assets/Pics/IMG_9728.jpg";
@@ -28,7 +29,7 @@ function AboutUs() {
           images={[image1, image2, image3, image4, image5, image6 ]}/>
         </CarrouselContainer>
       </AboutUsTimeLine>
-      <AboutUsItems>
+      {/* <AboutUsItems>
         <Item>
         <ItemTitle>TITLE</ItemTitle>
         <ItemDescription>Lorem ipsum dolor sit amet
@@ -61,7 +62,8 @@ function AboutUs() {
           Harum quis iste similique recusandae 
           veritatis porro accusantium? Est.</ItemDescription>
         </Item>
-      </AboutUsItems> 
+      </AboutUsItems>  */}
+          <Footer/>
     </StyledContainer>
   );
 }
@@ -69,9 +71,8 @@ function AboutUs() {
 export default AboutUs;
 
 const StyledContainer = styled.div`
-  display: flex;
   flex-direction: column;
-  height: 100%;
+  height:100%;
   background-color: white;
 `;
 
@@ -119,34 +120,34 @@ const CarrouselContainer = styled.div`
   height: 100vh;
 `;
 
-const AboutUsItems = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100vh;
-  background-color: #965d5d;
-`;
+// const AboutUsItems = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+//   width: 100%;
+//   background-color: #965d5d;
+// `;
 
- const Item = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: antiquewhite;
-  width: 50%;
-  height: 70vh;
- `;
+//  const Item = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+//   background-color: antiquewhite;
+//   width: 50%;
+//   height: 70vh;
+//  `;
 
-const ItemTitle = styled.h2`
-  font-size: 40px;
-  width: 90%;
-  color: black;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 400px;
-`;
-const ItemDescription = styled.p`
-  font-size: 25px;
-  color: #5e5e5e ;
-  font-family: 'Nunito', sans-serif;
-  width: 90%;
-`;
+// const ItemTitle = styled.h2`
+//   font-size: 40px;
+//   width: 90%;
+//   color: black;
+//   font-family: 'Nunito', sans-serif;
+//   font-weight: 400px;
+// `;
+// const ItemDescription = styled.p`
+//   font-size: 25px;
+//   color: #5e5e5e ;
+//   font-family: 'Nunito', sans-serif;
+//   width: 90%;
+// `;
+
