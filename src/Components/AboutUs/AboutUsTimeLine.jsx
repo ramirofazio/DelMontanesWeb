@@ -30,7 +30,6 @@ export default TimeLine;
 
 const StyledTimeLine = styled.div`
   display: flex;
-  display: flex;
   flex-wrap: wrap;
   width: 100%;
 `;
@@ -55,7 +54,6 @@ const TimeLineText = styled.div`
 `;
 
 const TimeLineTitle = styled.div`
-  align-items: center;
   font-size: 35px;
   width: 50%;
   text-align: left;

@@ -61,12 +61,12 @@ useEffect(() => {
 export default ImageSlyder;
 
 const Wrapper = styled.div`
-    height: 70vh;
-    width: 80%;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: hidden;
     position: relative;
+    height: 70vh;
+    width: 80%;
     border-radius: 20px;
     `;
 

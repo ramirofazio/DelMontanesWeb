@@ -106,33 +106,35 @@ const AboutUsTimeLine = styled.div`
   width: 100%;
   background-color: white;
   `;
+
 const TimeLineContainer = styled.div`
   height: 100vh;
   width: 50%;
 `;
+
 const CarrouselContainer = styled.div`
-  width: 50%;
-  height: 100vh;
   display: flex;
   justify-content: center;
+  width: 50%;
+  height: 100vh;
 `;
 
 const AboutUsItems = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   height: 100vh;
   background-color: #965d5d;
-  flex-wrap: wrap;
 `;
 
  const Item = styled.div`
-  background-color: antiquewhite;
-  width: 50%;
-  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: antiquewhite;
+  width: 50%;
+  height: 70vh;
  `;
 
 const ItemTitle = styled.h2`
@@ -143,9 +145,8 @@ const ItemTitle = styled.h2`
   font-weight: 400px;
 `;
 const ItemDescription = styled.p`
-  color: black;
   font-size: 25px;
-  width: 90%;
   color: #5e5e5e ;
   font-family: 'Nunito', sans-serif;
+  width: 90%;
 `;
