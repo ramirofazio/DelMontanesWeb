@@ -2,7 +2,6 @@ import React from "react";
 //CSS
 import styled from "styled-components";
 
-
 function TimeLine() {
   return (
     <StyledTimeLine>
@@ -23,9 +22,6 @@ function TimeLine() {
           </TimeLineDescription>
         </TimeLineText>
       </TimeLineContainer>
-      <CarrouselContainer>
-        <h3>Carrousel</h3>
-      </CarrouselContainer>
       </StyledTimeLine>
   );
 }
@@ -37,20 +33,12 @@ const StyledTimeLine = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  height: 100vh;
-`;
-
-const CarrouselContainer = styled.div`
-  background-color: #f5cece;
-  width: 50%;
 `;
 
 const TimeLineContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
   height: 100%;
-  background-color: #fdfdfd;
 `;
 
 const TimeLIne = styled.div`
