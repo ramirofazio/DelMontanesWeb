@@ -70,7 +70,7 @@ const NavBarContainer = styled.div`
   justify-content: space-evenly;
 
   animation: fadeIn 1s ease-in;
-  z-index: auto;
+  z-index: 200;
   transition: ${Variables.basicTransition};
 
   @keyframes fadeIn {
