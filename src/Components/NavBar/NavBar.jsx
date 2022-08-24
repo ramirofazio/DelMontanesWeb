@@ -19,41 +19,40 @@ function NavBar() {
       setFixedOrStatic("Fixed");
     }
     setSelected(location.pathname);
-    console.log(location.pathname);
   }, [location]);
 
   return (
-    <NavBarContainer fixedOrStatic={fixedOrStatic}>
+    <NavBarContainer fixedorstatic={fixedOrStatic}>
       <Container>
-        <HomeLinks fixedOrStatic={fixedOrStatic} to="/">
+        <HomeLinks fixedorstatic={fixedOrStatic} to="/">
           Inicio
         </HomeLinks>
         <HomeLinks
-          fixedOrStatic={fixedOrStatic}
+          fixedorstatic={fixedOrStatic}
           to="/Nosotros"
           selected={selected === "/Nosotros" ? true : false}
         >
           Nosotros
         </HomeLinks>
         <HomeLinks
-          fixedOrStatic={fixedOrStatic}
+          fixedorstatic={fixedOrStatic}
           to="/Alfajores"
           selected={selected === "/Alfajores" ? true : false}
         >
           Alfajores
         </HomeLinks>
       </Container>
-      <Img src={Logo} alt="" fixedOrStatic={fixedOrStatic} />
+      <Img src={Logo} alt="" fixedorstatic={fixedOrStatic} />
       <Container>
         <HomeLinks
-          fixedOrStatic={fixedOrStatic}
+          fixedorstatic={fixedOrStatic}
           to="/Tienda"
           selected={selected === "/Tienda" ? true : false}
         >
           Tienda
         </HomeLinks>
         <HomeLinks
-          fixedOrStatic={fixedOrStatic}
+          fixedorstatic={fixedOrStatic}
           to="/Contacto"
           selected={selected === "/Contacto" ? true : false}
         >
@@ -94,7 +93,7 @@ const NavBarContainer = styled.div`
   }
 
   ${(props) =>
-    props.fixedOrStatic === "Fixed" &&
+    props.fixedorstatic === "Fixed" &&
     css`
       height: ${Variables.navBarHeight};
       position: fixed;
@@ -108,7 +107,7 @@ const NavBarContainer = styled.div`
     `}
 
   ${(props) =>
-    props.fixedOrStatic === "Static" &&
+    props.fixedorstatic === "Static" &&
     css`
       height: ${Variables.navBarHoverHeight};
       position: relative;
@@ -126,24 +125,27 @@ const Container = styled.div`
 
 const HomeLinks = styled(Link)`
   ${GlobalStyles.a}
-  font-size: 1.2rem;
   color: ${Variables.principalColor};
   transition: ${Variables.basicTransition};
 
+  &:hover {
+    color: ${Variables.secondaryColor};
+  }
+
   ${(props) =>
-    props.fixedOrStatic === "Fixed" &&
+    props.fixedorstatic === "Fixed" &&
     css`
-      font-size: 1.2rem;
+      font-size: 1.4rem;
 
       ${NavBarContainer}:hover & {
-        font-size: 1rem;
+        font-size: 1.3rem;
       }
     `}
 
   ${(props) =>
-    props.fixedOrStatic === "Static" &&
+    props.fixedorstatic === "Static" &&
     css`
-      font-size: 1rem;
+      font-size: 1.3rem;
     `}
 
     ${(props) =>
@@ -156,22 +158,23 @@ const HomeLinks = styled(Link)`
 
 const Img = styled.img`
   ${(props) =>
-    props.fixedOrStatic === "Fixed" &&
+    props.fixedorstatic === "Fixed" &&
     css`
-      width: 100px;
+      width: 130px;
       margin-top: 20px;
       transition: ${Variables.basicTransition};
 
       ${NavBarContainer}:hover & {
-        width: 70px;
+        width: 80px;
         margin-top: 0px;
       }
     `}
 
   ${(props) =>
-    props.fixedOrStatic === "Static" &&
+    props.fixedorstatic === "Static" &&
     css`
-      width: 70px;
+      width: 80px;
+      margin-top: 0px;
       transition: ${Variables.basicTransition};
     `}
 `;
