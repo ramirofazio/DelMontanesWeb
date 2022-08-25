@@ -111,6 +111,8 @@ const AboutUsTimeLine = styled.div`
 const TimeLineContainer = styled.div`
   height: 100vh;
   width: 50%;
+  display:flex;
+  justify-content: center;
 `;
 
 const CarrouselContainer = styled.div`
