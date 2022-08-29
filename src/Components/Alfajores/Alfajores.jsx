@@ -1,12 +1,16 @@
 import React from "react";
+import GeneralSlider from "../General_Slider/GeneralSlider";
 //CSS
 import styled from "styled-components";
-import GlobalStyles from "../../Styles/GlobalStyles";
+import { productImages } from "../../Assets";
+import Footer from "../Footer/Footer";
+
 
 function Alfajores() {
   return (
     <StyledContainer>
-      <h1>Alfajores</h1>
+      <GeneralSlider  images={productImages} />
+      <Footer/>
     </StyledContainer>
   );
 }
@@ -14,6 +18,8 @@ function Alfajores() {
 export default Alfajores;
 
 const StyledContainer = styled.div`
-  ${GlobalStyles.container}
-  background-color: white;
+    width: 100%;
+    height: 100%;
 `;
+
+
