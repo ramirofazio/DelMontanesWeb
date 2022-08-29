@@ -9,10 +9,7 @@ import { Pagination, Autoplay } from "swiper";
 //Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import image1 from "../../Assets/Pics/IMG_7056.jpg";
-import image2 from "../../Assets/Pics/IMG_2835-2.jpg";
-import image3 from "../../Assets/Pics/IMG_2856-2.jpg";
-import image4 from "../../Assets/Pics/IMG_2872-2.jpg";
+import { images } from "../../Assets/Pics/HomeSwiper/index";
 
 function HomeSwiper() {
   return (
@@ -28,19 +25,11 @@ function HomeSwiper() {
       pagination={{ clickable: true, dynamicBullets: true }}
       modules={[Pagination, Autoplay]}
     >
-      <SwiperSlide style={{ width: "75%" }}>
-        <StyledImg src={image1}></StyledImg>
-      </SwiperSlide>
-
-      <SwiperSlide style={{ width: "75%" }}>
-        <StyledImg src={image2}></StyledImg>
-      </SwiperSlide>
-      <SwiperSlide style={{ width: "75%" }}>
-        <StyledImg src={image3}></StyledImg>
-      </SwiperSlide>
-      <SwiperSlide style={{ width: "75%" }}>
-        <StyledImg src={image4}></StyledImg>
-      </SwiperSlide>
+      {images.map((img, index) => (
+        <SwiperSlide style={{ width: "75%" }} key={index}>
+          <StyledImg src={img}></StyledImg>
+        </SwiperSlide>
+      ))}
     </StyledSwiper>
   );
 }
