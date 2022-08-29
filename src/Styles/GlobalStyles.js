@@ -6,7 +6,7 @@ const GlobalStyles = {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
   `,
   a: css`
     text-decoration: none;

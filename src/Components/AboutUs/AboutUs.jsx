@@ -106,20 +106,27 @@ const AboutUsTimeLine = styled.div`
   flex-wrap: wrap;
   width: 100%;
   background-color: white;
+  height: 100vh;
   `;
 
 const TimeLineContainer = styled.div`
-  height: 100vh;
   width: 50%;
   display:flex;
   justify-content: center;
+  @media (max-width: 800px){
+  width: 100%;
+  height: 100%;
+}
 `;
 
 const CarrouselContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 50%;
-  height: 100vh;
+  @media (max-width: 800px){
+    width: 100%;
+    height: 100%;
+}
 `;
 
 // const AboutUsItems = styled.div`
