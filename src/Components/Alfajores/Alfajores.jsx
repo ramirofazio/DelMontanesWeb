@@ -1,5 +1,5 @@
 import React from "react";
-import GeneralSlider from "../General_Slider/GeneralSlider";
+import GeneralSlider from "../Swipers/GeneralSlider";
 //CSS
 import styled from "styled-components";
 import { productImages } from "../../Assets";
