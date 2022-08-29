@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 
 
 // It receives the images through props as an array
-function GeneralSlider({images}) {
+function GeneralSwiper({images}) {
     return (
         <SwiperContainer
             autoplay={{
@@ -39,7 +39,7 @@ function GeneralSlider({images}) {
       );
   }
   
-export default GeneralSlider;
+export default GeneralSwiper;
 
 
 const SwiperContainer = styled(Swiper)`

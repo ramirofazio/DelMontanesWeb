@@ -1,5 +1,5 @@
 import React from "react";
-import GeneralSlider from "../Swipers/GeneralSlider";
+import GeneralSwiper from "../Swipers/GeneralSwiper";
 //CSS
 import styled from "styled-components";
 import { productImages } from "../../Assets";
@@ -9,7 +9,7 @@ import Footer from "../Footer/Footer";
 function Alfajores() {
   return (
     <StyledContainer>
-      <GeneralSlider  images={productImages} />
+      <GeneralSwiper  images={productImages} />
       <Footer/>
     </StyledContainer>
   );
