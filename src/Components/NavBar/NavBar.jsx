@@ -120,6 +120,7 @@ const NavBarContainer = styled.div`
       position: relative;
       background-color: ${Variables.navBarColor};
     `}
+    display: none;
 `;
 
 const Container = styled.div`
