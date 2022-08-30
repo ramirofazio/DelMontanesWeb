@@ -5,12 +5,7 @@ import Variables from "../../Styles/Variables";
 import TimeLine from "./AboutUsTimeLine";
 import Footer from "../Footer/Footer";
 import AboutUsCarrousel from "./AboutUsCarrousel";
-import image1 from "../../Assets/Pics/IMG_7056.jpg";
-import image2 from "../../Assets/Pics/IMG_9728.jpg";
-import image3 from "../../Assets/Pics/IMG_9693.jpg";
-import image4 from "../../Assets/Pics/IMG_7056.jpg";
-import image5 from "../../Assets/Pics/IMG_3211.jpg";
-import image6 from "../../Assets/Pics/IMG_7060.jpg";
+import { images } from "../../Assets/Pics/HomeSwiper/index";
 
 function AboutUs() {
   return (
@@ -22,11 +17,10 @@ function AboutUs() {
       </TitleContainer>
       <AboutUsTimeLine>
         <TimeLineContainer>
-          <TimeLine/>
+          <TimeLine />
         </TimeLineContainer>
         <CarrouselContainer>
-          <AboutUsCarrousel 
-          images={[image1, image2, image3, image4, image5, image6 ]}/>
+          <AboutUsCarrousel images={images} />
         </CarrouselContainer>
       </AboutUsTimeLine>
       {/* <AboutUsItems>
@@ -63,7 +57,7 @@ function AboutUs() {
           veritatis porro accusantium? Est.</ItemDescription>
         </Item>
       </AboutUsItems>  */}
-          <Footer/>
+      <Footer />
     </StyledContainer>
   );
 }
@@ -72,7 +66,7 @@ export default AboutUs;
 
 const StyledContainer = styled.div`
   flex-direction: column;
-  height:100%;
+  height: 100%;
   background-color: white;
 `;
 
@@ -88,7 +82,7 @@ const Title = styled.h1`
   font-size: 65px;
   line-height: 20px;
   color: ${Variables.principalColor};
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 `;
 
 const Line = styled.div`
@@ -107,26 +101,26 @@ const AboutUsTimeLine = styled.div`
   width: 100%;
   background-color: white;
   height: 100vh;
-  `;
+`;
 
 const TimeLineContainer = styled.div`
   width: 50%;
-  display:flex;
+  display: flex;
   justify-content: center;
-  @media (max-width: 800px){
-  width: 100%;
-  height: 100%;
-}
+  @media (max-width: 800px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const CarrouselContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 50%;
-  @media (max-width: 800px){
+  @media (max-width: 800px) {
     width: 100%;
     height: 100%;
-}
+  }
 `;
 
 // const AboutUsItems = styled.div`
@@ -159,4 +153,3 @@ const CarrouselContainer = styled.div`
 //   font-family: 'Nunito', sans-serif;
 //   width: 90%;
 // `;
-
