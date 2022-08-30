@@ -46,6 +46,13 @@ function NavBar() {
       <Container>
         <HomeLinks
           fixedorstatic={fixedOrStatic}
+          to="/Productos"
+          selected={selected === "/Productos" ? true : false}
+        >
+          Productos
+        </HomeLinks>
+        <HomeLinks
+          fixedorstatic={fixedOrStatic}
           to="/Tienda"
           selected={selected === "/Tienda" ? true : false}
         >
