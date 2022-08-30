@@ -72,27 +72,42 @@ const StyledContainer = styled.div`
 
 const TitleContainer = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 100px;
+  text-align: center;
+  justify-content: center;
+  height: 40%;
+  @media ( ${Variables.desktopXS}) {
+    height:35%;
+  }
+
 `;
 
 const Title = styled.h1`
   font-size: 65px;
   line-height: 20px;
   color: ${Variables.principalColor};
-  font-family: "Nunito", sans-serif;
+  font-family: "Nunito", sans-serif; 
+  @media (${Variables.mobileL}){
+    line-height: 50px;
+    font-size: 50px;
+  }
 `;
 
 const Line = styled.div`
   width: 5%;
   border-bottom: solid #919191 3px;
+  @media (${Variables.mobileL}){
+    width: 15%;
+  }
 `;
 
 const Description = styled.h2`
   font-size: 25px;
   color: #919191;
+  @media (${Variables.mobileL}){
+    font-size: 20px;
+  }
 `;
 
 const AboutUsTimeLine = styled.div`
@@ -100,16 +115,22 @@ const AboutUsTimeLine = styled.div`
   flex-wrap: wrap;
   width: 100%;
   background-color: white;
-  height: 100vh;
+  height: 80%;
+  @media ( ${Variables.mobileL}) {
+    height:100%;
+  }
 `;
 
 const TimeLineContainer = styled.div`
   width: 50%;
   display: flex;
   justify-content: center;
-  @media (max-width: 800px) {
+  @media (${Variables.desktopXS}) {
     width: 100%;
-    height: 100%;
+    height: 50%;
+  }
+  @media ( ${Variables.mobileL}) {
+    height:50%;
   }
 `;
 
@@ -117,9 +138,12 @@ const CarrouselContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 50%;
-  @media (max-width: 800px) {
+  @media (${Variables.desktopXS}) {
     width: 100%;
-    height: 100%;
+    height: 50%;
+  }
+  @media ( ${Variables.mobileL}) {
+    height:50%;
   }
 `;
 

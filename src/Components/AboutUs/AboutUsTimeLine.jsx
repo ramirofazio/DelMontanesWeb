@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 //CSS
 import styled from "styled-components";
+import Variables from "../../Styles/Variables";
 
 function TimeLine() {
   const [timeLine, setTimeLine] = useState([1992]);
@@ -216,7 +217,8 @@ function TimeLine() {
           </TimeLineUl>
         </TimeLIne>
         <TimeLineSpan></TimeLineSpan>
-        <TimeLineSpanRed style={{ width: `${lineRed}%` }}></TimeLineSpanRed>
+        <TimeLineSpanRed // style={{ width: `${lineRed}%` }}></TimeLineSpanRed
+        />
         <TimeLineText />
       </TimeLineContainer>
     </StyledTimeLine>
@@ -230,7 +232,7 @@ const StyledTimeLine = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   height: 100%;
 `;
 
@@ -238,12 +240,13 @@ const TimeLineContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 90%;
-  height: 80%;
-  @media (max-width: 500px) {
+  height: 100%;
+  @media ( ${Variables.mobileL}) {
     flex-wrap: nowrap;
-    width: 90%;
+    width: 100%;
     flex-direction: row;
     display: flex;
+    height:100%;
   }
 `;
 
@@ -251,9 +254,11 @@ const TimeLIne = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  @media (max-width: 500px) {
+  @media ( ${Variables.mobileL}) {
     flex-wrap: wrap;
     width: 20%;
+    height: 80%;
+    align-content: space-between;
   }
 `;
 
@@ -263,12 +268,12 @@ const TimeLineSpan = styled.div`
   justify-content: center;
   width: 100%;
   border-bottom: solid #c9c9c9 4px;
-  @media (max-width: 500px) {
+  @media (${Variables.mobileL}) {
     width: 1px;
     display: flex;
-    height: 100%;
+    height: 90%;
     border-left: solid #c9c9c9 4px;
-    margin-left: -33px;
+    margin-left: -30px;
   }
 `;
 
@@ -281,9 +286,9 @@ const TimeLineSpanRed = styled.div`
   margin-top: -5px;
   transition: 1s;
   width: 0px;
-  @media (max-width: 500px) {
+  @media (${Variables.mobileL}) {
     flex-wrap: wrap;
-    height: 70%;
+    height: 20%;
     border-left: solid #e22525 4px;
     margin-left: -5px;
   }
@@ -313,6 +318,8 @@ const Circle = styled.button`
   margin-bottom: -33px;
   background-color: white;
   z-index: 30;
+  @media (${Variables.mobileL}) {
+  }
 `;
 
 const CircleRed = styled.button`
@@ -323,31 +330,50 @@ const CircleRed = styled.button`
   margin-bottom: -33px;
   z-index: 30;
   transition: 0.5s ease;
-`;
+  @media (${Variables.mobileL}) {
+  }
+  `;
 
 const TimeLineTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
   width: 100%;
-  height: 70%;
-  @media (max-width: 500px) {
+  height: 90%;
+  justify-content:flex-end;
+  @media (${Variables.mobileL}) {
     flex-wrap: nowrap;
-    width: 80%;
+    width:100%;
+    height:80%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
-`;
+  `;
 
 const TimeLineTitle = styled.h2`
-  font-size: 30px;
+  font-size: 40px;
+  margin: 10px;
   display: flex;
   justify-content: center;
   width: 60%;
+  padding: 0px;
+  height:10%;
+  @media (${Variables.mobileL}) {
+    font-size:30px;
+  }
 `;
 const TimeLineDescription = styled.p`
   font-size: 25px;
   display: flex;
-  justify-content: center;
-  width: 70%;
+  justify-content: flex-start;
+  margin: 0px;
+  padding: 0px;
+  width: 80%;
+  height:70%;
   text-align: center;
+  @media (${Variables.mobileL}) {
+    font-size:20px;
+    width: 60%;
+  }
 `;

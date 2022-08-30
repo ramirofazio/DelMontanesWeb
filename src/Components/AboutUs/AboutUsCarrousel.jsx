@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
+import Variables from "../../Styles/Variables";
 
 const Indicator = ( {currentSlide, amountSlides, nextSlide }) => {
     return(
@@ -68,6 +69,15 @@ const Wrapper = styled.div`
     height: 70vh;
     width: 80%;
     border-radius: 20px;
+    @media (${Variables.desktopXS}) {
+    height: 100%;
+}
+@media ( ${Variables.tabletL}) {
+  height:90%;
+}
+    @media ( ${Variables.mobileL}) {
+    height:90%;
+  }
     `;
 
 const Slide = styled.div`
