@@ -17,12 +17,11 @@ function FeaturedProducts() {
           con la calidez de los procesos manuales, conjugándolos con las
           técnicas más avanzadas de fabricación.
         </Description>
-        <Button>CONOCENOS</Button>
+        <Button href="/Nosotros">CONOCENOS</Button>
       </SubContainer>
       <CardsContainer>
-        {featuredProducts?.map(({ title, description, img }, index) => (
-          <ProductContainer key={index}>
-            <BackgroundImg src={img} alt="" />
+        {featuredProducts?.map(({ title, description, img, link }, index) => (
+          <ProductContainer key={index} img={img} href={link}>
             <ProductTitle>{title}</ProductTitle>
             <ProductDescription>{description}</ProductDescription>
           </ProductContainer>
@@ -35,17 +34,16 @@ function FeaturedProducts() {
 export default FeaturedProducts;
 
 const Container = styled.div`
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 150vh;
+  height: 200vh;
   overflow: hidden;
   padding: 5%;
 `;
 const SubContainer = styled.div`
   width: 100%;
-  flex: 1;
+  flex: 0.3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,13 +61,17 @@ const Description = styled.p`
   text-align: center;
   color: ${Variables.principalColor};
   font-weight: 400;
-  font-size: 85%;
-  width: 100%;
+  font-size: 18px;
+  width: 80%;
   padding: 0;
   margin: 0;
 `;
-const Button = styled.button`
+const Button = styled.a`
   ${GlobalStyles.button}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 `;
 
 const CardsContainer = styled.div`
@@ -80,27 +82,34 @@ const CardsContainer = styled.div`
   justify-content: space-around;
   width: 100%;
   flex: 1;
-
-  outline: 1px solid blue;
 `;
 
 const ProductContainer = styled.a`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   width: 45%;
-  height: 35%;
+  height: 40%;
   margin: 10px;
-  border-radius: 10px;
+  border-radius: 25px;
+  background-repeat: no-repeat;
+  background-image: url(${(props) => props.img});
+  background-size: cover;
+  text-decoration: none;
+  color: #53534b;
 `;
-const ProductTitle = styled.h4`
+const ProductTitle = styled.h1`
   display: flex;
-  outline: 1px solid red;
+  margin-top: 20px;
+  margin-left: 5%;
+  margin-bottom: 5px;
   width: fit-content;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 `;
-const ProductDescription = styled.p``;
-const BackgroundImg = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
+const ProductDescription = styled.p`
+  margin-top: 0;
+  margin-left: 5%;
+  width: fit-content;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 `;
