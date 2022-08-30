@@ -13,6 +13,12 @@ const Variables = {
   emphasysColor: "#000000",
   navBarColor: "#e1d6cd",
   navBarTransparentColor: "#e1d6cd51",
+
+  //Responsive
+  mobileS: `max-width: 400px`,
+  mobileL: `max-width: 500px`,
+  tabletL: `max-width: 768px`,
+  desktopXS: `max-width: 900px`,
 };
 
 export default Variables;
