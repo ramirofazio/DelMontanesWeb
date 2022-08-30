@@ -1,12 +1,15 @@
 import React from "react";
+import GeneralSwiper from "../Swipers/GeneralSwiper";
 //CSS
 import styled from "styled-components";
-import GlobalStyles from "../../Styles/GlobalStyles";
+import { images } from "../../Assets/Pics/AlfajoresSwiper/index";
+import Footer from "../Footer/Footer";
 
 function Alfajores() {
   return (
     <StyledContainer>
-      <h1>Alfajores</h1>
+      <GeneralSwiper images={images} />
+      <Footer />
     </StyledContainer>
   );
 }
@@ -14,6 +17,6 @@ function Alfajores() {
 export default Alfajores;
 
 const StyledContainer = styled.div`
-  ${GlobalStyles.container}
-  background-color: white;
+  width: 100%;
+  height: 100%;
 `;
