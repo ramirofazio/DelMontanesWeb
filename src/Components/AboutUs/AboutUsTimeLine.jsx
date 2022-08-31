@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//CSS
+//Assets
 import styled from "styled-components";
 
 function TimeLine() {

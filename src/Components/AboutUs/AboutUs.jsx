@@ -1,11 +1,12 @@
 import React from "react";
-//CSS
+//Assets
 import styled from "styled-components";
 import Variables from "../../Styles/Variables";
+import { images } from "../../Assets/Pics/HomeSwiper/index";
+//Components
 import TimeLine from "./AboutUsTimeLine";
 import Footer from "../Footer/Footer";
 import AboutUsCarrousel from "./AboutUsCarrousel";
-import { images } from "../../Assets/Pics/HomeSwiper/index";
 
 function AboutUs() {
   return (
@@ -66,7 +67,8 @@ export default AboutUs;
 
 const StyledContainer = styled.div`
   flex-direction: column;
-  height: 100%;
+  height: 90%;
+  margin-top: 10%;
   background-color: white;
 `;
 

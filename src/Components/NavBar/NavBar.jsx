@@ -1,65 +1,51 @@
 import React, { useEffect, useState } from "react";
-//CSS
+import { Link, useLocation } from "react-router-dom";
+//Assets
 import styled, { css } from "styled-components";
 import Variables from "../../Styles/Variables";
 import GlobalStyles from "../../Styles/GlobalStyles";
-//Assets
 import Logo from "../../Assets/LogoConSombra.png";
-import { Link, useLocation } from "react-router-dom";
 
 function NavBar() {
   const location = useLocation();
-  const [fixedOrStatic, setFixedOrStatic] = useState("Fixed");
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    if (location.pathname !== "/") {
-      setFixedOrStatic("Static");
-    } else {
-      setFixedOrStatic("Fixed");
-    }
     setSelected(location.pathname);
   }, [location]);
 
   return (
-    <NavBarContainer fixedorstatic={fixedOrStatic}>
+    <NavBarContainer>
       <Container>
-        <HomeLinks fixedorstatic={fixedOrStatic} to="/">
-          Inicio
-        </HomeLinks>
+        <HomeLinks to="/">Inicio</HomeLinks>
         <HomeLinks
-          fixedorstatic={fixedOrStatic}
           to="/Nosotros"
           selected={selected === "/Nosotros" ? true : false}
         >
           Nosotros
         </HomeLinks>
         <HomeLinks
-          fixedorstatic={fixedOrStatic}
           to="/Alfajores"
           selected={selected === "/Alfajores" ? true : false}
         >
           Alfajores
         </HomeLinks>
       </Container>
-      <Img src={Logo} alt="" fixedorstatic={fixedOrStatic} />
+      <Img src={Logo} alt="" />
       <Container>
         <HomeLinks
-          fixedorstatic={fixedOrStatic}
           to="/Productos"
           selected={selected === "/Productos" ? true : false}
         >
           Productos
         </HomeLinks>
         <HomeLinks
-          fixedorstatic={fixedOrStatic}
           to="/Tienda"
           selected={selected === "/Tienda" ? true : false}
         >
           Tienda
         </HomeLinks>
         <HomeLinks
-          fixedorstatic={fixedOrStatic}
           to="/Contacto"
           selected={selected === "/Contacto" ? true : false}
         >
@@ -74,11 +60,20 @@ export default NavBar;
 
 const NavBarContainer = styled.div`
   ${GlobalStyles.container}
+  position: fixed;
   justify-content: space-evenly;
+  height: ${Variables.navBarHeight};
 
+  background: ${Variables.navBarTransparentColor};
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   animation: fadeIn 1s ease-in;
   z-index: 200;
-  transition: ${Variables.basicTransition};
+  transition: all 0.7s ease;
+
+  &:hover {
+    background-color: ${Variables.navBarColor};
+  }
 
   @keyframes fadeIn {
     0% {
@@ -98,28 +93,6 @@ const NavBarContainer = styled.div`
       transform: translateY(0px);
     }
   }
-
-  ${(props) =>
-    props.fixedorstatic === "Fixed" &&
-    css`
-      height: ${Variables.navBarHeight};
-      position: fixed;
-      background: ${Variables.navBarTransparentColor};
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      &:hover {
-        height: ${Variables.navBarHoverHeight};
-        background-color: ${Variables.navBarColor};
-      }
-    `}
-
-  ${(props) =>
-    props.fixedorstatic === "Static" &&
-    css`
-      height: ${Variables.navBarHoverHeight};
-      position: relative;
-      background-color: ${Variables.navBarColor};
-    `}
 `;
 
 const Container = styled.div`
@@ -133,55 +106,32 @@ const Container = styled.div`
 const HomeLinks = styled(Link)`
   ${GlobalStyles.a}
   color: ${Variables.principalColor};
-  transition: ${Variables.basicTransition};
-
-  &:hover {
-    color: ${Variables.secondaryColor};
-  }
+  transition: all 0.5s ease;
+  font-size: 1.4rem;
 
   ${(props) =>
-    props.fixedorstatic === "Fixed" &&
-    css`
-      font-size: 1.4rem;
-
-      ${NavBarContainer}:hover & {
-        font-size: 1.3rem;
-      }
-    `}
-
-  ${(props) =>
-    props.fixedorstatic === "Static" &&
-    css`
-      font-size: 1.3rem;
-    `}
-
-    ${(props) =>
     props.selected === true &&
     css`
       text-decoration: underline;
       text-decoration-thickness: 1px;
     `}
+
+  &:hover {
+    color: ${Variables.secondaryColor};
+  }
+
+  ${NavBarContainer}:hover & {
+    font-size: 1.3rem;
+  }
 `;
 
 const Img = styled.img`
-  ${(props) =>
-    props.fixedorstatic === "Fixed" &&
-    css`
-      width: 130px;
-      margin-top: 20px;
-      transition: ${Variables.basicTransition};
+  width: 130px;
+  margin-top: 20px;
+  transition: all 0.5s ease;
 
-      ${NavBarContainer}:hover & {
-        width: 80px;
-        margin-top: 0px;
-      }
-    `}
-
-  ${(props) =>
-    props.fixedorstatic === "Static" &&
-    css`
-      width: 80px;
-      margin-top: 0px;
-      transition: ${Variables.basicTransition};
-    `}
+  ${NavBarContainer}:hover & {
+    width: 100px;
+    margin-top: 0px;
+  }
 `;

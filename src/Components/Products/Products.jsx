@@ -1,9 +1,10 @@
 import React from "react";
-import GeneralSwiper from "../Swipers/GeneralSwiper";
-//CSS
+//Assets
 import styled from "styled-components";
 import { images } from "../../Assets/Pics/HomeSwiper/index";
+//Components
 import Footer from "../Footer/Footer";
+import GeneralSwiper from "../Swipers/GeneralSwiper";
 
 function Products() {
   return (

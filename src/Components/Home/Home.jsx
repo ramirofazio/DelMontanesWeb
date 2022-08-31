@@ -1,5 +1,5 @@
 import React from "react";
-//CSS
+//Assets
 import styled from "styled-components";
 import { images } from "../../Assets/Pics/HomeSwiper/index";
 //Components
