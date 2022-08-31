@@ -99,6 +99,7 @@ function TimeLine() {
     <StyledTimeLine>
       <TimeLineContainer>
         <TimeLIne>
+        <CircleYearsContainer>
           <TimeLineUl>
             {timeLine.length === 1 ? (
               <TimeLineLi style={{ color: "black" }}>1992</TimeLineLi>
@@ -109,7 +110,7 @@ function TimeLine() {
               onClick={() =>
                 setTimeLine(timeLine.filter((item) => item <= 1992))
               }
-            ></CircleRed>
+              ></CircleRed>
           </TimeLineUl>
           <TimeLineUl>
             {timeLine[timeLine.length - 1] === 2010 ? (
@@ -215,10 +216,13 @@ function TimeLine() {
               ></Circle>
             )}
           </TimeLineUl>
-        </TimeLIne>
+          </CircleYearsContainer>
+          <LineContainer>
         <TimeLineSpan></TimeLineSpan>
         <TimeLineSpanRed // style={{ width: `${lineRed}%` }}></TimeLineSpanRed
         />
+          </LineContainer>
+        </TimeLIne>
         <TimeLineText />
       </TimeLineContainer>
     </StyledTimeLine>
@@ -247,6 +251,7 @@ const TimeLineContainer = styled.div`
     flex-direction: row;
     display: flex;
     height:100%;
+    justify-content: space-between;
   }
 `;
 
@@ -254,51 +259,95 @@ const TimeLIne = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-direction: column;
   @media ( ${Variables.mobileL}) {
     flex-wrap: wrap;
     width: 20%;
-    height: 80%;
+    align-content: space-between;
+  }
+  @media ( ${Variables.mobileS}) {
+    flex-wrap: wrap;
+    width: 15%;
     align-content: space-between;
   }
 `;
 
+
+const CircleYearsContainer = styled.div`
+display: flex;
+height:100%;
+@media (${Variables.mobileL}) {
+  width:50%;
+  flex-direction: column;
+  }
+  @media ( ${Variables.mobileS}) {
+    margin-left: -10px;
+  }
+  `;
+  const LineContainer = styled.div`
+    align-items: center;
+    display:flex;
+  width:100%;
+  height:100%;
+  @media (${Variables.mobileL}) {
+    height:100%;
+    justify-content: center;
+    width:50%;
+  }
+  @media ( ${Variables.mobileS}) {
+    justify-content: center;
+  }
+    `;
+
 const TimeLineSpan = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   border-bottom: solid #c9c9c9 4px;
+  height:100%;
+  @media (${Variables.tabletL}){
+    margin-top:-60px;
+  }
   @media (${Variables.mobileL}) {
+    height:100%;
     width: 1px;
-    display: flex;
-    height: 90%;
+    margin-top: 0;
     border-left: solid #c9c9c9 4px;
-    margin-left: -30px;
+  }
+  @media (${Variables.mobileS}) {
   }
 `;
 
 const TimeLineSpanRed = styled.div`
+width:0%;
+height:100%;
+border-bottom: solid #d42222 4px;
+@media (${Variables.tabletL}){
+}
+@media (${Variables.mobileL}) {
+  width: 1px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2px;
-  border-bottom: solid #e22525 4px;
-  margin-top: -5px;
-  transition: 1s;
-  width: 0px;
-  @media (${Variables.mobileL}) {
-    flex-wrap: wrap;
-    height: 20%;
-    border-left: solid #e22525 4px;
-    margin-left: -5px;
-  }
+  height: 20%;
+}
+@media (${Variables.mobileS}) {
+  height:20%;
+  width: 1px;
+}
 `;
+
 
 const TimeLineUl = styled.ul`
   display: flex;
   bottom: 20px;
   list-style: none;
   flex-direction: column;
+  @media (${Variables.mobileL}) {
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+    margin-left: 52px;
+  }
+  @media (${Variables.mobileS}) {
+  height:10px;  
+
+  } 
 `;
 
 const TimeLineLi = styled.li`
@@ -307,18 +356,24 @@ const TimeLineLi = styled.li`
   margin-bottom: 10px;
   color: #858585;
   font-weight: 20;
+  @media (${Variables.mobileL}) {
+    margin-left: 3px;
+  }
 `;
 
 const Circle = styled.button`
   width: 25px;
   height: 25px;
-  border: solid 2px #c9c9c9;
+  border: solid 4px #c9c9c9;
   border-radius: 20px;
   background-color: none;
   margin-bottom: -33px;
   background-color: white;
   z-index: 30;
-  @media (${Variables.mobileL}) {
+  @media (${Variables.tabletL}){
+    width:20px;
+    height:20px;
+    border-radius: 10px;
   }
 `;
 
@@ -330,7 +385,11 @@ const CircleRed = styled.button`
   margin-bottom: -33px;
   z-index: 30;
   transition: 0.5s ease;
-  @media (${Variables.mobileL}) {
+  @media (${Variables.tabletL}){
+    width:20px;
+    height:20px;
+    margin-bottom: 0px;
+    border-radius: 10px;
   }
   `;
 
@@ -340,27 +399,32 @@ const TimeLineTextContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 90%;
-  justify-content:flex-end;
+  justify-content: center;
+  @media (${Variables.tabletL}) {
+    height:60%;
+    justify-content: flex-start
+  }
   @media (${Variables.mobileL}) {
     flex-wrap: nowrap;
-    width:100%;
-    height:80%;
+    width:80%;
+    height:100%;
     align-items: center;
-    display: flex;
-    justify-content: center;
   }
   `;
 
 const TimeLineTitle = styled.h2`
-  font-size: 40px;
+  font-size: 30px;
   margin: 10px;
   display: flex;
   justify-content: center;
   width: 60%;
   padding: 0px;
   height:10%;
-  @media (${Variables.mobileL}) {
-    font-size:30px;
+  @media (${Variables.tabletL}){
+    font-size:25px;
+  }
+  @media (${Variables.mobileS}){
+    font-size: 20px;
   }
 `;
 const TimeLineDescription = styled.p`
@@ -372,8 +436,14 @@ const TimeLineDescription = styled.p`
   width: 80%;
   height:70%;
   text-align: center;
+  @media (${Variables.tabletL}){
+    font-size:25px;
+  }
   @media (${Variables.mobileL}) {
     font-size:20px;
     width: 60%;
+  }
+  @media (${Variables.mobileS}){
+    font-size: 15px;
   }
 `;

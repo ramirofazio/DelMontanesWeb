@@ -68,7 +68,7 @@ const StyledContainer = styled.div`
   flex-direction: column;
   height: 100%;
   background-color: white;
-`;
+  `;
 
 const TitleContainer = styled.div`
   display: flex;
@@ -76,39 +76,68 @@ const TitleContainer = styled.div`
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  height: 40%;
-  @media ( ${Variables.desktopXS}) {
-    height:35%;
+  height: 50%;
+  @media (${Variables.desktopXS}) {
+    height: 30%;
   }
-
-`;
+  @media (${Variables.tabletL}){
+    height:30%;
+  }
+  @media ( ${Variables.mobileL}) {
+    height:30%;
+  }
+  @media (${Variables.mobileS}) {
+    height:40%;
+  }
+  `;
 
 const Title = styled.h1`
   font-size: 65px;
   line-height: 20px;
   color: ${Variables.principalColor};
   font-family: "Nunito", sans-serif; 
-  @media (${Variables.mobileL}){
+  @media (${Variables.desktopXS}) {
     line-height: 50px;
     font-size: 50px;
   }
-`;
+  @media (${Variables.tabletL}){
+    line-height: 50px;
+    font-size: 50px;
+  }
+  @media (${Variables.mobileL}){
+    line-height: 40px;
+    font-size: 40px;
+  }
+  @media (${Variables.mobileS}) {
+    line-height: 40px;
+    font-size: 40px;
+  }
+  `;
 
 const Line = styled.div`
   width: 5%;
   border-bottom: solid #919191 3px;
+  @media (${Variables.tabletL}){
+    width: 10%;
+  }
   @media (${Variables.mobileL}){
     width: 15%;
   }
-`;
+  `;
 
 const Description = styled.h2`
   font-size: 25px;
   color: #919191;
+  @media (${Variables.tabletL}){
+    font-size: 20px;
+  }
   @media (${Variables.mobileL}){
     font-size: 20px;
   }
-`;
+  @media (${Variables.mobileS}){
+    font-size: 15px;
+  }
+  `;
 
 const AboutUsTimeLine = styled.div`
   display: flex;
@@ -116,10 +145,14 @@ const AboutUsTimeLine = styled.div`
   width: 100%;
   background-color: white;
   height: 80%;
+  @media (${Variables.tabletL}){
+    height:100%;
+    align-content: space-around
+  }
   @media ( ${Variables.mobileL}) {
     height:100%;
   }
-`;
+  `;
 
 const TimeLineContainer = styled.div`
   width: 50%;
@@ -127,10 +160,13 @@ const TimeLineContainer = styled.div`
   justify-content: center;
   @media (${Variables.desktopXS}) {
     width: 100%;
-    height: 50%;
+    height: 40%;
+  }
+  @media (${Variables.tabletL}){
+    height:30%;
   }
   @media ( ${Variables.mobileL}) {
-    height:50%;
+    height:40%;
   }
 `;
 
@@ -142,8 +178,15 @@ const CarrouselContainer = styled.div`
     width: 100%;
     height: 50%;
   }
-  @media ( ${Variables.mobileL}) {
+  @media (${Variables.tabletL}){
     height:50%;
+    align-items: center;
+  }
+  @media ( ${Variables.mobileL}) {
+    height:40%;
+  }
+  @media (${Variables.mobileS}) {
+    height:40%;
   }
 `;
 
