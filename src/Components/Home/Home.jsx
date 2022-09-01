@@ -1,15 +1,16 @@
 import React from "react";
-//CSS
+//Assets
 import styled from "styled-components";
-import GlobalStyles from "../../Styles/GlobalStyles";
+import { images } from "../../Assets/Pics/HomeSwiper/index";
 //Components
-import HomeSwiper from "./HomeSwiper";
-//import Footer from "../Footer/Footer";
+import Footer from "../Footer/Footer";
+import GeneralSwiper from "../Swipers/GeneralSwiper";
 
 function Home() {
   return (
     <StyledContainer>
-      <HomeSwiper />
+      <GeneralSwiper images={images} />
+      <Footer />
     </StyledContainer>
   );
 }
@@ -17,7 +18,5 @@ function Home() {
 export default Home;
 
 const StyledContainer = styled.div`
-  ${GlobalStyles.container}
-  flex-direction: column;
   height: 100%;
 `;

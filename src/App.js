@@ -10,6 +10,7 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 import Alfajores from "./Components/Alfajores/Alfajores";
 import Tienda from "./Components/Tienda/Tienda";
 import Contact from "./Components/Contact/Contact";
+import Products from "./Components/Products/Products";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/Alfajores" exact element={<Alfajores />} />
           <Route path="/Tienda" exact element={<Tienda />} />
           <Route path="/Contacto" exact element={<Contact />} />
+          <Route path="/Productos" exact element={<Products />} />
         </Routes>
       </StyledContainer>
     </Router>
