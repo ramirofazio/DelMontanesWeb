@@ -1,6 +1,6 @@
 const Variables = {
   //Display
-  navBarHeight: "15%",
+  navBarHeight: "16%",
   navBarHoverHeight: "12%",
 
   //Transitions

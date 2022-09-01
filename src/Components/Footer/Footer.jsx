@@ -1,10 +1,10 @@
 import React from "react";
-//CSS
+//Assets
 import styled from "styled-components";
 import GlobalStyles from "../../Styles/GlobalStyles";
 import Variables from "../../Styles/Variables";
-//Assets
 import Logo from "../../Assets/LogoConSombra.png";
+//Icons
 import { Location } from "@styled-icons/icomoon/Location";
 import { Telephone } from "@styled-icons/bootstrap/Telephone";
 import { Mail } from "@styled-icons/heroicons-outline/Mail";

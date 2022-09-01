@@ -1,5 +1,5 @@
 import React from "react";
-//CSS
+//Assets
 import styled from "styled-components";
 import GlobalStyles from "../../Styles/GlobalStyles";
 
@@ -15,5 +15,4 @@ export default Alfajores;
 
 const StyledContainer = styled.div`
   ${GlobalStyles.container}
-  background-color: white;
 `;
