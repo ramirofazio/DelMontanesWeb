@@ -79,17 +79,20 @@ const TitleContainer = styled.div`
   text-align: center;
   justify-content: center;
   height: 40%;
+  @media (max-width: 1024px) {
+    height: 50%;
+  }
   @media (${Variables.desktopXS}) {
-    height: 30%;
+    height: 40%;
   }
   @media (${Variables.tabletL}){
-    height:30%;
+    height:50%;
   }
   @media ( ${Variables.mobileL}) {
-    height:30%;
+    height:50%;
   }
   @media (${Variables.mobileS}) {
-    height:40%;
+    height:50%;
   }
   `;
 
@@ -114,11 +117,11 @@ const Title = styled.h1`
   }
   @media (${Variables.mobileL}){
     line-height: 40px;
-    font-size: 40px;
+    font-size: 30px;
   }
   @media (${Variables.mobileS}) {
     line-height: 40px;
-    font-size: 40px;
+    font-size: 30px;
   }
   `;
 
@@ -153,6 +156,13 @@ const AboutUsTimeLine = styled.div`
   width: 100%;
   background-color: white;
   height: 70%;
+  @media (max-width: 1024px) {
+    height:60%;
+  }
+  @media (${Variables.desktopXS}){
+    height:100%;
+    align-content: space-around
+  }
   @media (${Variables.tabletL}){
     height:100%;
     align-content: space-around
@@ -166,9 +176,9 @@ const TimeLineContainer = styled.div`
   width: 50%;
   display: flex;
   justify-content: center;
-  @media (${Variables.desktopXS}) {
+  @media (${Variables.desktopXS}){
+    height:50%;
     width: 100%;
-    height: 40%;
   }
   @media (${Variables.tabletL}){
     height:40%;
@@ -182,6 +192,9 @@ const CarrouselContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 50%;
+  @media (max-width: 1024px) {
+    height:60%;
+  }
   @media (${Variables.desktopXS}) {
     width: 100%;
     height: 50%;

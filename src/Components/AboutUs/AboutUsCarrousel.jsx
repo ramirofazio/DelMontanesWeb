@@ -64,11 +64,14 @@ const Wrapper = styled.div`
   flex-wrap: nowrap;
   overflow-x: hidden;
   position: relative;
-  height: 70vh;
+  height: 50vh;
   width: 80%;
   border-radius: 20px;
+  @media (max-width: 1024px) {
+    height: 90%;
+  }
   @media (${Variables.desktopXS}) {
-    height: 100%;
+    height: 30%;
   }
   @media (${Variables.tabletL}) {
     height: 90%;
