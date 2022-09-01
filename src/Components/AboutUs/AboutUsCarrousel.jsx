@@ -66,8 +66,8 @@ const Wrapper = styled.div`
     flex-wrap: nowrap;
     overflow-x: hidden;
     position: relative;
-    height: 70vh;
-    width: 80%;
+    height: 90%;
+    width: 90%;
     border-radius: 20px;
     @media (${Variables.desktopXS}) {
     height: 100%;
