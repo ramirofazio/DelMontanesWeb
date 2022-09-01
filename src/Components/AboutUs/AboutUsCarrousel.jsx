@@ -74,6 +74,7 @@ const Wrapper = styled.div`
 }
 @media ( ${Variables.tabletL}) {
   height:90%;
+  width: 80%;
 }
     @media ( ${Variables.mobileL}) {
     height:90%;

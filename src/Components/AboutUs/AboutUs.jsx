@@ -185,7 +185,7 @@ const CarrouselContainer = styled.div`
     height: 50%;
   }
   @media (${Variables.tabletL}){
-    height:50%;
+    height:40%;
     align-items: center;
   }
   @media ( ${Variables.mobileL}) {

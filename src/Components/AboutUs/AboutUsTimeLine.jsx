@@ -461,6 +461,8 @@ const TimeLineTitle = styled.h2`
   }
   @media (${Variables.mobileS}){
     font-size: 20px;
+    padding:0;
+    margin:0
   }
 `;
 const TimeLineDescription = styled.p`
@@ -478,9 +480,10 @@ const TimeLineDescription = styled.p`
   }
   @media (${Variables.mobileL}) {
     font-size:20px;
-    width: 60%;
+    width: 70%;
   }
   @media (${Variables.mobileS}){
     font-size: 15px;
+    width:70%;
   }
 `;
