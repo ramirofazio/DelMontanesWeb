@@ -1,9 +1,10 @@
 import React from "react";
-import GeneralSwiper from "../Swipers/GeneralSwiper";
-//CSS
+//Assets
 import styled from "styled-components";
 import { images } from "../../Assets/Pics/AlfajoresSwiper/index";
+//Components
 import Footer from "../Footer/Footer";
+import GeneralSwiper from "../Swipers/GeneralSwiper";
 
 function Alfajores() {
   return (
@@ -17,6 +18,5 @@ function Alfajores() {
 export default Alfajores;
 
 const StyledContainer = styled.div`
-  width: 100%;
   height: 100%;
 `;

@@ -1,46 +1,36 @@
 import React from "react";
+//Assets
+import styled from "styled-components";
+//SwiperJS
+import "swiper/css";
+import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 
-// Styles from styled-components
-import styled from "styled-components";
+function GeneralSwiper({ images }) {
+  return (
+    <SwiperContainer
+      autoplay={{
+        delay: 4000,
+        disableOnInteraction: false,
+      }}
+      effect={"fade"}
+      slidesPerView={"auto"}
+      loop={true}
+      centeredSlides={true}
+      pagination={{ clickable: true, dynamicBullets: true }}
+      modules={[Pagination, Autoplay]}
+    >
+      {images.map((item, index) => (
+        <SwiperSlide style={{ width: "75%" }} key={index}>
+          <Image src={item} />
+        </SwiperSlide>
+      ))}
+    </SwiperContainer>
+  );
+}
 
-// Styles from swiper
-import "swiper/css";
-import "swiper/css/pagination";
-
-
-// It receives the images through props as an array
-function GeneralSwiper({images}) {
-    return (
-        <SwiperContainer
-            autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-            }}
-            effect={"fade"}
-            slidesPerView={"auto"}
-            loop={true}
-            centeredSlides={true}
-            spaceBetween={10}
-            pagination={{ clickable: true, dynamicBullets: true }}
-            modules={[Pagination, Autoplay]}
-        >
-          {
-            images.map((item, index) => 
-                (
-                <SwiperSlide style={{ width: "75%" }} key={index} >
-                    <Image src={item}></Image>
-                </SwiperSlide>
-                )
-            )
-          }
-        </SwiperContainer>
-      );
-  }
-  
 export default GeneralSwiper;
-
 
 const SwiperContainer = styled(Swiper)`
   display: flex;
@@ -50,11 +40,8 @@ const SwiperContainer = styled(Swiper)`
   height: 100vh;
 `;
 
-
 const Image = styled.img`
-  height: 100%;
   width: 100%;
-  border-radius: 10px;
+  height: 90%;
+  margin-top: 10%;
 `;
-
-
