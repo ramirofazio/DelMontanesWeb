@@ -67,7 +67,7 @@ export default AboutUs;
 
 const StyledContainer = styled.div`
   flex-direction: column;
-  height: 90%;
+  height: 100%;
   margin-top: 10%;
   background-color: white;
   `;
@@ -86,13 +86,15 @@ const TitleContainer = styled.div`
     height: 40%;
   }
   @media (${Variables.tabletL}){
-    height:50%;
+    height:40%;
+    margin-top:20%
   }
   @media ( ${Variables.mobileL}) {
-    height:50%;
+    height:40%;
   }
   @media (${Variables.mobileS}) {
     height:50%;
+    margin-top: 10%;
   }
   `;
 
@@ -104,6 +106,7 @@ const Title = styled.h1`
   font-weight: normal;
   @media (max-width: 1024px) {
     width: 40%;
+    font-size:50px;
     line-height: 50px;
   }
   @media (${Variables.desktopXS}) {
@@ -193,7 +196,7 @@ const CarrouselContainer = styled.div`
   justify-content: center;
   width: 50%;
   @media (max-width: 1024px) {
-    height:60%;
+    height:70%;
   }
   @media (${Variables.desktopXS}) {
     width: 100%;

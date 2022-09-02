@@ -68,7 +68,7 @@ const Wrapper = styled.div`
   width: 80%;
   border-radius: 20px;
   @media (max-width: 1024px) {
-    height: 90%;
+    height: 100%;
   }
   @media (${Variables.desktopXS}) {
     height: 30%;
