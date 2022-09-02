@@ -43,7 +43,6 @@ const Container = styled.div`
   height: 200vh;
   overflow: hidden;
   padding: 5%;
-  border: 1px solid red;
 `;
 const SubContainer = styled.div`
   width: 100%;
