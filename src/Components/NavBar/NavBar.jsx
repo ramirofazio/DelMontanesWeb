@@ -5,10 +5,13 @@ import styled, { css } from "styled-components";
 import Variables from "../../Styles/Variables";
 import GlobalStyles from "../../Styles/GlobalStyles";
 import Logo from "../../Assets/LogoConSombra.png";
-
+//Icons
+import { Menu } from "@styled-icons/heroicons-solid/Menu";
+import { Cross } from "@styled-icons/entypo/Cross";
 function NavBar() {
   const location = useLocation();
   const [selected, setSelected] = useState(null);
+  const [menu, setMenu] = useState(false);
 
   useEffect(() => {
     setSelected(location.pathname);
@@ -16,6 +19,57 @@ function NavBar() {
 
   return (
     <NavBarContainer>
+      <DrawerContainer>
+        {menu === false ? (
+          <MenuIcon onClick={() => setMenu(true)} />
+        ) : (
+          <MenuCross onClick={() => setMenu(false)} />
+        )}
+      </DrawerContainer>
+      {menu === true ? (
+        <ContainerDrawer>
+          <HomeLinksDrawer to="/" onClick={() => setMenu(false)}>
+            Inicio
+          </HomeLinksDrawer>
+          <HomeLinksDrawer
+            to="/Nosotros"
+            selected={selected === "/Nosotros" ? true : false}
+            onClick={() => setMenu(false)}
+          >
+            Nosotros
+          </HomeLinksDrawer>
+          <HomeLinksDrawer
+            to="/Alfajores"
+            selected={selected === "/Alfajores" ? true : false}
+            onClick={() => setMenu(false)}
+          >
+            Alfajores
+          </HomeLinksDrawer>
+          <HomeLinksDrawer
+            to="/Productos"
+            selected={selected === "/Productos" ? true : false}
+            onClick={() => setMenu(false)}
+          >
+            Productos
+          </HomeLinksDrawer>
+          <HomeLinksDrawer
+            to="/Tienda"
+            selected={selected === "/Tienda" ? true : false}
+            onClick={() => setMenu(false)}
+          >
+            Tienda
+          </HomeLinksDrawer>
+          <HomeLinksDrawer
+            to="/Contacto"
+            selected={selected === "/Contacto" ? true : false}
+            onClick={() => setMenu(false)}
+          >
+            Contacto
+          </HomeLinksDrawer>
+        </ContainerDrawer>
+      ) : (
+        false
+      )}
       <Container>
         <HomeLinks to="/">Inicio</HomeLinks>
         <HomeLinks
@@ -31,7 +85,9 @@ function NavBar() {
           Alfajores
         </HomeLinks>
       </Container>
-      <Img src={Logo} alt="" />
+      <ImgContainer>
+        <Img src={Logo} alt="" />
+      </ImgContainer>
       <Container>
         <HomeLinks
           to="/Productos"
@@ -101,8 +157,10 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-evenly;
   height: 100%;
+  @media (${Variables.tabletL}) {
+    display: none;
+  }
 `;
-
 const HomeLinks = styled(Link)`
   ${GlobalStyles.a}
   color: ${Variables.principalColor};
@@ -124,7 +182,14 @@ const HomeLinks = styled(Link)`
     font-size: 1.3rem;
   }
 `;
-
+const ImgContainer = styled.div`
+  @media (${Variables.tabletL}) {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-right: 20%;
+  }
+`;
 const Img = styled.img`
   width: 130px;
   margin-top: 20px;
@@ -133,5 +198,76 @@ const Img = styled.img`
   ${NavBarContainer}:hover & {
     width: 100px;
     margin-top: 0px;
+  }
+`;
+const DrawerContainer = styled.div`
+  display: none;
+  @media (${Variables.tabletL}) {
+    display: flex;
+    position: relative;
+    width: 20%;
+    justify-content: flex-start;
+    color: red;
+    z-index: 200;
+  }
+`;
+const MenuIcon = styled(Menu)`
+  color: ${Variables.principalColor};
+  width: 50px;
+  @media (${Variables.mobileS}) {
+  }
+`;
+const MenuCross = styled(Cross)`
+  color: ${Variables.principalColor};
+  width: 50px;
+  @media (${Variables.mobileS}) {
+  }
+`;
+
+const ContainerDrawer = styled.div`
+  display: none;
+  @media (${Variables.tabletL}) {
+    display: flex;
+    height: 70vh;
+    position: fixed;
+    width: 70%;
+    top: 100%;
+    left: 0;
+    z-index: -100;
+    justify-content: space-around;
+    flex-direction: column;
+    background: ${Variables.navBarColor};
+  }
+`;
+
+const HomeLinksDrawer = styled(Link)`
+  @media (${Variables.tabletL}) {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    height: 16.5%;
+    border-bottom: solid 2px ${Variables.principalColor};
+    ${GlobalStyles.a}
+    color: ${Variables.principalColor};
+    transition: all 0.5s ease;
+    font-size: 1.4rem;
+
+    ${(props) =>
+      props.selected === true &&
+      css`
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+      `}
+
+    &:hover {
+      color: ${Variables.secondaryColor};
+    }
+
+    ${NavBarContainer}:hover & {
+      font-size: 1.7rem;
+    }
+  }
+  @media (${Variables.mobileL}) {
+    font-size: 1.9rem;
   }
 `;
