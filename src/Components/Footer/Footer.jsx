@@ -1,7 +1,6 @@
 import React from "react";
 //Assets
 import styled from "styled-components";
-import GlobalStyles from "../../Styles/GlobalStyles";
 import Variables from "../../Styles/Variables";
 import Logo from "../../Assets/LogoConSombra.png";
 //Icons
@@ -89,11 +88,11 @@ function Footer() {
 export default Footer;
 
 const Container = styled.div`
-  ${GlobalStyles.container}
+  display: flex;
+  flex: 1;
   flex-direction: column;
-  height: 70%;
-  padding-top: 20px;
-  padding-bottom: 5px;
+  align-items: center;
+  padding: 20px;
 `;
 
 const FirstSubContainer = styled.div`
@@ -114,9 +113,11 @@ const Text = styled.p``;
 
 const Separator = styled.div`
   background-color: #abababb4;
-  height: 0.05%;
+  height: 1px;
   width: 75%;
   border-radius: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
 `;
 
 const SecondSubContainer = styled.div`
@@ -172,11 +173,11 @@ const InfoText = styled.p`
 `;
 
 const ThirdSubContainer = styled.div`
-  flex: 0.3;
-  width: 20%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  width: 20%;
+  margin-top: 5px;
 `;
 
 const InstagramIcon = styled(Instagram)`
