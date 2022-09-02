@@ -113,7 +113,10 @@ const CardsContainer = styled.div`
   justify-content: space-around;
   width: 100%;
   flex: 1;
-  overflow: scroll;
+
+  @media (${Variables.tabletL}) {
+    overflow: scroll;
+  }
 `;
 
 const ProductContainer = styled.a`
