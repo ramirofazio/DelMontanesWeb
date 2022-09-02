@@ -157,7 +157,7 @@ const Separator = styled.div`
   width: 75%;
   border-radius: 100%;
   margin-bottom: 10px;
-  margin: 0 10px;
+  margin: 10px 0;
 
   @media (${Variables.mobileL}) {
     display: none;
