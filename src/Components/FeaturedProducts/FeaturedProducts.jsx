@@ -130,6 +130,7 @@ const ProductContainer = styled.a`
   }
 
   @media (${Variables.mobileS}) {
+    width: 70%;
     height: 35%;
   }
 `;
