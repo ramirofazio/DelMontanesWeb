@@ -11,19 +11,19 @@ function FeaturedProducts() {
         <Title>NOSOTROS</Title>
 
         <Description>
-          Somos una empresa mendocina dedicada a la elaboración de productos y
-          alfajores premium. Nuestro proceso de producción es una perfecta
-          amalgama de lo tradicional con lo actual. Conservamos la calidad junto
-          con la calidez de los procesos manuales, conjugándolos con las
-          técnicas más avanzadas de fabricación.
+          
         </Description>
         <Button href="/Nosotros">CONOCENOS</Button>
       </SubContainer>
       <CardsContainer>
         {featuredProducts?.map(({ title, description, img, link }, index) => (
-          <ProductContainer key={index} img={img} href={link}>
-            <ProductTitle>{title}</ProductTitle>
-            <ProductDescription>{description}</ProductDescription>
+          <ProductContainer key={index} href={link}>
+            <ProductSubContainer img={img}>
+              <InfoContainer>
+                <ProductTitle>{title}</ProductTitle>
+                <ProductDescription>{description}</ProductDescription>
+              </InfoContainer>
+            </ProductSubContainer>
           </ProductContainer>
         ))}
       </CardsContainer>
@@ -85,31 +85,54 @@ const CardsContainer = styled.div`
 `;
 
 const ProductContainer = styled.a`
-  display: flex;
-  flex-direction: column;
   width: 45%;
   height: 40%;
   margin: 10px;
   border-radius: 25px;
+  overflow: hidden;
+  text-decoration: none;
+`;
+
+const ProductSubContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   background-repeat: no-repeat;
   background-image: url(${(props) => props.img});
   background-size: cover;
   text-decoration: none;
-  color: #53534b;
+  transition: ${Variables.basicTransition};
+
+  &:hover {
+    transform: scale(1.2);
+    justify-content: center;
+  }
 `;
-const ProductTitle = styled.h1`
+
+const InfoContainer = styled.div`
   display: flex;
-  margin-top: 20px;
-  margin-left: 5%;
-  margin-bottom: 5px;
-  width: fit-content;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  color: ${Variables.principalColor};
+  transition: ${Variables.basicTransition};
+
+  ${ProductSubContainer}:hover & {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    align-items: center;
+    padding-top: 25%;
+  }
+`;
+
+const ProductTitle = styled.h1`
+  font-size: 30px;
+  margin-bottom: 0;
 `;
 const ProductDescription = styled.p`
-  margin-top: 0;
-  margin-left: 5%;
-  width: fit-content;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  font-size: 15px;
 `;

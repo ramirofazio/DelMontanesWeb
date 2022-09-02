@@ -5,11 +5,13 @@ import { images } from "../../Assets/Pics/HomeSwiper/index";
 //Components
 import Footer from "../Footer/Footer";
 import GeneralSwiper from "../Swipers/GeneralSwiper";
+import FeaturedProducts from "../FeaturedProducts/FeaturedProducts.jsx";
 
 function Home() {
   return (
     <StyledContainer>
       <GeneralSwiper images={images} />
+      <FeaturedProducts />
       <Footer />
     </StyledContainer>
   );

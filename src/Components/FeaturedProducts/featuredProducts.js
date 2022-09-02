@@ -14,7 +14,7 @@ export const featuredProducts = [
   {
     title: "Nuestro Alfajor",
     description: "Conoce nuestro producto numero 1º",
-    img: require("../../Assets/Pics/HomeSwiper/img6.jpg"),
+    img: require("../../Assets/Pics/AlfajoresSwiper/img3.jpg"),
     link: "/Alfajores",
   },
 ];
