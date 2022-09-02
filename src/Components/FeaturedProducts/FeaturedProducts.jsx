@@ -43,6 +43,7 @@ const Container = styled.div`
   height: 200vh;
   overflow: hidden;
   padding: 5%;
+  border: 1px solid red;
 `;
 const SubContainer = styled.div`
   width: 100%;
@@ -112,6 +113,7 @@ const CardsContainer = styled.div`
   justify-content: space-around;
   width: 100%;
   flex: 1;
+  overflow: scroll;
 `;
 
 const ProductContainer = styled.a`
