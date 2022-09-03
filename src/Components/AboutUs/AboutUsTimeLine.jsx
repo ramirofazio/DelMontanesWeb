@@ -441,7 +441,7 @@ const TimeLineTextContainer = styled.div`
     width: 80%;
     height: 100%;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
   }
 `;
 
@@ -474,12 +474,11 @@ const TimeLineDescription = styled.p`
   height: 70%;
   font-weight: inherit;
   font-size: 20px;
-  text-align: left;
+  text-align: center;
   @media (${Variables.tabletL}) {
     font-size: 20px;
   }
   @media (${Variables.mobileL}) {
-    font-size: 20px;
     width: 70%;
   }
   @media (${Variables.mobileS}) {

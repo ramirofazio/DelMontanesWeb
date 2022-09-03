@@ -111,20 +111,17 @@ const Title = styled.h1`
   }
   @media (${Variables.desktopXS}) {
     line-height: 50px;
-    font-size: 50px;
     width:70%;
   }
   @media (${Variables.tabletL}){
     line-height: 50px;
-    font-size: 50px;
   }
   @media (${Variables.mobileL}){
     line-height: 40px;
-    font-size: 30px;
   }
   @media (${Variables.mobileS}) {
     line-height: 40px;
-    font-size: 30px;
+    font-size: 40px;
   }
   `;
 
