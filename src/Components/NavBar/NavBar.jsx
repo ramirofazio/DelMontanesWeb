@@ -12,64 +12,14 @@ function NavBar() {
   const location = useLocation();
   const [selected, setSelected] = useState(null);
   const [menu, setMenu] = useState(false);
-
+console.log(menu);
   useEffect(() => {
     setSelected(location.pathname);
   }, [location]);
 
   return (
     <NavBarContainer>
-      <DrawerContainer>
-        {menu === false ? (
-          <MenuIcon onClick={() => setMenu(true)} />
-        ) : (
-          <MenuCross onClick={() => setMenu(false)} />
-        )}
-      </DrawerContainer>
-      {menu === true ? (
-        <ContainerDrawer>
-          <HomeLinksDrawer to="/" onClick={() => setMenu(false)}>
-            Inicio
-          </HomeLinksDrawer>
-          <HomeLinksDrawer
-            to="/Nosotros"
-            selected={selected === "/Nosotros" ? true : false}
-            onClick={() => setMenu(false)}
-          >
-            Nosotros
-          </HomeLinksDrawer>
-          <HomeLinksDrawer
-            to="/Alfajores"
-            selected={selected === "/Alfajores" ? true : false}
-            onClick={() => setMenu(false)}
-          >
-            Alfajores
-          </HomeLinksDrawer>
-          <HomeLinksDrawer
-            to="/Productos"
-            selected={selected === "/Productos" ? true : false}
-            onClick={() => setMenu(false)}
-          >
-            Productos
-          </HomeLinksDrawer>
-          <HomeLinksDrawer
-            to="/Tienda"
-            selected={selected === "/Tienda" ? true : false}
-            onClick={() => setMenu(false)}
-          >
-            Tienda
-          </HomeLinksDrawer>
-          <HomeLinksDrawer
-            to="/Contacto"
-            selected={selected === "/Contacto" ? true : false}
-            onClick={() => setMenu(false)}
-          >
-            Contacto
-          </HomeLinksDrawer>
-        </ContainerDrawer>
-      ) : (
-        false
-      )}
+    <NavBarContainerWeb>
       <Container>
         <HomeLinks to="/">Inicio</HomeLinks>
         <HomeLinks
@@ -81,7 +31,7 @@ function NavBar() {
         <HomeLinks
           to="/Alfajores"
           selected={selected === "/Alfajores" ? true : false}
-        >
+          >
           Alfajores
         </HomeLinks>
       </Container>
@@ -98,16 +48,70 @@ function NavBar() {
         <HomeLinks
           to="/Tienda"
           selected={selected === "/Tienda" ? true : false}
-        >
+          >
           Tienda
         </HomeLinks>
         <HomeLinks
           to="/Contacto"
           selected={selected === "/Contacto" ? true : false}
-        >
+          >
           Contacto
         </HomeLinks>
       </Container>
+    </NavBarContainerWeb> 
+    <NavBarDrawer>
+    <DrawerContainer>
+        {menu === false ? (
+          <MenuIcon onClick={() => setMenu(true)} />
+        ) : (
+          <MenuCross onClick={() => setMenu(false)} />
+        )}
+      </DrawerContainer>
+      {menu === true ? (
+        <ContainerDrawer>
+          <HomeLinksDrawer to="/" onClick={() => setMenu(false)}>
+            Inicio
+          </HomeLinksDrawer>
+          <HomeLinksDrawer
+            to="/Nosotros"
+            selected={selected === "/Nosotros" ? true : false}
+            onClick={() => setMenu(false)}
+            >
+            Nosotros
+          </HomeLinksDrawer>
+          <HomeLinksDrawer
+            to="/Alfajores"
+            selected={selected === "/Alfajores" ? true : false}
+            onClick={() => setMenu(false)}
+            >
+            Alfajores
+          </HomeLinksDrawer>
+          <HomeLinksDrawer
+            to="/Productos"
+            selected={selected === "/Productos" ? true : false}
+            onClick={() => setMenu(false)}
+            >
+            Productos
+          </HomeLinksDrawer>
+          <HomeLinksDrawer
+            to="/Tienda"
+            selected={selected === "/Tienda" ? true : false}
+            onClick={() => setMenu(false)}
+            >
+            Tienda
+          </HomeLinksDrawer>
+          <HomeLinksDrawer
+            to="/Contacto"
+            selected={selected === "/Contacto" ? true : false}
+            onClick={() => setMenu(false)}
+            >
+            Contacto
+          </HomeLinksDrawer>
+        </ContainerDrawer>
+      ) : (
+        false
+      )}
+    </NavBarDrawer>
     </NavBarContainer>
   );
 }
@@ -115,11 +119,15 @@ function NavBar() {
 export default NavBar;
 
 const NavBarContainer = styled.div`
+  display:flex;
+  background-color: "transparent";
+`;
+const NavBarContainerWeb = styled.div`
   ${GlobalStyles.container}
   position: fixed;
   justify-content: space-evenly;
   height: ${Variables.navBarHeight};
-
+  
   background: ${Variables.navBarTransparentColor};
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -148,6 +156,9 @@ const NavBarContainer = styled.div`
       opacity: 1;
       transform: translateY(0px);
     }
+  } 
+  @media (${Variables.tabletL}) {
+    display:none;
   }
 `;
 
@@ -184,10 +195,7 @@ const HomeLinks = styled(Link)`
 `;
 const ImgContainer = styled.div`
   @media (${Variables.tabletL}) {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin-right: 20%;
+    display: none;
   }
 `;
 const Img = styled.img`
@@ -205,7 +213,7 @@ const DrawerContainer = styled.div`
   @media (${Variables.tabletL}) {
     display: flex;
     position: relative;
-    width: 20%;
+    width: 100%;
     justify-content: flex-start;
     color: red;
     z-index: 200;
@@ -230,7 +238,7 @@ const ContainerDrawer = styled.div`
     display: flex;
     height: 70vh;
     position: fixed;
-    width: 70%;
+    width: 100%;
     top: 100%;
     left: 0;
     z-index: -100;
@@ -243,10 +251,10 @@ const ContainerDrawer = styled.div`
 const HomeLinksDrawer = styled(Link)`
   @media (${Variables.tabletL}) {
     padding-left: 10px;
-    display: flex;
+    display:flex;
     align-items: center;
-    height: 16.5%;
-    border-bottom: solid 2px ${Variables.principalColor};
+    height:16.5%;
+    border-bottom:solid 2px ${Variables.principalColor};
     ${GlobalStyles.a}
     color: ${Variables.principalColor};
     transition: all 0.5s ease;
@@ -269,5 +277,20 @@ const HomeLinksDrawer = styled(Link)`
   }
   @media (${Variables.mobileL}) {
     font-size: 1.9rem;
+  }
+`;
+const NavBarDrawer = styled.div`
+  display:none;
+  @media (${Variables.tabletL}){
+    ${GlobalStyles.container}
+  position: fixed;
+  justify-content: space-evenly;
+  height: ${Variables.navBarHeight};
+  background-color: ${(props) => (props.menu === false ? "transparent": null)};
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  animation: fadeIn 1s ease-in;
+  z-index: 200;
+  transition: all 0.7s ease;
   }
 `;
