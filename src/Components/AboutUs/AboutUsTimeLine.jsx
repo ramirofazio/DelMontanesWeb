@@ -23,7 +23,7 @@ function TimeLine() {
         </TimeLineTextContainer>
       );
     } else if (timeLine[timeLine.length - 1] === 2010) {
-      setLineRed(28);
+      setLineRed(30);
       return (
         <TimeLineTextContainer>
           <TimeLineTitle>2010</TimeLineTitle>
@@ -37,7 +37,7 @@ function TimeLine() {
         </TimeLineTextContainer>
       );
     } else if (timeLine[timeLine.length - 1] === 2012) {
-      setLineRed(44);
+      setLineRed(50);
       return (
         <TimeLineTextContainer>
           <TimeLineTitle>2012</TimeLineTitle>
@@ -221,8 +221,7 @@ function TimeLine() {
           </CircleYearsContainer>
           <LineContainer>
             <TimeLineSpan></TimeLineSpan>
-            <TimeLineSpanRed // style={{ width: `${lineRed}%` }}></TimeLineSpanRed
-            />
+            <TimeLineSpanRed style={{width:`${lineRed}%`}}></TimeLineSpanRed>
           </LineContainer>
         </TimeLIne>
         <TimeLineText />
@@ -296,20 +295,20 @@ const CircleYearsContainer = styled.div`
 `;
 const LineContainer = styled.div`
   align-items: center;
-  display: flex;
   width: 100%;
   height: 100%;
-  margin-top: -25px;
+  margin-top: -20px;
+  position: relative;
   @media (${Variables.mobileL}) {
     height: 100%;
     justify-content: center;
     width: 30%;
     margin: 0;
-    left: 5px;
-    position: absolute;
+    left: -60px;
+    position: relative;
   }
   @media (${Variables.mobileS}) {
-    left: 7px;
+    left: -50px;;
   }
 `;
 
@@ -317,6 +316,7 @@ const TimeLineSpan = styled.div`
   width: 100%;
   border-bottom: solid #c9c9c9 4px;
   height: 100%;
+  z-index:-100;
   @media (${Variables.tabletL}) {
   }
   @media (${Variables.mobileL}) {
@@ -330,15 +330,17 @@ const TimeLineSpan = styled.div`
 `;
 
 const TimeLineSpanRed = styled.div`
-  width: 0%;
   height: 100%;
   border-bottom: solid #d42222 4px;
+  z-index:300;
+  margin-top:-24px;
   @media (${Variables.tabletL}) {
   }
   @media (${Variables.mobileL}) {
+    height: 100%;
     width: 1px;
-    display: flex;
-    height: 20%;
+    display:flex;
+    margin-top: -55px;
   }
   @media (${Variables.mobileS}) {
     height: 20%;
