@@ -1,6 +1,5 @@
 # Del Montanes Web
 
-# Instructions to Run =
-
+# Instructions to Run 
     npm install
     npm start

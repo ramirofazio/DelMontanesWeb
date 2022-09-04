@@ -15,8 +15,8 @@ const Variables = {
   navBarTransparentColor: "#e1d6cd51",
 
   //Responsive
-  mobileS: "max-width: 400px",
-  mobileL: "max-width: 500px",
+  mobileS: "max-width: 320px",
+  mobileL: "max-width: 425px",
   tabletL: "max-width: 768px",
   desktopXS: "max-width: 900px",
 };
