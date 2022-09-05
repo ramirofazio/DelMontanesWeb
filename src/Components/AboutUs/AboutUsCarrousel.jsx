@@ -71,7 +71,7 @@ const Wrapper = styled.div`
     height: 100%;
   }
   @media (${Variables.desktopXS}) {
-    height: 30%;
+    height: 90%;
   }
   @media (${Variables.tabletL}) {
     height: 90%;
