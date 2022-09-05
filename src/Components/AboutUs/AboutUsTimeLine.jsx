@@ -37,7 +37,7 @@ function TimeLine() {
         </TimeLineTextContainer>
       );
     } else if (timeLine[timeLine.length - 1] === 2012) {
-      setLineRed(50);
+      setLineRed(45);
       return (
         <TimeLineTextContainer>
           <TimeLineTitle>2012</TimeLineTitle>
@@ -65,7 +65,7 @@ function TimeLine() {
         </TimeLineTextContainer>
       );
     } else if (timeLine[timeLine.length - 1] === 2016) {
-      setLineRed(78);
+      setLineRed(75);
       return (
         <TimeLineTextContainer>
           <TimeLineTitle>2016</TimeLineTitle>
@@ -221,7 +221,9 @@ function TimeLine() {
           </CircleYearsContainer>
           <LineContainer>
             <TimeLineSpan></TimeLineSpan>
-            <TimeLineSpanRed style={{width:`${lineRed}%`}}></TimeLineSpanRed>
+            <TimeLineSpanRed style={{
+              width:`${lineRed}%`,  height:`${lineRed}%`,
+            }}></TimeLineSpanRed>
           </LineContainer>
         </TimeLIne>
         <TimeLineText />
@@ -286,7 +288,7 @@ const CircleYearsContainer = styled.div`
   justify-content: space-around;
   text-align: center;
   @media (${Variables.mobileL}) {
-    width: 100%;
+    width: 80%;
     flex-direction: column;
   }
   @media (${Variables.mobileS}) {
@@ -300,15 +302,15 @@ const LineContainer = styled.div`
   margin-top: -20px;
   position: relative;
   @media (${Variables.mobileL}) {
-    height: 100%;
-    justify-content: center;
-    width: 30%;
-    margin: 0;
-    left: -60px;
-    position: relative;
+  width: 20%;
+  height: 100%;
+  display:flex;
+  align-items: flex-start;
+  margin-top:0;
+  left: -55px;
   }
   @media (${Variables.mobileS}) {
-    left: -50px;;
+    left: -45px;
   }
 `;
 
@@ -320,6 +322,7 @@ const TimeLineSpan = styled.div`
   @media (${Variables.tabletL}) {
   }
   @media (${Variables.mobileL}) {
+    z-index:0;
     height: 100%;
     width: 1px;
     margin-top: 0;
@@ -330,21 +333,24 @@ const TimeLineSpan = styled.div`
 `;
 
 const TimeLineSpanRed = styled.div`
-  height: 100%;
+  min-height: 100%;
   border-bottom: solid #d42222 4px;
   z-index:300;
   margin-top:-24px;
+
   @media (${Variables.tabletL}) {
   }
   @media (${Variables.mobileL}) {
-    height: 100%;
-    width: 1px;
-    display:flex;
-    margin-top: -55px;
+    min-height: 0;
+    width: 20px;
+    max-width: 4px;
+    margin-top:0;
+    z-index: 10;
+    margin-left: -5px;
+    border-bottom:none;
+    border-left: solid #d42222 4px;
   }
   @media (${Variables.mobileS}) {
-    height: 20%;
-    width: 1px;
   }
 `;
 
