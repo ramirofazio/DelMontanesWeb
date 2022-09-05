@@ -1,7 +1,6 @@
 import React from "react";
 //Assets
 import styled from "styled-components";
-import GlobalStyles from "../../Styles/GlobalStyles";
 import Variables from "../../Styles/Variables";
 import Logo from "../../Assets/LogoConSombra.png";
 //Icons
@@ -89,11 +88,25 @@ function Footer() {
 export default Footer;
 
 const Container = styled.div`
-  ${GlobalStyles.container}
+  display: flex;
+  flex: 1;
   flex-direction: column;
-  height: 70%;
-  padding-top: 20px;
-  padding-bottom: 5px;
+  align-items: center;
+  padding: 20px;
+
+  @media (${Variables.tabletL}) {
+    height: 50vh;
+  }
+
+  @media (${Variables.mobileL}) {
+    height: 20vh;
+    padding: 0;
+    padding-bottom: 20px;
+  }
+
+  @media (${Variables.mobileS}) {
+    padding-bottom: 30px;
+  }
 `;
 
 const FirstSubContainer = styled.div`
@@ -104,19 +117,51 @@ const FirstSubContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (${Variables.tabletL}) {
+    width: 100%;
+  }
+
+  @media (${Variables.mobileL}) {
+    width: 90%;
+  } ;
 `;
 
 const Img = styled.img`
   width: 120px;
+
+  @media (${Variables.tabletL}) {
+    width: 80px;
+  }
+
+  @media (${Variables.mobileL}) {
+    width: 60px;
+  } ;
 `;
 
-const Text = styled.p``;
+const Text = styled.p`
+  @media (${Variables.tabletL}) {
+    font-size: 13px;
+    width: 70%;
+  }
+
+  @media (${Variables.mobileL}) {
+    font-size: 11px;
+    width: 100%;
+  } ;
+`;
 
 const Separator = styled.div`
   background-color: #abababb4;
-  height: 0.05%;
+  height: 1px;
   width: 75%;
   border-radius: 100%;
+  margin-bottom: 10px;
+  margin: 10px 0;
+
+  @media (${Variables.mobileL}) {
+    display: none;
+  } ;
 `;
 
 const SecondSubContainer = styled.div`
@@ -125,30 +170,49 @@ const SecondSubContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (${Variables.tabletL}) {
+    width: 100%;
+  }
+
+  @media (${Variables.mobileL}) {
+    display: none;
+  }
 `;
 
 const InfoContainer = styled.div`
   flex: 1;
-  padding: 15px;
   flex-direction: column;
   align-items: center;
   justify-content: baseline;
   text-align: center;
 `;
 
-const LocationIcon = styled(Location)`
-  color: ${Variables.principalColor};
-  width: 35px;
-`;
-
 const TelephoneIcon = styled(Telephone)`
   color: ${Variables.principalColor};
   width: 35px;
+
+  @media (${Variables.tabletL}) {
+    width: 20px;
+  }
 `;
 
 const MailIcon = styled(Mail)`
   color: ${Variables.principalColor};
   width: 35px;
+
+  @media (${Variables.tabletL}) {
+    width: 20px;
+  }
+`;
+
+const LocationIcon = styled(Location)`
+  color: ${Variables.principalColor};
+  width: 35px;
+
+  @media (${Variables.tabletL}) {
+    width: 20px;
+  }
 `;
 
 const InfoTitle = styled.h4`
@@ -156,12 +220,20 @@ const InfoTitle = styled.h4`
   margin: 0;
   margin-top: 15px;
   text-decoration: underline;
+
+  @media (${Variables.tabletL}) {
+    font-size: 13px;
+  }
 `;
 
 const Info = styled.p`
   width: 100%;
   margin: 10px 0px;
   font-size: 15px;
+
+  @media (${Variables.tabletL}) {
+    font-size: 12px;
+  }
 `;
 
 const InfoText = styled.p`
@@ -169,27 +241,54 @@ const InfoText = styled.p`
   width: 100%;
   color: ${Variables.principalColor};
   font-size: 13px;
+
+  @media (${Variables.tabletL}) {
+    font-size: 11px;
+  }
 `;
 
 const ThirdSubContainer = styled.div`
-  flex: 0.3;
-  width: 20%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  width: 20%;
+  margin-top: 5px;
+
+  @media (${Variables.tabletL}) {
+    margin-bottom: -10px;
+    width: 35%;
+  }
+
+  @media (${Variables.mobileL}) {
+    width: 100%;
+    padding-top: 10px;
+    border-top: 1px solid #abababb4;
+  } ;
 `;
 
 const InstagramIcon = styled(Instagram)`
   color: ${Variables.principalColor};
   width: 20px;
+
+  @media (${Variables.tabletL}) {
+    width: 15px;
+  }
 `;
 
 const WhatsappIcon = styled(Whatsapp)`
   color: ${Variables.principalColor};
   width: 20px;
+
+  @media (${Variables.tabletL}) {
+    width: 15px;
+  }
 `;
 
 const FacebookIcon = styled(Facebook)`
   color: ${Variables.principalColor};
   width: 20px;
+
+  @media (${Variables.tabletL}) {
+    width: 15px;
+  }
 `;
