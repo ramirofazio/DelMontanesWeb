@@ -12,14 +12,18 @@ function NavBar() {
   const location = useLocation();
   const [selected, setSelected] = useState(null);
   const [menu, setMenu] = useState(false);
-console.log(menu);
+  console.log(menu);
   useEffect(() => {
     setSelected(location.pathname);
   }, [location]);
 
   return (
-    <NavBarContainer>
-    <NavBarContainerWeb>
+    <NavBarContainer
+      style={menu === true ? { width: "80%" } : { width: "100%" }}
+    >
+      <DrawerIcon>
+        {menu === false ? <MenuIcon onClick={() => setMenu(true)} /> : null}
+      </DrawerIcon>
       <Container>
         <HomeLinks to="/">Inicio</HomeLinks>
         <HomeLinks
@@ -31,7 +35,7 @@ console.log(menu);
         <HomeLinks
           to="/Alfajores"
           selected={selected === "/Alfajores" ? true : false}
-          >
+        >
           Alfajores
         </HomeLinks>
       </Container>
@@ -48,27 +52,22 @@ console.log(menu);
         <HomeLinks
           to="/Tienda"
           selected={selected === "/Tienda" ? true : false}
-          >
+        >
           Tienda
         </HomeLinks>
         <HomeLinks
           to="/Contacto"
           selected={selected === "/Contacto" ? true : false}
-          >
+        >
           Contacto
         </HomeLinks>
       </Container>
-    </NavBarContainerWeb> 
-    <NavBarDrawer>
-    <DrawerContainer>
-        {menu === false ? (
-          <MenuIcon onClick={() => setMenu(true)} />
-        ) : (
-          <MenuCross onClick={() => setMenu(false)} />
-        )}
-      </DrawerContainer>
       {menu === true ? (
         <ContainerDrawer>
+          <DrawerIconCross>
+            <MenuCross onClick={() => setMenu(false)} />
+            <ImgDrawer src={Logo} alt="" />
+          </DrawerIconCross>
           <HomeLinksDrawer to="/" onClick={() => setMenu(false)}>
             Inicio
           </HomeLinksDrawer>
@@ -76,42 +75,39 @@ console.log(menu);
             to="/Nosotros"
             selected={selected === "/Nosotros" ? true : false}
             onClick={() => setMenu(false)}
-            >
+          >
             Nosotros
           </HomeLinksDrawer>
           <HomeLinksDrawer
             to="/Alfajores"
             selected={selected === "/Alfajores" ? true : false}
             onClick={() => setMenu(false)}
-            >
+          >
             Alfajores
           </HomeLinksDrawer>
           <HomeLinksDrawer
             to="/Productos"
             selected={selected === "/Productos" ? true : false}
             onClick={() => setMenu(false)}
-            >
+          >
             Productos
           </HomeLinksDrawer>
           <HomeLinksDrawer
             to="/Tienda"
             selected={selected === "/Tienda" ? true : false}
             onClick={() => setMenu(false)}
-            >
+          >
             Tienda
           </HomeLinksDrawer>
           <HomeLinksDrawer
             to="/Contacto"
             selected={selected === "/Contacto" ? true : false}
             onClick={() => setMenu(false)}
-            >
+          >
             Contacto
           </HomeLinksDrawer>
         </ContainerDrawer>
-      ) : (
-        false
-      )}
-    </NavBarDrawer>
+      ) : null}
     </NavBarContainer>
   );
 }
@@ -119,15 +115,11 @@ console.log(menu);
 export default NavBar;
 
 const NavBarContainer = styled.div`
-  display:flex;
-  background-color: "transparent";
-`;
-const NavBarContainerWeb = styled.div`
   ${GlobalStyles.container}
   position: fixed;
   justify-content: space-evenly;
   height: ${Variables.navBarHeight};
-  
+
   background: ${Variables.navBarTransparentColor};
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -156,9 +148,9 @@ const NavBarContainerWeb = styled.div`
       opacity: 1;
       transform: translateY(0px);
     }
-  } 
+  }
   @media (${Variables.tabletL}) {
-    display:none;
+    transition: none;
   }
 `;
 
@@ -208,15 +200,12 @@ const Img = styled.img`
     margin-top: 0px;
   }
 `;
-const DrawerContainer = styled.div`
+
+const DrawerIcon = styled.div`
   display: none;
   @media (${Variables.tabletL}) {
     display: flex;
-    position: relative;
     width: 100%;
-    justify-content: flex-start;
-    color: red;
-    z-index: 200;
   }
 `;
 const MenuIcon = styled(Menu)`
@@ -225,10 +214,32 @@ const MenuIcon = styled(Menu)`
   @media (${Variables.mobileS}) {
   }
 `;
+const DrawerIconCross = styled.div`
+  display: none;
+  @media (${Variables.tabletL}) {
+    display: flex;
+    position: relative;
+    width: 100%;
+    color: red;
+    z-index: 200;
+    height: 40%;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
 const MenuCross = styled(Cross)`
   color: ${Variables.principalColor};
   width: 50px;
+  margin-left: 10px;
+`;
+const ImgDrawer = styled.img`
+  width: 120px;
+  height: 120px;
+  margin-right: 10px;
+  align-items: center;
   @media (${Variables.mobileS}) {
+    width: 100px;
+    height: 100px;
   }
 `;
 
@@ -236,11 +247,11 @@ const ContainerDrawer = styled.div`
   display: none;
   @media (${Variables.tabletL}) {
     display: flex;
-    height: 70vh;
+    height: 80vh;
     position: fixed;
     width: 100%;
-    top: 100%;
     left: 0;
+    top: 0;
     z-index: -100;
     justify-content: space-around;
     flex-direction: column;
@@ -251,10 +262,10 @@ const ContainerDrawer = styled.div`
 const HomeLinksDrawer = styled(Link)`
   @media (${Variables.tabletL}) {
     padding-left: 10px;
-    display:flex;
+    display: flex;
     align-items: center;
-    height:16.5%;
-    border-bottom:solid 2px ${Variables.principalColor};
+    height: 16.5%;
+    border-bottom: solid 2px ${Variables.principalColor};
     ${GlobalStyles.a}
     color: ${Variables.principalColor};
     transition: all 0.5s ease;
@@ -277,20 +288,5 @@ const HomeLinksDrawer = styled(Link)`
   }
   @media (${Variables.mobileL}) {
     font-size: 1.9rem;
-  }
-`;
-const NavBarDrawer = styled.div`
-  display:none;
-  @media (${Variables.tabletL}){
-    ${GlobalStyles.container}
-  position: fixed;
-  justify-content: space-evenly;
-  height: ${Variables.navBarHeight};
-  background-color: ${(props) => (props.menu === false ? "transparent": null)};
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  animation: fadeIn 1s ease-in;
-  z-index: 200;
-  transition: all 0.7s ease;
   }
 `;
