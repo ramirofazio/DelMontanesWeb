@@ -58,6 +58,7 @@ function NavBar() {
         </HomeLinks>
       </Container>
       {menu === true ? (
+        <Background>
         <ContainerDrawer>
           <DrawerIconCross>
             <MenuCross onClick={() => setMenu(false)} />
@@ -91,17 +92,18 @@ function NavBar() {
             to="/Tienda"
             selected={selected === "/Tienda" ? true : false}
             onClick={() => setMenu(false)}
-          >
+            >
             Tienda
           </HomeLinksDrawer>
           <HomeLinksDrawer
             to="/Contacto"
             selected={selected === "/Contacto" ? true : false}
             onClick={() => setMenu(false)}
-          >
+            >
             Contacto
           </HomeLinksDrawer>
         </ContainerDrawer>
+      </Background>
       ) : null}
     </NavBarContainer>
   );
@@ -114,7 +116,7 @@ const NavBarContainer = styled.div`
   position: fixed;
   justify-content: space-evenly;
   height: ${Variables.navBarHeight};
-
+  
   background: ${Variables.navBarTransparentColor};
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -145,9 +147,13 @@ const NavBarContainer = styled.div`
     }
   }
   @media (${Variables.tabletL}) {
+    transition:none;
     background: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
+    &:hover {
+      background-color: none;
+    }
     width: ${(props) => (props.menu ? "80%" : "100%")};
   }
 `;
@@ -219,7 +225,7 @@ const DrawerIconCross = styled.div`
     width: 100%;
     color: red;
     z-index: 200;
-    height: 40%;
+    height: 30%;
     align-items: center;
     justify-content: space-between;
   }
@@ -288,5 +294,16 @@ const HomeLinksDrawer = styled(Link)`
   }
   @media (${Variables.mobileL}) {
     font-size: 1.4rem;
+  }
+`;
+
+const Background = styled.div`
+   display: none;
+  @media (${Variables.tabletL}) {
+    display: flex;
+    height: 200vh;
+    position: fixed;
+    width: 100vh;
+    background-color: #00000081;
   }
 `;
