@@ -12,15 +12,12 @@ function NavBar() {
   const location = useLocation();
   const [selected, setSelected] = useState(null);
   const [menu, setMenu] = useState(false);
-  console.log(menu);
   useEffect(() => {
     setSelected(location.pathname);
   }, [location]);
 
   return (
-    <NavBarContainer
-      style={menu === true ? { width: "80%" } : { width: "100%" }}
-    >
+    <NavBarContainer menu={menu}>
       <DrawerIcon>
         {menu === false ? <MenuIcon onClick={() => setMenu(true)} /> : null}
       </DrawerIcon>
@@ -39,9 +36,7 @@ function NavBar() {
           Alfajores
         </HomeLinks>
       </Container>
-      <ImgContainer>
-        <Img src={Logo} alt="" />
-      </ImgContainer>
+      <Img src={Logo} alt="" />
       <Container>
         <HomeLinks
           to="/Productos"
@@ -150,7 +145,10 @@ const NavBarContainer = styled.div`
     }
   }
   @media (${Variables.tabletL}) {
-    transition: none;
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    width: ${(props) => (props.menu ? "80%" : "100%")};
   }
 `;
 
@@ -185,12 +183,11 @@ const HomeLinks = styled(Link)`
     font-size: 1.3rem;
   }
 `;
-const ImgContainer = styled.div`
+
+const Img = styled.img`
   @media (${Variables.tabletL}) {
     display: none;
   }
-`;
-const Img = styled.img`
   width: 130px;
   margin-top: 20px;
   transition: all 0.5s ease;
@@ -230,16 +227,19 @@ const DrawerIconCross = styled.div`
 const MenuCross = styled(Cross)`
   color: ${Variables.principalColor};
   width: 50px;
-  margin-left: 10px;
+  margin-left: 5px;
+  @media (${Variables.mobileS}) {
+    width: 40px;
+  }
 `;
 const ImgDrawer = styled.img`
   width: 120px;
   height: 120px;
-  margin-right: 10px;
+  margin-right: 5px;
   align-items: center;
   @media (${Variables.mobileS}) {
     width: 100px;
-    height: 100px;
+    height: 80px;
   }
 `;
 
@@ -249,7 +249,7 @@ const ContainerDrawer = styled.div`
     display: flex;
     height: 80vh;
     position: fixed;
-    width: 100%;
+    width: 80%;
     left: 0;
     top: 0;
     z-index: -100;
@@ -287,6 +287,6 @@ const HomeLinksDrawer = styled(Link)`
     }
   }
   @media (${Variables.mobileL}) {
-    font-size: 1.9rem;
+    font-size: 1.4rem;
   }
 `;
