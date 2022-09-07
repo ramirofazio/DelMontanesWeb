@@ -7,7 +7,6 @@ import GlobalStyles from "../../Styles/GlobalStyles";
 import Logo from "../../Assets/LogoConSombra.png";
 //Icons
 import { Menu } from "@styled-icons/heroicons-solid/Menu";
-import { Cross } from "@styled-icons/entypo/Cross";
 function NavBar() {
   const location = useLocation();
   const [selected, setSelected] = useState(null);
@@ -17,7 +16,7 @@ function NavBar() {
   }, [location]);
 
   return (
-    <NavBarContainer menu={menu}>
+    <NavBarContainer menu={menu} >
       <DrawerIcon>
         {menu === false ? <MenuIcon onClick={() => setMenu(true)} /> : null}
       </DrawerIcon>
@@ -58,49 +57,45 @@ function NavBar() {
         </HomeLinks>
       </Container>
       {menu === true ? (
-        <Background>
+        <Background onClick={() => setMenu(false)}>
         <ContainerDrawer>
-          <DrawerIconCross>
-            <MenuCross onClick={() => setMenu(false)} />
-            <ImgDrawer src={Logo} alt="" />
-          </DrawerIconCross>
           <HomeLinksDrawer to="/" onClick={() => setMenu(false)}>
-            Inicio
+            INICIO
           </HomeLinksDrawer>
           <HomeLinksDrawer
             to="/Nosotros"
             selected={selected === "/Nosotros" ? true : false}
             onClick={() => setMenu(false)}
           >
-            Nosotros
+            NOSOTROS
           </HomeLinksDrawer>
           <HomeLinksDrawer
             to="/Alfajores"
             selected={selected === "/Alfajores" ? true : false}
             onClick={() => setMenu(false)}
           >
-            Alfajores
+            ALFAJORES
           </HomeLinksDrawer>
           <HomeLinksDrawer
             to="/Productos"
             selected={selected === "/Productos" ? true : false}
             onClick={() => setMenu(false)}
           >
-            Productos
+            PRODUCTOS
           </HomeLinksDrawer>
           <HomeLinksDrawer
             to="/Tienda"
             selected={selected === "/Tienda" ? true : false}
             onClick={() => setMenu(false)}
             >
-            Tienda
+            TIENDA
           </HomeLinksDrawer>
           <HomeLinksDrawer
             to="/Contacto"
             selected={selected === "/Contacto" ? true : false}
             onClick={() => setMenu(false)}
             >
-            Contacto
+            CONTACTO
           </HomeLinksDrawer>
         </ContainerDrawer>
       </Background>
@@ -211,41 +206,11 @@ const DrawerIcon = styled.div`
     width: 100%;
   }
 `;
+
 const MenuIcon = styled(Menu)`
   color: ${Variables.principalColor};
   width: 50px;
   @media (${Variables.mobileS}) {
-  }
-`;
-const DrawerIconCross = styled.div`
-  display: none;
-  @media (${Variables.tabletL}) {
-    display: flex;
-    position: relative;
-    width: 100%;
-    color: red;
-    z-index: 200;
-    height: 30%;
-    align-items: center;
-    justify-content: space-between;
-  }
-`;
-const MenuCross = styled(Cross)`
-  color: ${Variables.principalColor};
-  width: 50px;
-  margin-left: 5px;
-  @media (${Variables.mobileS}) {
-    width: 40px;
-  }
-`;
-const ImgDrawer = styled.img`
-  width: 120px;
-  height: 120px;
-  margin-right: 5px;
-  align-items: center;
-  @media (${Variables.mobileS}) {
-    width: 100px;
-    height: 80px;
   }
 `;
 
@@ -263,11 +228,14 @@ const ContainerDrawer = styled.div`
     flex-direction: column;
     background: ${Variables.navBarColor};
   }
+  @media (${Variables.mobileL}) {
+    width:90%;
+  }
 `;
 
 const HomeLinksDrawer = styled(Link)`
   @media (${Variables.tabletL}) {
-    padding-left: 10px;
+    padding-left: 20px;
     display: flex;
     align-items: center;
     height: 16.5%;
@@ -275,13 +243,14 @@ const HomeLinksDrawer = styled(Link)`
     ${GlobalStyles.a}
     color: ${Variables.principalColor};
     transition: all 0.5s ease;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 
     ${(props) =>
       props.selected === true &&
       css`
         text-decoration: underline;
         text-decoration-thickness: 1px;
+        color: #d82626;
       `}
 
     &:hover {
