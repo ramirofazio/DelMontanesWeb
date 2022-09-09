@@ -30,6 +30,18 @@ const GlobalStyles = {
       color: ${Variables.baseColor};
     }
   `,
+  fadeInAnimation: css`
+    animation: fadeIn 0.5s normal;
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  `,
 };
 
 export default GlobalStyles;
