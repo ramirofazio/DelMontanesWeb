@@ -23,6 +23,7 @@ function GeneralSwiper({ images }) {
         effect={"fade"}
         slidesPerView={"auto"}
         spaceBetween={0}
+        allowTouchMove={false}
         loop={true}
         centeredSlides={true}
         pagination={{ clickable: true, dynamicBullets: true }}
