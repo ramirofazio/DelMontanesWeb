@@ -44,6 +44,7 @@ const Container = styled.div`
   overflow: hidden;
   padding: 5%;
 `;
+
 const SubContainer = styled.div`
   width: 100%;
   flex: 0.3;
@@ -52,6 +53,7 @@ const SubContainer = styled.div`
   align-items: center;
   justify-content: space-evenly;
 `;
+
 const Title = styled.h1`
   color: ${Variables.principalColor};
   font-size: 60px;
@@ -70,6 +72,7 @@ const Title = styled.h1`
     font-size: 40px;
   }
 `;
+
 const Description = styled.p`
   text-align: center;
   color: ${Variables.principalColor};
@@ -115,10 +118,6 @@ const CardsContainer = styled.div`
   justify-content: space-around;
   width: 100%;
   flex: 1;
-
-  @media (${Variables.tabletL}) {
-    overflow: scroll;
-  }
 `;
 
 const ProductContainer = styled.a`
@@ -198,6 +197,7 @@ const ProductTitle = styled.h1`
     font-size: 20px;
   }
 `;
+
 const ProductDescription = styled.p`
   margin-top: 0;
   font-size: 15px;
