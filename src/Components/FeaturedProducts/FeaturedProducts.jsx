@@ -55,6 +55,7 @@ const SubContainer = styled.div`
 const Title = styled.h1`
   color: ${Variables.principalColor};
   font-size: 55px;
+  font-family: ${Variables.secondaryFont};
   width: auto;
   height: auto;
   margin: 0;

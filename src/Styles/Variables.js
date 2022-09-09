@@ -19,6 +19,10 @@ const Variables = {
   mobileL: "max-width: 425px",
   tabletL: "max-width: 768px",
   desktopXS: "max-width: 900px",
+
+  //Fonts
+  primaryFont: " 'Roboto Slab', serif;",
+  secondaryFont: "'Sniglet', cursive;",
 };
 
 export default Variables;

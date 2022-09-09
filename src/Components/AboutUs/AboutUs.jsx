@@ -103,7 +103,7 @@ const Title = styled.h1`
   font-size: 55px;
   line-height: 20px;
   color: ${Variables.principalColor};
-  font-family: "Nunito", sans-serif;
+  font-family: ${Variables.secondaryFont};
   font-weight: normal;
   @media (max-width: 1024px) {
     width: 40%;
@@ -140,6 +140,7 @@ const Line = styled.div`
 const Description = styled.h2`
   font-size: 20px;
   color: #919191;
+  font-weight: 200;
   @media (${Variables.tabletL}) {
     font-size: 20px;
   }

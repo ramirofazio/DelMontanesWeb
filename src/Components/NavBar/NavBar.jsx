@@ -131,8 +131,8 @@ const NavBarContainer = styled.div`
     props.selected === "/"
       ? Variables.navBarTransparentColor
       : Variables.navBarColor};
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   animation: fadeIn 1s ease-in;
   z-index: 200;
   transition: all 0.7s ease;
