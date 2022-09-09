@@ -4,7 +4,7 @@ const Variables = {
   navBarHoverHeight: "12%",
 
   //Transitions
-  basicTransition: "all 1s ease",
+  basicTransition: "all 0.5s ease",
 
   //Colors
   baseColor: "#f7f5f2",
@@ -13,6 +13,7 @@ const Variables = {
   emphasysColor: "#000000",
   navBarColor: "#e1d6cd",
   navBarTransparentColor: "#e1d6cd51",
+  transparentColor: "#58362520",
 
   //Responsive
   mobileS: "max-width: 320px",

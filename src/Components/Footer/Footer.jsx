@@ -24,37 +24,34 @@ function Footer() {
       </FirstSubContainer>
       <Separator />
       <SecondSubContainer>
-        <InfoContainer>
-          <TelephoneIcon />
-          <InfoTitle>Telefono</InfoTitle>
-          <Info>(+54) 02944 608116</Info>
-          <a href="tel: +5402944608116" style={{ textDecoration: "none" }}>
-            <InfoText>Llámenos</InfoText>
-          </a>
-        </InfoContainer>
-        <InfoContainer>
-          <MailIcon />
-          <InfoTitle>Correo Electronico</InfoTitle>
-          <Info>productosdelmontanes@gmail.com</Info>
-          <a
-            href="mailto: productosdelmontanes@gmail.com"
-            style={{ textDecoration: "none" }}
-          >
-            <InfoText>Contáctenos por correo</InfoText>
-          </a>
-        </InfoContainer>
-        <InfoContainer>
-          <LocationIcon />
-          <InfoTitle>Direccion</InfoTitle>
-          <Info>Villa Traful, Neuquén</Info>
-          <a
-            href="https://www.google.com/maps/place/Productos+Artesanales+Del+Monta%C3%B1%C3%A9s/@-40.6600257,-71.3927806,19.25z/data=!4m5!3m4!1s0x9610ed8f9588b3c1:0x4bb61dfaf147e617!8m2!3d-40.6599888!4d-71.3928509"
-            target="blank"
-            style={{ textDecoration: "none" }}
-          >
-            <InfoText>Q8403 Villa Traful, Neuquén</InfoText>
-          </a>
-        </InfoContainer>
+        <a href="tel: +5402944608116" style={{ textDecoration: "none" }}>
+          <InfoContainer>
+            <TelephoneIcon />
+            <InfoTitle>Telefono</InfoTitle>
+            <Info>(+54) 02944 608116</Info>
+          </InfoContainer>
+        </a>
+        <a
+          href="mailto: productosdelmontanes@gmail.com"
+          style={{ textDecoration: "none" }}
+        >
+          <InfoContainer>
+            <MailIcon />
+            <InfoTitle>Correo Electronico</InfoTitle>
+            <Info>productosdelmontanes@gmail.com</Info>
+          </InfoContainer>
+        </a>
+        <a
+          href="https://www.google.com/maps/place/Productos+Artesanales+Del+Monta%C3%B1%C3%A9s/@-40.6600257,-71.3927806,19.25z/data=!4m5!3m4!1s0x9610ed8f9588b3c1:0x4bb61dfaf147e617!8m2!3d-40.6599888!4d-71.3928509"
+          target="blank"
+          style={{ textDecoration: "none" }}
+        >
+          <InfoContainer>
+            <LocationIcon />
+            <InfoTitle>Direccion</InfoTitle>
+            <Info>Villa Traful, Neuquén</Info>
+          </InfoContainer>
+        </a>
       </SecondSubContainer>
       <Separator />
       <ThirdSubContainer>
@@ -93,6 +90,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  border-top: 1px solid #abababb4;
 
   @media (${Variables.tabletL}) {
     height: 50vh;
@@ -105,13 +103,13 @@ const Container = styled.div`
   }
 
   @media (${Variables.mobileS}) {
-    padding-bottom: 30px;
+    padding-top: 5px;
   }
 `;
 
 const FirstSubContainer = styled.div`
   flex: 1;
-  width: 30%;
+  width: 40%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -140,6 +138,8 @@ const Img = styled.img`
 `;
 
 const Text = styled.p`
+  font-weight: 400;
+
   @media (${Variables.tabletL}) {
     font-size: 13px;
     width: 70%;
@@ -148,7 +148,11 @@ const Text = styled.p`
   @media (${Variables.mobileL}) {
     font-size: 11px;
     width: 100%;
-  } ;
+  }
+
+  @media (${Variables.mobileS}) {
+    font-size: 10px;
+  }
 `;
 
 const Separator = styled.div`
@@ -186,6 +190,16 @@ const InfoContainer = styled.div`
   align-items: center;
   justify-content: baseline;
   text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  transition: ${Variables.basicTransition};
+
+  &:hover {
+    background: ${Variables.transparentColor};
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
 `;
 
 const TelephoneIcon = styled(Telephone)`
@@ -219,7 +233,8 @@ const InfoTitle = styled.h4`
   width: 100%;
   margin: 0;
   margin-top: 15px;
-  text-decoration: underline;
+  text-decoration: none;
+  color: black;
 
   @media (${Variables.tabletL}) {
     font-size: 13px;
@@ -230,20 +245,11 @@ const Info = styled.p`
   width: 100%;
   margin: 10px 0px;
   font-size: 15px;
+  text-decoration: none;
+  color: ${Variables.principalColor};
 
   @media (${Variables.tabletL}) {
     font-size: 12px;
-  }
-`;
-
-const InfoText = styled.p`
-  margin: 0;
-  width: 100%;
-  color: ${Variables.principalColor};
-  font-size: 13px;
-
-  @media (${Variables.tabletL}) {
-    font-size: 11px;
   }
 `;
 
@@ -269,26 +275,41 @@ const ThirdSubContainer = styled.div`
 const InstagramIcon = styled(Instagram)`
   color: ${Variables.principalColor};
   width: 20px;
+  transition: ${Variables.basicTransition};
 
   @media (${Variables.tabletL}) {
     width: 15px;
+  }
+
+  &:hover {
+    color: ${Variables.transparentColor};
   }
 `;
 
 const WhatsappIcon = styled(Whatsapp)`
   color: ${Variables.principalColor};
   width: 20px;
+  transition: ${Variables.basicTransition};
 
   @media (${Variables.tabletL}) {
     width: 15px;
+  }
+
+  &:hover {
+    color: ${Variables.transparentColor};
   }
 `;
 
 const FacebookIcon = styled(Facebook)`
   color: ${Variables.principalColor};
   width: 20px;
+  transition: ${Variables.basicTransition};
 
   @media (${Variables.tabletL}) {
     width: 15px;
+  }
+
+  &:hover {
+    color: ${Variables.transparentColor};
   }
 `;
