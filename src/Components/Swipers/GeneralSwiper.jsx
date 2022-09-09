@@ -79,17 +79,14 @@ const SwiperContainer = styled(Swiper)`
 
 const Image = styled.img`
   width: 100%;
-  height: 90%;
-  margin-top: 10%;
+  height: 100%;
 
   @media (${Variables.tabletL}) {
-    height: 85%;
-    margin-top: 15%;
+    height: 100%;
   }
 
   @media (${Variables.mobileL}) {
     width: 100%;
     height: 100%;
-    margin: 0;
   }
 `;
