@@ -26,8 +26,7 @@ function GeneralSwiper({ images }) {
         allowTouchMove={false}
         loop={true}
         centeredSlides={true}
-        pagination={{ clickable: true, dynamicBullets: true }}
-        modules={[Pagination, Autoplay]}
+        modules={[Autoplay]}
       >
         {images.map((item, index) => (
           <SwiperSlide
