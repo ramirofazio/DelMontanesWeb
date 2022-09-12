@@ -43,6 +43,7 @@ const Container = styled.div`
   height: 200vh;
   overflow: hidden;
   padding: 5%;
+  background-color: ${Variables.baseColor};
 `;
 
 const SubContainer = styled.div`
@@ -127,11 +128,17 @@ const ProductContainer = styled.a`
   border-radius: 25px;
   overflow: hidden;
   text-decoration: none;
+  box-shadow: 1px 1px 5px ${Variables.principalColor};
+  transition: ${Variables.basicTransition};
 
   @media (${Variables.mobileL}) {
     width: 100%;
     height: 30%;
     margin-bottom: 15px;
+  }
+
+  &:hover {
+    box-shadow: none;
   }
 `;
 

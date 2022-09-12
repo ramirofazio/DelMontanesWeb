@@ -221,9 +221,12 @@ function TimeLine() {
           </CircleYearsContainer>
           <LineContainer>
             <TimeLineSpan></TimeLineSpan>
-            <TimeLineSpanRed style={{
-              width:`${lineRed}%`,  height:`${lineRed}%`,
-            }}></TimeLineSpanRed>
+            <TimeLineSpanRed
+              style={{
+                width: `${lineRed}%`,
+                height: `${lineRed}%`,
+              }}
+            ></TimeLineSpanRed>
           </LineContainer>
         </TimeLIne>
         <TimeLineText />
@@ -302,12 +305,12 @@ const LineContainer = styled.div`
   margin-top: -20px;
   position: relative;
   @media (${Variables.mobileL}) {
-  width: 20%;
-  height: 100%;
-  display:flex;
-  align-items: flex-start;
-  margin-top:0;
-  left: -55px;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 0;
+    left: -55px;
   }
   @media (${Variables.mobileS}) {
     left: -45px;
@@ -318,11 +321,11 @@ const TimeLineSpan = styled.div`
   width: 100%;
   border-bottom: solid #c9c9c9 4px;
   height: 100%;
-  z-index:-100;
+  z-index: -100;
   @media (${Variables.tabletL}) {
   }
   @media (${Variables.mobileL}) {
-    z-index:0;
+    z-index: 0;
     height: 100%;
     width: 1px;
     margin-top: 0;
@@ -335,8 +338,8 @@ const TimeLineSpan = styled.div`
 const TimeLineSpanRed = styled.div`
   min-height: 100%;
   border-bottom: solid #d42222 4px;
-  z-index:300;
-  margin-top:-24px;
+  z-index: 300;
+  margin-top: -24px;
 
   @media (${Variables.tabletL}) {
   }
@@ -344,10 +347,10 @@ const TimeLineSpanRed = styled.div`
     min-height: 0;
     width: 20px;
     max-width: 4px;
-    margin-top:0;
+    margin-top: 0;
     z-index: 10;
     margin-left: -5px;
-    border-bottom:none;
+    border-bottom: none;
     border-left: solid #d42222 4px;
   }
   @media (${Variables.mobileS}) {
@@ -399,7 +402,6 @@ const Circle = styled.button`
   height: 25px;
   border: solid 4px #c9c9c9;
   border-radius: 20px;
-  background-color: none;
   background-color: white;
   z-index: 30;
   @media (${Variables.tabletL}) {

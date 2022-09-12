@@ -69,8 +69,13 @@ const StyledContainer = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  margin-top: 10%;
-  background-color: white;
+  padding-top: 10%;
+  background-color: ${Variables.baseColor};
+
+  @media (${Variables.tabletL}) {
+    padding-top: none;
+    margin-top: -15%;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -156,8 +161,9 @@ const AboutUsTimeLine = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  background-color: white;
   height: 70%;
+  background-color: ${Variables.baseColor};
+
   @media (max-width: 1024px) {
     height: 60%;
   }
@@ -194,6 +200,7 @@ const CarrouselContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 50%;
+
   @media (max-width: 1024px) {
     height: 70%;
   }

@@ -17,7 +17,6 @@ const GlobalStyles = {
   button: css`
     width: 30%;
     height: 12%;
-    border: 1px solid ${Variables.principalColor};
     border-radius: 25px;
     background-color: ${Variables.secondaryColor};
     transition: all 0.3s ease;
