@@ -1,9 +1,7 @@
 import React from "react";
-//Assets
 import styled from "styled-components";
 import Variables from "../../Styles/Variables";
 import Logo from "../../Assets/LogoConSombra.png";
-//Icons
 import { Location } from "@styled-icons/icomoon/Location";
 import { Telephone } from "@styled-icons/bootstrap/Telephone";
 import { Mail } from "@styled-icons/heroicons-outline/Mail";
@@ -24,11 +22,11 @@ function Footer() {
       </FirstSubContainer>
       <Separator />
       <SecondSubContainer>
-        <a href="tel: +5402944608116" style={{ textDecoration: "none" }}>
+        <a href="tel: +5402944669596" style={{ textDecoration: "none" }}>
           <InfoContainer>
             <TelephoneIcon />
             <InfoTitle>Telefono</InfoTitle>
-            <Info>(+54) 02944 608116</Info>
+            <Info>(+54) 02944 669596</Info>
           </InfoContainer>
         </a>
         <a
@@ -63,7 +61,7 @@ function Footer() {
           <InstagramIcon />
         </a>
         <a
-          href="https://api.whatsapp.com/send?text=Hola Del Montañes, vengo de la web... Quiero Alfajores!&phone=+5402944608116"
+          href="https://api.whatsapp.com/send?text=Hola Del Montañes, vengo de la web... Quiero Alfajores!&phone=+5402944669596"
           target="blank"
           style={{ textDecoration: "none" }}
         >
