@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-//Assets
 import styled from "styled-components";
 import Variables from "../../Styles/Variables";
 
 function TimeLine() {
   const [timeLine, setTimeLine] = useState([1992]);
   const [lineRed, setLineRed] = useState();
-  console.log(lineRed);
   const TimeLineText = () => {
     if (timeLine.length === 1) {
       setLineRed(10);
@@ -23,28 +21,28 @@ function TimeLine() {
         </TimeLineTextContainer>
       );
     } else if (timeLine[timeLine.length - 1] === 2010) {
-      setLineRed(30);
+      setLineRed(25);
       return (
         <TimeLineTextContainer>
           <TimeLineTitle>2010</TimeLineTitle>
           <TimeLineDescription>
             La fabrica Del Montañes nació en el invierno de 1992, en Villa
             traful, provincia de Neuquén. En ese entonces Traful tenia 300
-            habitantes! <br></br> El primer producto que hicimos, fueron los
+            habitantes! <br /> El primer producto que hicimos, fueron los
             alfajores rellenos con MUCHO dulce de leche, que hasta el dia de
             hoy, sigue teniendo la misma cantidad!!
           </TimeLineDescription>
         </TimeLineTextContainer>
       );
     } else if (timeLine[timeLine.length - 1] === 2012) {
-      setLineRed(45);
+      setLineRed(42);
       return (
         <TimeLineTextContainer>
           <TimeLineTitle>2012</TimeLineTitle>
           <TimeLineDescription>
             La fabrica Del Montañes nació en el invierno de 1992, en Villa
             traful, provincia de Neuquén. En ese entonces Traful tenia 300
-            habitantes! <br></br> El primer producto que hicimos, fueron los
+            habitantes! <br /> El primer producto que hicimos, fueron los
             alfajores rellenos con MUCHO dulce de leche, que hasta el dia de
             hoy, sigue teniendo la misma cantidad!!
           </TimeLineDescription>
@@ -58,9 +56,10 @@ function TimeLine() {
           <TimeLineDescription>
             La fabrica Del Montañes nació en el invierno de 1992, en Villa
             traful, provincia de Neuquén. En ese entonces Traful tenia 300
-            habitantes! <br></br> El primer producto que hicimos, fueron los
-            alfajores rellenos con MUCHO dulce de leche, que hasta el dia de
-            hoy, sigue teniendo la misma cantidad!!
+            habitantes! <br />
+            El primer producto que hicimos, fueron los alfajores rellenos con
+            MUCHO dulce de leche, que hasta el dia de hoy, sigue teniendo la
+            misma cantidad!!
           </TimeLineDescription>
         </TimeLineTextContainer>
       );
@@ -72,9 +71,10 @@ function TimeLine() {
           <TimeLineDescription>
             La fabrica Del Montañes nació en el invierno de 1992, en Villa
             traful, provincia de Neuquén. En ese entonces Traful tenia 300
-            habitantes! <br></br> El primer producto que hicimos, fueron los
-            alfajores rellenos con MUCHO dulce de leche, que hasta el dia de
-            hoy, sigue teniendo la misma cantidad!!
+            habitantes! <br />
+            El primer producto que hicimos, fueron los alfajores rellenos con
+            MUCHO dulce de leche, que hasta el dia de hoy, sigue teniendo la
+            misma cantidad!!
           </TimeLineDescription>
         </TimeLineTextContainer>
       );
@@ -86,9 +86,10 @@ function TimeLine() {
           <TimeLineDescription>
             La fabrica Del Montañes nació en el invierno de 1992, en Villa
             traful, provincia de Neuquén. En ese entonces Traful tenia 300
-            habitantes! <br></br> El primer producto que hicimos, fueron los
-            alfajores rellenos con MUCHO dulce de leche, que hasta el dia de
-            hoy, sigue teniendo la misma cantidad!!
+            habitantes! <br />
+            El primer producto que hicimos, fueron los alfajores rellenos con
+            MUCHO dulce de leche, que hasta el dia de hoy, sigue teniendo la
+            misma cantidad!!
           </TimeLineDescription>
         </TimeLineTextContainer>
       );
@@ -221,9 +222,12 @@ function TimeLine() {
           </CircleYearsContainer>
           <LineContainer>
             <TimeLineSpan></TimeLineSpan>
-            <TimeLineSpanRed style={{
-              width:`${lineRed}%`,  height:`${lineRed}%`,
-            }}></TimeLineSpanRed>
+            <TimeLineSpanRed
+              style={{
+                width: `${lineRed}%`,
+                height: `${lineRed}%`,
+              }}
+            ></TimeLineSpanRed>
           </LineContainer>
         </TimeLIne>
         <TimeLineText />
@@ -241,6 +245,12 @@ const StyledTimeLine = styled.div`
   justify-content: center;
   width: 90%;
   height: 100%;
+  @media (${Variables.mobileL}) {
+    width: 100%;
+  }
+  @media (${Variables.mobileS}) {
+    margin-left: 5px;
+  }
 `;
 
 const TimeLineContainer = styled.div`
@@ -270,13 +280,13 @@ const TimeLIne = styled.div`
   }
   @media (${Variables.mobileL}) {
     flex-wrap: wrap;
-    width: 20%;
+    width: 25%;
     align-content: space-between;
     position: relative;
   }
   @media (${Variables.mobileS}) {
     flex-wrap: wrap;
-    width: 20%;
+    width: 25%;
     align-content: space-between;
   }
 `;
@@ -302,12 +312,12 @@ const LineContainer = styled.div`
   margin-top: -20px;
   position: relative;
   @media (${Variables.mobileL}) {
-  width: 20%;
-  height: 100%;
-  display:flex;
-  align-items: flex-start;
-  margin-top:0;
-  left: -55px;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 0;
+    left: -55px;
   }
   @media (${Variables.mobileS}) {
     left: -45px;
@@ -318,11 +328,11 @@ const TimeLineSpan = styled.div`
   width: 100%;
   border-bottom: solid #c9c9c9 4px;
   height: 100%;
-  z-index:-100;
+  z-index: -100;
   @media (${Variables.tabletL}) {
   }
   @media (${Variables.mobileL}) {
-    z-index:0;
+    z-index: 0;
     height: 100%;
     width: 1px;
     margin-top: 0;
@@ -335,8 +345,8 @@ const TimeLineSpan = styled.div`
 const TimeLineSpanRed = styled.div`
   min-height: 100%;
   border-bottom: solid #d42222 4px;
-  z-index:300;
-  margin-top:-24px;
+  z-index: 300;
+  margin-top: -24px;
 
   @media (${Variables.tabletL}) {
   }
@@ -344,10 +354,10 @@ const TimeLineSpanRed = styled.div`
     min-height: 0;
     width: 20px;
     max-width: 4px;
-    margin-top:0;
+    margin-top: 0;
     z-index: 10;
     margin-left: -5px;
-    border-bottom:none;
+    border-bottom: none;
     border-left: solid #d42222 4px;
   }
   @media (${Variables.mobileS}) {
@@ -370,11 +380,23 @@ const TimeLineUl = styled.ul`
   }
   @media (${Variables.mobileL}) {
     height: 100%;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    margin-left: 9px;
+  }
+  @media (max-width: 400px) {
+    margin-left: 6px;
   }
   @media (${Variables.mobileS}) {
     margin: 0;
     height: 20%;
     padding: 0;
+    justify-content: center;
+    margin-left: 5px;
+  }
+  @media (max-width: 280px) {
+    margin-left: 1px;
   }
 `;
 
@@ -397,9 +419,8 @@ const TimeLineLi = styled.li`
 const Circle = styled.button`
   width: 25px;
   height: 25px;
-  border: solid 4px #c9c9c9;
+  border: solid 3px #c9c9c9;
   border-radius: 20px;
-  background-color: none;
   background-color: white;
   z-index: 30;
   @media (${Variables.tabletL}) {
@@ -419,6 +440,7 @@ const CircleRed = styled.button`
   height: 25px;
   border: solid 4px #e22525;
   border-radius: 20px;
+  background-color: ${Variables.secondaryColor};
   z-index: 30;
   transition: 0.5s ease;
   @media (${Variables.tabletL}) {
@@ -481,16 +503,17 @@ const TimeLineDescription = styled.p`
   width: 70%;
   height: 70%;
   font-weight: inherit;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   @media (${Variables.tabletL}) {
     font-size: 20px;
   }
   @media (${Variables.mobileL}) {
-    width: 70%;
+    width: 80%;
+    font-size: 15px;
   }
   @media (${Variables.mobileS}) {
-    font-size: 15px;
-    width: 70%;
+    font-size: 12px;
+    width: 80%;
   }
 `;

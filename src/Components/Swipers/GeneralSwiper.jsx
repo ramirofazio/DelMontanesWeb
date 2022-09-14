@@ -1,8 +1,6 @@
 import React from "react";
-//Assets
 import styled from "styled-components";
 import Variables from "../../Styles/Variables";
-//SwiperJS
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -23,10 +21,10 @@ function GeneralSwiper({ images }) {
         effect={"fade"}
         slidesPerView={"auto"}
         spaceBetween={0}
+        allowTouchMove={false}
         loop={true}
         centeredSlides={true}
-        pagination={{ clickable: true, dynamicBullets: true }}
-        modules={[Pagination, Autoplay]}
+        modules={[Autoplay]}
       >
         {images.map((item, index) => (
           <SwiperSlide
@@ -75,21 +73,19 @@ const SwiperContainer = styled(Swiper)`
   justify-content: center;
   width: 100%;
   height: 100vh;
+  z-index: -100;
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 90%;
-  margin-top: 10%;
+  height: 100%;
 
   @media (${Variables.tabletL}) {
-    height: 85%;
-    margin-top: 15%;
+    height: 100%;
   }
 
   @media (${Variables.mobileL}) {
     width: 100%;
     height: 100%;
-    margin: 0;
   }
 `;

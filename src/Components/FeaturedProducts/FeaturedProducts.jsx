@@ -43,7 +43,9 @@ const Container = styled.div`
   height: 200vh;
   overflow: hidden;
   padding: 5%;
+  background-color: ${Variables.baseColor};
 `;
+
 const SubContainer = styled.div`
   width: 100%;
   flex: 0.3;
@@ -52,40 +54,44 @@ const SubContainer = styled.div`
   align-items: center;
   justify-content: space-evenly;
 `;
+
 const Title = styled.h1`
   color: ${Variables.principalColor};
-  font-size: 55px;
+  font-size: 60px;
+  font-family: ${Variables.secondaryFont};
   width: auto;
   height: auto;
   margin: 0;
   padding: 0;
+  border-bottom: 1px solid ${Variables.principalColor};
 
   @media (${Variables.mobileL}) {
-    font-size: 45px;
+    font-size: 50px;
   }
 
   @media (${Variables.mobileS}) {
-    font-size: 35px;
+    font-size: 40px;
   }
 `;
+
 const Description = styled.p`
   text-align: center;
   color: ${Variables.principalColor};
-  font-weight: 400;
   font-size: 18px;
+  font-weight: 400;
   width: 80%;
   padding: 0;
   margin: 0;
 
   @media (${Variables.mobileL}) {
-    font-size: 12px;
-    width: 90%;
-  }
-  @media (${Variables.mobileS}) {
-    font-size: 11px;
+    font-size: 14px;
     width: 100%;
   }
+  @media (${Variables.mobileS}) {
+    font-size: 12px;
+  }
 `;
+
 const Button = styled.a`
   ${GlobalStyles.button}
   display: flex;
@@ -94,13 +100,14 @@ const Button = styled.a`
   text-decoration: none;
 
   @media (${Variables.mobileL}) {
-    font-size: 12px;
-    width: 35%;
+    font-size: 15px;
+    width: 50%;
+    height: 10%;
   }
 
   @media (${Variables.mobileS}) {
-    font-size: 11px;
-    width: 35%;
+    font-size: 13px;
+    width: 50%;
   }
 `;
 
@@ -112,10 +119,6 @@ const CardsContainer = styled.div`
   justify-content: space-around;
   width: 100%;
   flex: 1;
-
-  @media (${Variables.tabletL}) {
-    overflow: scroll;
-  }
 `;
 
 const ProductContainer = styled.a`
@@ -125,14 +128,17 @@ const ProductContainer = styled.a`
   border-radius: 25px;
   overflow: hidden;
   text-decoration: none;
+  box-shadow: 1px 1px 5px ${Variables.principalColor};
+  transition: ${Variables.basicTransition};
 
   @media (${Variables.mobileL}) {
     width: 100%;
+    height: 30%;
     margin-bottom: 15px;
   }
 
-  @media (${Variables.mobileS}) {
-    height: 35%;
+  &:hover {
+    box-shadow: none;
   }
 `;
 
@@ -145,6 +151,7 @@ const ProductSubContainer = styled.div`
   background-repeat: no-repeat;
   background-image: url(${(props) => props.img});
   background-size: cover;
+  background-position: center;
   text-decoration: none;
   transition: ${Variables.basicTransition};
 
@@ -169,12 +176,25 @@ const InfoContainer = styled.div`
     -webkit-backdrop-filter: blur(5px);
     align-items: center;
     padding-top: 25%;
+
+    @media (${Variables.tabletL}) {
+      padding-top: 40%;
+    }
   }
 `;
 
 const ProductTitle = styled.h1`
   font-size: 30px;
   margin-bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  transition: ${Variables.basicTransition};
+
+  ${ProductSubContainer}:hover & {
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+  }
 
   @media (${Variables.mobileL}) {
     font-size: 25px;
@@ -184,8 +204,19 @@ const ProductTitle = styled.h1`
     font-size: 20px;
   }
 `;
+
 const ProductDescription = styled.p`
+  margin-top: 0;
   font-size: 15px;
+  color: #000;
+  transition: ${Variables.basicTransition};
+  width: 100%;
+  text-align: center;
+
+  ${ProductSubContainer}:hover & {
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+  }
 
   @media (${Variables.mobileL}) {
     font-size: 12px;
