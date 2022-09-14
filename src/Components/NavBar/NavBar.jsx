@@ -230,7 +230,7 @@ const Img = styled.img`
 const MobileNavBarContainer = styled.div`
   display: flex;
   position: fixed;
-  z-index: 500;
+  z-index:0;
   flex-direction: column;
   width: 60%;
   height: 100%;
@@ -242,6 +242,7 @@ const MobileNavBarContainer = styled.div`
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       align-items: center;
+      z-index:500;
       justify-content: space-around;
 
       animation: fadeIn 0.5s normal;

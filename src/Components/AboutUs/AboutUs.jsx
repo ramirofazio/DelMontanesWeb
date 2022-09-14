@@ -72,10 +72,10 @@ const StyledContainer = styled.div`
   padding-top: 10%;
   background-color: ${Variables.baseColor};
 
-  @media (${Variables.tabletL}) {
+  /* @media (${Variables.tabletL}) {
     padding-top: none;
     margin-top: -15%;
-  }
+  } */
 `;
 
 const TitleContainer = styled.div`

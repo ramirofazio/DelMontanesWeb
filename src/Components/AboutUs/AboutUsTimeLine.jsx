@@ -244,6 +244,12 @@ const StyledTimeLine = styled.div`
   justify-content: center;
   width: 90%;
   height: 100%;
+  @media (${Variables.mobileL}) {
+    width: 100%;
+  }
+  @media (${Variables.mobileS}){
+    margin-left: 5px;
+  }
 `;
 
 const TimeLineContainer = styled.div`
@@ -273,13 +279,13 @@ const TimeLIne = styled.div`
   }
   @media (${Variables.mobileL}) {
     flex-wrap: wrap;
-    width: 20%;
+    width: 25%;
     align-content: space-between;
     position: relative;
   }
   @media (${Variables.mobileS}) {
     flex-wrap: wrap;
-    width: 20%;
+    width: 25%;
     align-content: space-between;
   }
 `;
@@ -373,11 +379,23 @@ const TimeLineUl = styled.ul`
   }
   @media (${Variables.mobileL}) {
     height: 100%;
+    justify-content: center;
+    padding: 0;
+    margin:0;
+    margin-left: 9px;
+  }
+  @media (max-width: 400px){
+    margin-left: 6px;
   }
   @media (${Variables.mobileS}) {
     margin: 0;
     height: 20%;
     padding: 0;
+    justify-content: center;
+    margin-left: 5px;
+  }
+  @media (max-width: 280px){
+    margin-left: 1px;
   }
 `;
 
@@ -400,7 +418,7 @@ const TimeLineLi = styled.li`
 const Circle = styled.button`
   width: 25px;
   height: 25px;
-  border: solid 4px #c9c9c9;
+  border: solid 3px #c9c9c9;
   border-radius: 20px;
   background-color: white;
   z-index: 30;
@@ -421,6 +439,7 @@ const CircleRed = styled.button`
   height: 25px;
   border: solid 4px #e22525;
   border-radius: 20px;
+  background-color: #fd7272;
   z-index: 30;
   transition: 0.5s ease;
   @media (${Variables.tabletL}) {
@@ -489,10 +508,11 @@ const TimeLineDescription = styled.p`
     font-size: 20px;
   }
   @media (${Variables.mobileL}) {
-    width: 70%;
+    width: 80%;
+    font-size: 17px;
   }
   @media (${Variables.mobileS}) {
-    font-size: 15px;
-    width: 70%;
+    font-size: 13px;
+    width: 80%;
   }
 `;
