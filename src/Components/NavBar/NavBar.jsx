@@ -23,6 +23,7 @@ function NavBar() {
       <MobileNavBarContainer
         drawer={drawer}
         onClick={() => (drawer === "true" ? setDrawer(null) : null)}
+        selected={selected}
       >
         {drawer === "true" ? (
           <CrossIconContainer>
@@ -230,7 +231,7 @@ const Img = styled.img`
 const MobileNavBarContainer = styled.div`
   display: flex;
   position: fixed;
-  z-index:0;
+  z-index: ${(props) => (props.selected === "/" ? 100 : 0)};
   flex-direction: column;
   width: 60%;
   height: 100%;
@@ -242,7 +243,7 @@ const MobileNavBarContainer = styled.div`
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       align-items: center;
-      z-index:500;
+      z-index: 500;
       justify-content: space-around;
 
       animation: fadeIn 0.5s normal;

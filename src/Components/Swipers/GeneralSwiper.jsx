@@ -75,6 +75,7 @@ const SwiperContainer = styled(Swiper)`
   justify-content: center;
   width: 100%;
   height: 100vh;
+  z-index: -100;
 `;
 
 const Image = styled.img`

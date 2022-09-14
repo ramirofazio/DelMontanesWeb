@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//Assets
 import styled from "styled-components";
 import Variables from "../../Styles/Variables";
 
@@ -247,7 +246,7 @@ const StyledTimeLine = styled.div`
   @media (${Variables.mobileL}) {
     width: 100%;
   }
-  @media (${Variables.mobileS}){
+  @media (${Variables.mobileS}) {
     margin-left: 5px;
   }
 `;
@@ -381,10 +380,10 @@ const TimeLineUl = styled.ul`
     height: 100%;
     justify-content: center;
     padding: 0;
-    margin:0;
+    margin: 0;
     margin-left: 9px;
   }
-  @media (max-width: 400px){
+  @media (max-width: 400px) {
     margin-left: 6px;
   }
   @media (${Variables.mobileS}) {
@@ -394,7 +393,7 @@ const TimeLineUl = styled.ul`
     justify-content: center;
     margin-left: 5px;
   }
-  @media (max-width: 280px){
+  @media (max-width: 280px) {
     margin-left: 1px;
   }
 `;
@@ -439,7 +438,7 @@ const CircleRed = styled.button`
   height: 25px;
   border: solid 4px #e22525;
   border-radius: 20px;
-  background-color: #fd7272;
+  background-color: ${Variables.secondaryColor};
   z-index: 30;
   transition: 0.5s ease;
   @media (${Variables.tabletL}) {
