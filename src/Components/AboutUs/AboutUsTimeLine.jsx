@@ -331,10 +331,8 @@ const TimeLineSpan = styled.div`
   width: 100%;
   border-bottom: solid #c9c9c9 4px;
   height: 100%;
-  z-index: -100;
 
   @media (${Variables.mobileL}) {
-    z-index: 0;
     height: 100%;
     width: 1px;
     margin-top: 0;
@@ -345,7 +343,6 @@ const TimeLineSpan = styled.div`
 const TimeLineSpanRed = styled.div`
   min-height: 100%;
   border-bottom: solid #d42222 4px;
-  z-index: 300;
   margin-top: -24px;
 
   @media (${Variables.mobileL}) {
@@ -353,7 +350,6 @@ const TimeLineSpanRed = styled.div`
     width: 20px;
     max-width: 4px;
     margin-top: 0;
-    z-index: 10;
     margin-left: -5px;
     border-bottom: none;
     border-left: solid #d42222 4px;

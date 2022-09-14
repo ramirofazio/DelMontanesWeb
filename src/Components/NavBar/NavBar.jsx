@@ -227,14 +227,23 @@ const Img = styled.img`
 const MobileNavBarContainer = styled.div`
   display: flex;
   position: fixed;
-  z-index: ${(props) => (props.selected === "/" ? 100 : 0)};
+  z-index: 100;
   flex-direction: column;
-  width: 60%;
-  height: 100%;
+
+  ${(props) =>
+    props.drawer === null &&
+    css`
+      width: fit-content;
+      height: fit-content;
+
+      outline: 1px solid green;
+    `}
 
   ${(props) =>
     props.drawer === "true" &&
     css`
+      width: 60%;
+      height: 100%;
       background: ${Variables.navBarTransparentColor};
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
