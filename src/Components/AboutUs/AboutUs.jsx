@@ -1,9 +1,7 @@
 import React from "react";
-//Assets
 import styled from "styled-components";
 import Variables from "../../Styles/Variables";
 import { images } from "../../Assets/Pics/HomeSwiper/index";
-//Components
 import TimeLine from "./AboutUsTimeLine";
 import Footer from "../Footer/Footer";
 import AboutUsCarrousel from "./AboutUsCarrousel";

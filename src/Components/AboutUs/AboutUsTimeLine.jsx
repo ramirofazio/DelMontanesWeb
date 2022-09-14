@@ -5,7 +5,6 @@ import Variables from "../../Styles/Variables";
 function TimeLine() {
   const [timeLine, setTimeLine] = useState([1992]);
   const [lineRed, setLineRed] = useState();
-  console.log(lineRed);
   const TimeLineText = () => {
     if (timeLine.length === 1) {
       setLineRed(10);
@@ -29,7 +28,7 @@ function TimeLine() {
           <TimeLineDescription>
             La fabrica Del Montañes nació en el invierno de 1992, en Villa
             traful, provincia de Neuquén. En ese entonces Traful tenia 300
-            habitantes! <br></br> El primer producto que hicimos, fueron los
+            habitantes! <br /> El primer producto que hicimos, fueron los
             alfajores rellenos con MUCHO dulce de leche, que hasta el dia de
             hoy, sigue teniendo la misma cantidad!!
           </TimeLineDescription>
@@ -43,7 +42,7 @@ function TimeLine() {
           <TimeLineDescription>
             La fabrica Del Montañes nació en el invierno de 1992, en Villa
             traful, provincia de Neuquén. En ese entonces Traful tenia 300
-            habitantes! <br></br> El primer producto que hicimos, fueron los
+            habitantes! <br /> El primer producto que hicimos, fueron los
             alfajores rellenos con MUCHO dulce de leche, que hasta el dia de
             hoy, sigue teniendo la misma cantidad!!
           </TimeLineDescription>
@@ -57,9 +56,10 @@ function TimeLine() {
           <TimeLineDescription>
             La fabrica Del Montañes nació en el invierno de 1992, en Villa
             traful, provincia de Neuquén. En ese entonces Traful tenia 300
-            habitantes! <br></br> El primer producto que hicimos, fueron los
-            alfajores rellenos con MUCHO dulce de leche, que hasta el dia de
-            hoy, sigue teniendo la misma cantidad!!
+            habitantes! <br />
+            El primer producto que hicimos, fueron los alfajores rellenos con
+            MUCHO dulce de leche, que hasta el dia de hoy, sigue teniendo la
+            misma cantidad!!
           </TimeLineDescription>
         </TimeLineTextContainer>
       );
@@ -71,9 +71,10 @@ function TimeLine() {
           <TimeLineDescription>
             La fabrica Del Montañes nació en el invierno de 1992, en Villa
             traful, provincia de Neuquén. En ese entonces Traful tenia 300
-            habitantes! <br></br> El primer producto que hicimos, fueron los
-            alfajores rellenos con MUCHO dulce de leche, que hasta el dia de
-            hoy, sigue teniendo la misma cantidad!!
+            habitantes! <br />
+            El primer producto que hicimos, fueron los alfajores rellenos con
+            MUCHO dulce de leche, que hasta el dia de hoy, sigue teniendo la
+            misma cantidad!!
           </TimeLineDescription>
         </TimeLineTextContainer>
       );
@@ -85,9 +86,10 @@ function TimeLine() {
           <TimeLineDescription>
             La fabrica Del Montañes nació en el invierno de 1992, en Villa
             traful, provincia de Neuquén. En ese entonces Traful tenia 300
-            habitantes! <br></br> El primer producto que hicimos, fueron los
-            alfajores rellenos con MUCHO dulce de leche, que hasta el dia de
-            hoy, sigue teniendo la misma cantidad!!
+            habitantes! <br />
+            El primer producto que hicimos, fueron los alfajores rellenos con
+            MUCHO dulce de leche, que hasta el dia de hoy, sigue teniendo la
+            misma cantidad!!
           </TimeLineDescription>
         </TimeLineTextContainer>
       );
@@ -501,17 +503,17 @@ const TimeLineDescription = styled.p`
   width: 70%;
   height: 70%;
   font-weight: inherit;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   @media (${Variables.tabletL}) {
     font-size: 20px;
   }
   @media (${Variables.mobileL}) {
     width: 80%;
-    font-size: 17px;
+    font-size: 15px;
   }
   @media (${Variables.mobileS}) {
-    font-size: 13px;
+    font-size: 12px;
     width: 80%;
   }
 `;

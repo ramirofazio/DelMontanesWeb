@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-//Assets
 import styled from "styled-components";
 import Variables from "../../Styles/Variables";
 

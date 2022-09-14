@@ -1,8 +1,6 @@
 import React from "react";
-//Assets
 import styled from "styled-components";
 import Variables from "../../Styles/Variables";
-//SwiperJS
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";

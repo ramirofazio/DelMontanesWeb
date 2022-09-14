@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-//Assets
 import styled, { css } from "styled-components";
 import Variables from "../../Styles/Variables";
 import GlobalStyles from "../../Styles/GlobalStyles";
 import Logo from "../../Assets/LogoConSombra.png";
-//Icons
 import { Menu } from "@styled-icons/heroicons-solid/Menu";
 import { Cross } from "@styled-icons/entypo/Cross";
 function NavBar() {
@@ -78,9 +76,7 @@ function NavBar() {
     return (
       <NavBarContainer selected={selected}>
         <Container>
-          <HomeLinks to="/" home={true}>
-            Inicio
-          </HomeLinks>
+          <HomeLinks to="/">Inicio</HomeLinks>
           <HomeLinks
             to="/Nosotros"
             selected={selected === "/Nosotros" ? true : false}
