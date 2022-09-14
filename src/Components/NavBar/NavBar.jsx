@@ -235,8 +235,6 @@ const MobileNavBarContainer = styled.div`
     css`
       width: fit-content;
       height: fit-content;
-
-      outline: 1px solid green;
     `}
 
   ${(props) =>
