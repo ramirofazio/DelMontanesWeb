@@ -245,9 +245,11 @@ const StyledTimeLine = styled.div`
   justify-content: center;
   width: 90%;
   height: 100%;
+
   @media (${Variables.mobileL}) {
     width: 100%;
   }
+
   @media (${Variables.mobileS}) {
     margin-left: 5px;
   }
@@ -258,6 +260,7 @@ const TimeLineContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+
   @media (${Variables.mobileL}) {
     flex-wrap: nowrap;
     width: 100%;
@@ -276,14 +279,14 @@ const TimeLIne = styled.div`
   width: 100%;
   align-items: center;
   justify-content: center;
-  @media (${Variables.tabletL}) {
-  }
+
   @media (${Variables.mobileL}) {
     flex-wrap: wrap;
     width: 25%;
     align-content: space-between;
     position: relative;
   }
+
   @media (${Variables.mobileS}) {
     flex-wrap: wrap;
     width: 25%;
@@ -329,16 +332,13 @@ const TimeLineSpan = styled.div`
   border-bottom: solid #c9c9c9 4px;
   height: 100%;
   z-index: -100;
-  @media (${Variables.tabletL}) {
-  }
+
   @media (${Variables.mobileL}) {
     z-index: 0;
     height: 100%;
     width: 1px;
     margin-top: 0;
     border-left: solid #c9c9c9 4px;
-  }
-  @media (${Variables.mobileS}) {
   }
 `;
 
@@ -348,8 +348,6 @@ const TimeLineSpanRed = styled.div`
   z-index: 300;
   margin-top: -24px;
 
-  @media (${Variables.tabletL}) {
-  }
   @media (${Variables.mobileL}) {
     min-height: 0;
     width: 20px;
@@ -359,8 +357,6 @@ const TimeLineSpanRed = styled.div`
     margin-left: -5px;
     border-bottom: none;
     border-left: solid #d42222 4px;
-  }
-  @media (${Variables.mobileS}) {
   }
 `;
 
@@ -374,10 +370,12 @@ const TimeLineUl = styled.ul`
   padding: 0;
   align-items: center;
   justify-content: center;
+
   @media (${Variables.mobileL}) {
     flex-wrap: nowrap;
     flex-direction: row-reverse;
   }
+
   @media (${Variables.mobileL}) {
     height: 100%;
     justify-content: center;
@@ -385,9 +383,11 @@ const TimeLineUl = styled.ul`
     margin: 0;
     margin-left: 9px;
   }
+
   @media (max-width: 400px) {
     margin-left: 6px;
   }
+
   @media (${Variables.mobileS}) {
     margin: 0;
     height: 20%;
@@ -395,6 +395,7 @@ const TimeLineUl = styled.ul`
     justify-content: center;
     margin-left: 5px;
   }
+
   @media (max-width: 280px) {
     margin-left: 1px;
   }
@@ -406,11 +407,13 @@ const TimeLineLi = styled.li`
   color: #858585;
   font-weight: 20;
   height: 50%;
+
   @media (${Variables.mobileL}) {
     margin-left: 3px;
     height: 100%;
     text-align: center;
   }
+
   @media (${Variables.mobileS}) {
     font-size: 15px;
   }
@@ -423,15 +426,21 @@ const Circle = styled.button`
   border-radius: 20px;
   background-color: white;
   z-index: 30;
+
   @media (${Variables.tabletL}) {
     width: 20px;
     height: 20px;
     border-radius: 10px;
   }
+
   @media (${Variables.mobileS}) {
     width: 20px;
     height: 20px;
     border: solid 3px #c9c9c9;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 
@@ -443,16 +452,22 @@ const CircleRed = styled.button`
   background-color: ${Variables.secondaryColor};
   z-index: 30;
   transition: 0.5s ease;
+
   @media (${Variables.tabletL}) {
     width: 20px;
     height: 20px;
     margin-bottom: 0px;
     border-radius: 10px;
   }
+
   @media (${Variables.mobileS}) {
     width: 20px;
     height: 20px;
     border: solid 3px #e22525;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 
@@ -463,9 +478,11 @@ const TimeLineTextContainer = styled.div`
   width: 100%;
   height: 90%;
   justify-content: flex-end;
+
   @media (${Variables.tabletL}) {
     height: 100%;
   }
+
   @media (${Variables.mobileL}) {
     flex-wrap: nowrap;
     width: 80%;
@@ -486,9 +503,11 @@ const TimeLineTitle = styled.h2`
   font-family: "Nunito", sans-serif;
   font-weight: normal;
   line-height: 1.3;
+
   @media (${Variables.tabletL}) {
     font-size: 25px;
   }
+
   @media (${Variables.mobileS}) {
     font-size: 20px;
     padding: 0;
@@ -505,13 +524,16 @@ const TimeLineDescription = styled.p`
   font-weight: inherit;
   font-size: 18px;
   text-align: center;
+
   @media (${Variables.tabletL}) {
     font-size: 20px;
   }
+
   @media (${Variables.mobileL}) {
     width: 80%;
     font-size: 15px;
   }
+
   @media (${Variables.mobileS}) {
     font-size: 12px;
     width: 80%;
