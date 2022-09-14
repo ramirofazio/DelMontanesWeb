@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-//Assets
 import styled from "styled-components";
+import Variables from "../../Styles/Variables";
 
 const Indicator = ({ currentSlide, amountSlides, nextSlide }) => {
   return (
@@ -63,9 +63,22 @@ const Wrapper = styled.div`
   flex-wrap: nowrap;
   overflow-x: hidden;
   position: relative;
-  height: 70vh;
+  height: 50vh;
   width: 80%;
   border-radius: 20px;
+  @media (max-width: 1024px) {
+    height: 100%;
+  }
+  @media (${Variables.desktopXS}) {
+    height: 90%;
+  }
+  @media (${Variables.tabletL}) {
+    height: 90%;
+    width: 80%;
+  }
+  @media (${Variables.mobileL}) {
+    height: 90%;
+  }
 `;
 
 const Slide = styled.div`
