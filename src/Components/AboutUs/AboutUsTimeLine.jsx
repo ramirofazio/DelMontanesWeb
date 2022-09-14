@@ -23,7 +23,7 @@ function TimeLine() {
         </TimeLineTextContainer>
       );
     } else if (timeLine[timeLine.length - 1] === 2010) {
-      setLineRed(30);
+      setLineRed(25);
       return (
         <TimeLineTextContainer>
           <TimeLineTitle>2010</TimeLineTitle>
@@ -37,7 +37,7 @@ function TimeLine() {
         </TimeLineTextContainer>
       );
     } else if (timeLine[timeLine.length - 1] === 2012) {
-      setLineRed(45);
+      setLineRed(42);
       return (
         <TimeLineTextContainer>
           <TimeLineTitle>2012</TimeLineTitle>
