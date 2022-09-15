@@ -4,7 +4,8 @@ import Variables from "../../Styles/Variables";
 import { images } from "../../Assets/Pics/HomeSwiper/index";
 import TimeLine from "./AboutUsTimeLine";
 import Footer from "../Footer/Footer";
-import AboutUsCarrousel from "./AboutUsCarrousel";
+// import AboutUsCarrousel from "./AboutUsCarrousel";
+import AboutUsSwipper from "../Swipers/AboutUsSwiper";
 
 function AboutUs() {
   return (
@@ -19,43 +20,10 @@ function AboutUs() {
           <TimeLine />
         </TimeLineContainer>
         <CarrouselContainer>
-          <AboutUsCarrousel images={images} />
+          {/* <AboutUsCarrousel images={images} /> */}
+          <AboutUsSwipper images={images} />
         </CarrouselContainer>
       </AboutUsTimeLine>
-      {/* <AboutUsItems>
-        <Item>
-        <ItemTitle>TITLE</ItemTitle>
-        <ItemDescription>Lorem ipsum dolor sit amet
-           consectetur adipisicing elit. Odio unde impedit at odit. Consequatur, 
-          deleniti incidunt vel esse id quis eius. 
-          Harum quis iste similique recusandae 
-          veritatis porro accusantium? Est.</ItemDescription>
-        </Item>
-        <Item>
-        <ItemTitle>TITLE</ItemTitle>
-        <ItemDescription>Lorem ipsum dolor sit amet
-           consectetur adipisicing elit. Odio unde impedit at odit. Consequatur, 
-          deleniti incidunt vel esse id quis eius. 
-          Harum quis iste similique recusandae 
-          veritatis porro accusantium? Est.</ItemDescription>
-        </Item>
-        <Item>
-        <ItemTitle>TITLE</ItemTitle>
-        <ItemDescription>Lorem ipsum dolor sit amet
-           consectetur adipisicing elit. Odio unde impedit at odit. Consequatur, 
-          deleniti incidunt vel esse id quis eius. 
-          Harum quis iste similique recusandae 
-          veritatis porro accusantium? Est.</ItemDescription>
-        </Item>
-        <Item>
-        <ItemTitle>TITLE</ItemTitle>
-        <ItemDescription>Lorem ipsum dolor sit amet
-           consectetur adipisicing elit. Odio unde impedit at odit. Consequatur, 
-          deleniti incidunt vel esse id quis eius. 
-          Harum quis iste similique recusandae 
-          veritatis porro accusantium? Est.</ItemDescription>
-        </Item>
-      </AboutUsItems>  */}
       <Footer />
     </StyledContainer>
   );
@@ -91,14 +59,12 @@ const TitleContainer = styled.div`
   }
   @media (${Variables.tabletL}) {
     height: 40%;
-    margin-top: 20%;
   }
   @media (${Variables.mobileL}) {
     height: 40%;
   }
   @media (${Variables.mobileS}) {
     height: 50%;
-    margin-top: 10%;
   }
 `;
 
@@ -218,33 +184,3 @@ const CarrouselContainer = styled.div`
   }
 `;
 
-// const AboutUsItems = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   width: 100%;
-//   background-color: #965d5d;
-// `;
-
-//  const Item = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-//   background-color: antiquewhite;
-//   width: 50%;
-//   height: 70vh;
-//  `;
-
-// const ItemTitle = styled.h2`
-//   font-size: 40px;
-//   width: 90%;
-//   color: black;
-//   font-family: 'Nunito', sans-serif;
-//   font-weight: 400px;
-// `;
-// const ItemDescription = styled.p`
-//   font-size: 25px;
-//   color: #5e5e5e ;
-//   font-family: 'Nunito', sans-serif;
-//   width: 90%;
-// `;
