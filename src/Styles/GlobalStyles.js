@@ -19,12 +19,11 @@ const GlobalStyles = {
     height: 12%;
     border-radius: 25px;
     background-color: ${Variables.secondaryColor};
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     font-weight: 600;
     color: ${Variables.principalColor};
 
     &:hover {
-      border: 1px solid ${Variables.baseColor};
       background-color: ${Variables.principalColor};
       color: ${Variables.baseColor};
     }

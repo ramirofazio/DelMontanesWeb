@@ -9,7 +9,6 @@ function FeaturedProducts() {
     <Container>
       <SubContainer>
         <Title>NOSOTROS</Title>
-
         <Description>
           Elaboramos todos nuestros productos de forma artesanal y en pequeñas
           cantidades, respetando siempre la calidad de nuestras materias primas
