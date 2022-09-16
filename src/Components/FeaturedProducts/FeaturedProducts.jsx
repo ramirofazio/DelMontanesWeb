@@ -8,14 +8,16 @@ function FeaturedProducts() {
   return (
     <Container>
       <SubContainer>
-        <Title>NOSOTROS</Title>
-        <Description>
+        <Title data-aos="fade-down">NOSOTROS</Title>
+        <Description data-aos="zoom-in">
           Elaboramos todos nuestros productos de forma artesanal y en pequeñas
           cantidades, respetando siempre la calidad de nuestras materias primas
           y procesos de elaboración. <br /> Estamos muy felices de poder tener
           este espacio y llegar a todos los rincones de nuestra amada ARGENTINA!
         </Description>
-        <Button href="/Nosotros">CONOCENOS</Button>
+        <Button href="/Nosotros" data-aos="zoom-in">
+          CONOCENOS
+        </Button>
       </SubContainer>
       <CardsContainer>
         {featuredProducts?.map(({ title, description, img, link }, index) => (

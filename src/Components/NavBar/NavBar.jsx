@@ -10,11 +10,41 @@ function NavBar() {
   const location = useLocation();
   const [selected, setSelected] = useState(null);
   const [drawer, setDrawer] = useState(null);
+  const [scrollDown, setScrollDown] = useState(false);
   const width = window.innerWidth;
 
   useEffect(() => {
     setSelected(location.pathname);
   }, [location]);
+
+  useEffect(() => {
+    const threshold = 0;
+    let lastScrollY = window.pageYOffset;
+    let ticking = false;
+
+    const updateScrollDir = () => {
+      const scrollY = window.pageYOffset;
+
+      if (Math.abs(scrollY - lastScrollY) < threshold) {
+        ticking = false;
+        return;
+      }
+      setScrollDown(scrollY > lastScrollY ? true : false);
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollDir);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrollDown]);
 
   if (width < 769) {
     return (
@@ -74,7 +104,7 @@ function NavBar() {
     );
   } else {
     return (
-      <NavBarContainer selected={selected}>
+      <NavBarContainer selected={selected} scrollDown={scrollDown}>
         <Container>
           <HomeLinks to="/">Inicio</HomeLinks>
           <HomeLinks
@@ -132,7 +162,7 @@ const NavBarContainer = styled.div`
   -webkit-backdrop-filter: blur(25px);
   animation: fadeIn 1s ease-in;
   z-index: 200;
-  transition: all 0.7s ease;
+  transition: all 1s ease;
 
   &:hover {
     background-color: ${Variables.navBarColor};
@@ -156,6 +186,20 @@ const NavBarContainer = styled.div`
       transform: translateY(0px);
     }
   }
+
+  ${(props) =>
+    props.scrollDown === true &&
+    css`
+      opacity: 0;
+      transform: translateY(-100%);
+      margin-top: 10px;
+
+      &:hover {
+        opacity: 1;
+        transform: translateY(0);
+        margin-top: 0;
+      }
+    `}
 `;
 
 const Container = styled.div`
