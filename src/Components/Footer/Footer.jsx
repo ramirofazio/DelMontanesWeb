@@ -89,6 +89,7 @@ const Container = styled.div`
   align-items: center;
   padding: 20px;
   border-top: 1px solid #abababb4;
+  background-color: ${Variables.navBarColor};
 
   @media (${Variables.tabletL}) {
     height: 50vh;
