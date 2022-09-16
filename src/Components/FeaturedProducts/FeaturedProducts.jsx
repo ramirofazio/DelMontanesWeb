@@ -30,7 +30,12 @@ function FeaturedProducts() {
       </SubContainer>
       <CardsContainer>
         {featuredProducts?.map(({ title, description, img, link }, index) => (
-          <ProductContainer key={index} href={link} data-aos="fade-up" data-aos-anchor-placement="bottom-bottom>
+          <ProductContainer
+            key={index}
+            href={link}
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+          >
             <ProductSubContainer img={img}>
               <InfoContainer>
                 <ProductTitle>{title}</ProductTitle>
