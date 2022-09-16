@@ -8,17 +8,17 @@ import AboutUsCarrousel from "./AboutUsCarrousel";
 
 function AboutUs() {
   return (
-    <StyledContainer>
-      <TitleContainer>
+    <StyledContainer data-aos="zoom-out">
+      <TitleContainer data-aos="fade-down">
         <Title>NUESTRA HISTORIA</Title>
         <Line></Line>
         <Description>Navegá clickeando o deslizando en cada año</Description>
       </TitleContainer>
       <AboutUsTimeLine>
-        <TimeLineContainer>
+        <TimeLineContainer data-aos="fade-right">
           <TimeLine />
         </TimeLineContainer>
-        <CarrouselContainer>
+        <CarrouselContainer data-aos="fade-left">
           <AboutUsCarrousel images={images} />
         </CarrouselContainer>
       </AboutUsTimeLine>

@@ -8,20 +8,29 @@ function FeaturedProducts() {
   return (
     <Container>
       <SubContainer>
-        <Title data-aos="fade-down">NOSOTROS</Title>
-        <Description data-aos="zoom-in">
+        <Title data-aos="fade-down" data-aos-anchor-placement="bottom-bottom">
+          NOSOTROS
+        </Title>
+        <Description
+          data-aos="zoom-in"
+          data-aos-anchor-placement="bottom-bottom"
+        >
           Elaboramos todos nuestros productos de forma artesanal y en pequeñas
           cantidades, respetando siempre la calidad de nuestras materias primas
           y procesos de elaboración. <br /> Estamos muy felices de poder tener
           este espacio y llegar a todos los rincones de nuestra amada ARGENTINA!
         </Description>
-        <Button href="/Nosotros" data-aos="zoom-in">
+        <Button
+          href="/Nosotros"
+          data-aos="zoom-in"
+          data-aos-anchor-placement="bottom-bottom"
+        >
           CONOCENOS
         </Button>
       </SubContainer>
       <CardsContainer>
         {featuredProducts?.map(({ title, description, img, link }, index) => (
-          <ProductContainer key={index} href={link}>
+          <ProductContainer key={index} href={link} data-aos="fade-up">
             <ProductSubContainer img={img}>
               <InfoContainer>
                 <ProductTitle>{title}</ProductTitle>
