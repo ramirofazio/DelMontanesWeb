@@ -4,7 +4,6 @@ import Variables from "../../Styles/Variables";
 import { images } from "../../Assets/Pics/HomeSwiper/index";
 import TimeLine from "./AboutUsTimeLine";
 import Footer from "../Footer/Footer";
-// import AboutUsCarrousel from "./AboutUsCarrousel";
 import AboutUsSwipper from "../Swipers/AboutUsSwiper";
 
 function AboutUs() {
@@ -20,7 +19,6 @@ function AboutUs() {
           <TimeLine />
         </TimeLineContainer>
         <CarrouselContainer>
-          {/* <AboutUsCarrousel images={images} /> */}
           <AboutUsSwipper images={images} />
         </CarrouselContainer>
       </AboutUsTimeLine>

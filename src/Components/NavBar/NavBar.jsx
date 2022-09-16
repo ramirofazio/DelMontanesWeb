@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-//Assets
 import styled, { css } from "styled-components";
 import Variables from "../../Styles/Variables";
 import GlobalStyles from "../../Styles/GlobalStyles";
 import Logo from "../../Assets/LogoConSombra.png";
-//Icons
 import { Menu } from "@styled-icons/heroicons-solid/Menu";
 import { Cross } from "@styled-icons/entypo/Cross";
 function NavBar() {
@@ -106,9 +104,7 @@ function NavBar() {
           >
             Contacto
           </HomeLinks>
-          <HomeLinksTienda
-            href="https://delmontanes.mitiendanube.com/"
-          >
+          <HomeLinksTienda href="https://delmontanes.mitiendanube.com/">
             Tienda
           </HomeLinksTienda>
         </Container>
