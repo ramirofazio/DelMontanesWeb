@@ -4,22 +4,22 @@ import Variables from "../../Styles/Variables";
 import { images } from "../../Assets/Pics/HomeSwiper/index";
 import TimeLine from "./AboutUsTimeLine";
 import Footer from "../Footer/Footer";
-import AboutUsSwipper from "../Swipers/AboutUsSwiper";
+import AboutUsCarrousel from "../Swipers/AboutUsSwiper";
 
 function AboutUs() {
   return (
-    <StyledContainer>
-      <TitleContainer>
+    <StyledContainer data-aos="zoom-out">
+      <TitleContainer data-aos="fade-down">
         <Title>NUESTRA HISTORIA</Title>
         <Line></Line>
         <Description>Navegá clickeando o deslizando en cada año</Description>
       </TitleContainer>
       <AboutUsTimeLine>
-        <TimeLineContainer>
+        <TimeLineContainer data-aos="fade-right">
           <TimeLine />
         </TimeLineContainer>
-        <CarrouselContainer>
-          <AboutUsSwipper images={images} />
+        <CarrouselContainer data-aos="fade-left">
+          <AboutUsCarrousel images={images} />
         </CarrouselContainer>
       </AboutUsTimeLine>
       <Footer />
@@ -181,4 +181,3 @@ const CarrouselContainer = styled.div`
     height: 40%;
   }
 `;
-

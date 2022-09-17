@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Variables from "../../Styles/Variables";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -79,12 +78,7 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
 
-  @media (${Variables.tabletL}) {
-    height: 100%;
-  }
-
-  @media (${Variables.mobileL}) {
-    width: 100%;
-    height: 100%;
+  &:hover {
+    cursor: grab;
   }
 `;

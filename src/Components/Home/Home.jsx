@@ -7,7 +7,7 @@ import FeaturedProducts from "../FeaturedProducts/FeaturedProducts.jsx";
 
 function Home() {
   return (
-    <StyledContainer>
+    <StyledContainer data-aos="zoom-in">
       <GeneralSwiper images={images} />
       <FeaturedProducts />
       <Footer />
