@@ -33,13 +33,9 @@ const StyledContainer = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  padding-top: 10%;
+  padding-top: 8%;
+  display: flex;
   background-color: ${Variables.baseColor};
-
-  /* @media (${Variables.tabletL}) {
-    padding-top: none;
-    margin-top: -15%;
-  } */
 `;
 
 const TitleContainer = styled.div`
@@ -48,15 +44,12 @@ const TitleContainer = styled.div`
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  height: 40%;
-  @media (max-width: 1024px) {
-    height: 50%;
-  }
+  height: 30%;
   @media (${Variables.desktopXS}) {
-    height: 40%;
+    height: 30%;
   }
   @media (${Variables.tabletL}) {
-    height: 40%;
+    height: 30%;
   }
   @media (${Variables.mobileL}) {
     height: 40%;
@@ -72,8 +65,9 @@ const Title = styled.h1`
   color: ${Variables.principalColor};
   font-family: ${Variables.secondaryFont};
   font-weight: normal;
+  margin: 20px;
   @media (max-width: 1024px) {
-    width: 40%;
+    width: 50%;
     font-size: 50px;
     line-height: 50px;
   }
@@ -125,12 +119,8 @@ const AboutUsTimeLine = styled.div`
   width: 100%;
   height: 70%;
   background-color: ${Variables.baseColor};
-
-  @media (max-width: 1024px) {
-    height: 60%;
-  }
   @media (${Variables.desktopXS}) {
-    height: 100%;
+    height: 30%;
     align-content: space-around;
   }
   @media (${Variables.tabletL}) {
@@ -146,15 +136,19 @@ const TimeLineContainer = styled.div`
   width: 50%;
   display: flex;
   justify-content: center;
+  height: 50vh;
+  @media (max-width: 1024px) {
+    width: 50%;
+  }
   @media (${Variables.desktopXS}) {
-    height: 50%;
+    height: 50vh;
     width: 100%;
   }
   @media (${Variables.tabletL}) {
-    height: 40%;
+    height: 40vh;
   }
   @media (${Variables.mobileL}) {
-    height: 50%;
+    height: 50vh;
   }
 `;
 
@@ -162,22 +156,17 @@ const CarrouselContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 50%;
-
-  @media (max-width: 1024px) {
-    height: 70%;
-  }
+  height: 50vh;
   @media (${Variables.desktopXS}) {
     width: 100%;
-    height: 50%;
+    height: 30vh;
   }
   @media (${Variables.tabletL}) {
-    height: 40%;
+    height: 30vh;
     align-items: center;
   }
   @media (${Variables.mobileL}) {
-    height: 40%;
   }
   @media (${Variables.mobileS}) {
-    height: 40%;
   }
 `;

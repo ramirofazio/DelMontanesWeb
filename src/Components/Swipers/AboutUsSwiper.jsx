@@ -74,10 +74,11 @@ const SwiperContainer = styled(Swiper)`
   align-items: center;
   justify-content: center;
   width: 90%;
-  height: 50vh;
+  height: 90%;
   border-radius: 15px;
   @media (${Variables.tabletL}) {
-    height: 100%;
+    height: 90%;
+    width: 80%;
   }
   @media (${Variables.mobileL}) {
     width: 90%;
