@@ -7,7 +7,6 @@ const NavBar = lazy(() => import("./Components/NavBar/NavBar"));
 const Home = lazy(() => import("./Components/Home/Home"));
 const AboutUs = lazy(() => import("./Components/AboutUs/AboutUs"));
 const Alfajores = lazy(() => import("./Components/Alfajores/Alfajores"));
-const Tienda = lazy(() => import("./Components/Tienda/Tienda"));
 const Contact = lazy(() => import("./Components/Contact/Contact"));
 const Products = lazy(() => import("./Components/Products/Products"));
 
@@ -27,7 +26,6 @@ function App() {
           <Route path="/" exact element={<Home />} />
           <Route path="/Nosotros" exact element={<AboutUs />} />
           <Route path="/Alfajores" exact element={<Alfajores />} />
-          <Route path="/Tienda" exact element={<Tienda />} />
           <Route path="/Contacto" exact element={<Contact />} />
           <Route path="/Productos" exact element={<Products />} />
         </Routes>

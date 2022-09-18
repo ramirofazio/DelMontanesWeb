@@ -4,7 +4,7 @@ import Variables from "../../Styles/Variables";
 import { images } from "../../Assets/Pics/HomeSwiper/index";
 import TimeLine from "./AboutUsTimeLine";
 import Footer from "../Footer/Footer";
-import AboutUsCarrousel from "./AboutUsCarrousel";
+import AboutUsCarrousel from "../Swipers/AboutUsSwiper";
 
 function AboutUs() {
   return (
@@ -22,40 +22,6 @@ function AboutUs() {
           <AboutUsCarrousel images={images} />
         </CarrouselContainer>
       </AboutUsTimeLine>
-      {/* <AboutUsItems>
-        <Item>
-        <ItemTitle>TITLE</ItemTitle>
-        <ItemDescription>Lorem ipsum dolor sit amet
-           consectetur adipisicing elit. Odio unde impedit at odit. Consequatur, 
-          deleniti incidunt vel esse id quis eius. 
-          Harum quis iste similique recusandae 
-          veritatis porro accusantium? Est.</ItemDescription>
-        </Item>
-        <Item>
-        <ItemTitle>TITLE</ItemTitle>
-        <ItemDescription>Lorem ipsum dolor sit amet
-           consectetur adipisicing elit. Odio unde impedit at odit. Consequatur, 
-          deleniti incidunt vel esse id quis eius. 
-          Harum quis iste similique recusandae 
-          veritatis porro accusantium? Est.</ItemDescription>
-        </Item>
-        <Item>
-        <ItemTitle>TITLE</ItemTitle>
-        <ItemDescription>Lorem ipsum dolor sit amet
-           consectetur adipisicing elit. Odio unde impedit at odit. Consequatur, 
-          deleniti incidunt vel esse id quis eius. 
-          Harum quis iste similique recusandae 
-          veritatis porro accusantium? Est.</ItemDescription>
-        </Item>
-        <Item>
-        <ItemTitle>TITLE</ItemTitle>
-        <ItemDescription>Lorem ipsum dolor sit amet
-           consectetur adipisicing elit. Odio unde impedit at odit. Consequatur, 
-          deleniti incidunt vel esse id quis eius. 
-          Harum quis iste similique recusandae 
-          veritatis porro accusantium? Est.</ItemDescription>
-        </Item>
-      </AboutUsItems>  */}
       <Footer />
     </StyledContainer>
   );
@@ -67,13 +33,9 @@ const StyledContainer = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  padding-top: 10%;
+  padding-top: 8%;
+  display: flex;
   background-color: ${Variables.baseColor};
-
-  /* @media (${Variables.tabletL}) {
-    padding-top: none;
-    margin-top: -15%;
-  } */
 `;
 
 const TitleContainer = styled.div`
@@ -82,23 +44,18 @@ const TitleContainer = styled.div`
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  height: 40%;
-  @media (max-width: 1024px) {
-    height: 50%;
-  }
+  height: 30%;
   @media (${Variables.desktopXS}) {
-    height: 40%;
+    height: 30%;
   }
   @media (${Variables.tabletL}) {
-    height: 40%;
-    margin-top: 20%;
+    height: 30%;
   }
   @media (${Variables.mobileL}) {
     height: 40%;
   }
   @media (${Variables.mobileS}) {
     height: 50%;
-    margin-top: 10%;
   }
 `;
 
@@ -108,8 +65,9 @@ const Title = styled.h1`
   color: ${Variables.principalColor};
   font-family: ${Variables.secondaryFont};
   font-weight: normal;
+  margin: 20px;
   @media (max-width: 1024px) {
-    width: 40%;
+    width: 50%;
     font-size: 50px;
     line-height: 50px;
   }
@@ -161,12 +119,8 @@ const AboutUsTimeLine = styled.div`
   width: 100%;
   height: 70%;
   background-color: ${Variables.baseColor};
-
-  @media (max-width: 1024px) {
-    height: 60%;
-  }
   @media (${Variables.desktopXS}) {
-    height: 100%;
+    height: 30%;
     align-content: space-around;
   }
   @media (${Variables.tabletL}) {
@@ -182,15 +136,19 @@ const TimeLineContainer = styled.div`
   width: 50%;
   display: flex;
   justify-content: center;
+  height: 50vh;
+  @media (max-width: 1024px) {
+    width: 50%;
+  }
   @media (${Variables.desktopXS}) {
-    height: 50%;
+    height: 50vh;
     width: 100%;
   }
   @media (${Variables.tabletL}) {
-    height: 40%;
+    height: 40vh;
   }
   @media (${Variables.mobileL}) {
-    height: 50%;
+    height: 50vh;
   }
 `;
 
@@ -198,53 +156,17 @@ const CarrouselContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 50%;
-
-  @media (max-width: 1024px) {
-    height: 70%;
-  }
+  height: 50vh;
   @media (${Variables.desktopXS}) {
     width: 100%;
-    height: 50%;
+    height: 30vh;
   }
   @media (${Variables.tabletL}) {
-    height: 40%;
+    height: 30vh;
     align-items: center;
   }
   @media (${Variables.mobileL}) {
-    height: 40%;
   }
   @media (${Variables.mobileS}) {
-    height: 40%;
   }
 `;
-
-// const AboutUsItems = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   width: 100%;
-//   background-color: #965d5d;
-// `;
-
-//  const Item = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-//   background-color: antiquewhite;
-//   width: 50%;
-//   height: 70vh;
-//  `;
-
-// const ItemTitle = styled.h2`
-//   font-size: 40px;
-//   width: 90%;
-//   color: black;
-//   font-family: 'Nunito', sans-serif;
-//   font-weight: 400px;
-// `;
-// const ItemDescription = styled.p`
-//   font-size: 25px;
-//   color: #5e5e5e ;
-//   font-family: 'Nunito', sans-serif;
-//   width: 90%;
-// `;

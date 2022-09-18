@@ -51,7 +51,6 @@ function NavBar() {
       <MobileNavBarContainer
         drawer={drawer}
         onClick={() => (drawer === "true" ? setDrawer(null) : null)}
-        selected={selected}
       >
         {drawer === "true" ? (
           <CrossIconContainer>
@@ -86,19 +85,18 @@ function NavBar() {
             Productos
           </HomeLinks>
           <HomeLinks
-            to="/Tienda"
-            selected={selected === "/Tienda" ? true : false}
-            drawer={drawer}
-          >
-            Tienda
-          </HomeLinks>
-          <HomeLinks
             to="/Contacto"
             selected={selected === "/Contacto" ? true : false}
             drawer={drawer}
           >
             Contacto
           </HomeLinks>
+          <HomeLinksTienda
+            drawer={drawer}
+            href="https://delmontanes.mitiendanube.com/"
+          >
+            Tienda
+          </HomeLinksTienda>
         </Drawer>
       </MobileNavBarContainer>
     );
@@ -106,7 +104,9 @@ function NavBar() {
     return (
       <NavBarContainer selected={selected} scrollDown={scrollDown}>
         <Container>
-          <HomeLinks to="/">Inicio</HomeLinks>
+          <HomeLinks to="/" home={true}>
+            Inicio
+          </HomeLinks>
           <HomeLinks
             to="/Nosotros"
             selected={selected === "/Nosotros" ? true : false}
@@ -129,17 +129,14 @@ function NavBar() {
             Productos
           </HomeLinks>
           <HomeLinks
-            to="/Tienda"
-            selected={selected === "/Tienda" ? true : false}
-          >
-            Tienda
-          </HomeLinks>
-          <HomeLinks
             to="/Contacto"
             selected={selected === "/Contacto" ? true : false}
           >
             Contacto
           </HomeLinks>
+          <HomeLinksTienda href="https://delmontanes.mitiendanube.com/">
+            Tienda
+          </HomeLinksTienda>
         </Container>
       </NavBarContainer>
     );
@@ -242,7 +239,38 @@ const HomeLinks = styled(Link)`
       } ;
     `}
 `;
+const HomeLinksTienda = styled.a`
+  ${GlobalStyles.a}
+  color: ${Variables.principalColor};
+  transition: all 0.5s ease;
+  font-size: 1.4rem;
 
+  ${(props) =>
+    props.selected === true &&
+    css`
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    `}
+
+  &:hover {
+    color: ${Variables.secondaryColor};
+  }
+
+  ${(props) =>
+    props.drawer === "true" &&
+    css`
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      border-bottom: 1px solid ${Variables.secondaryColor};
+
+      @media (${Variables.mobileL}) {
+        font-size: 1.2rem;
+      } ;
+    `}
+`;
 const Img = styled.img`
   width: 120px;
   margin-top: 1%;
@@ -271,21 +299,14 @@ const Img = styled.img`
 const MobileNavBarContainer = styled.div`
   display: flex;
   position: fixed;
-  z-index: 100;
+  z-index: 0;
   flex-direction: column;
-
-  ${(props) =>
-    props.drawer === null &&
-    css`
-      width: fit-content;
-      height: fit-content;
-    `}
+  width: 60%;
+  height: 100%;
 
   ${(props) =>
     props.drawer === "true" &&
     css`
-      width: 60%;
-      height: 100%;
       background: ${Variables.navBarTransparentColor};
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);

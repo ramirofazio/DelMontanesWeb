@@ -520,9 +520,12 @@ const TimeLineDescription = styled.p`
   font-weight: inherit;
   font-size: 18px;
   text-align: center;
-
+  @media (max-width: 1024px) {
+    width: 90%;
+  }
   @media (${Variables.tabletL}) {
-    font-size: 20px;
+    font-size: 18px;
+    margin: 0;
   }
 
   @media (${Variables.mobileL}) {
@@ -531,7 +534,7 @@ const TimeLineDescription = styled.p`
   }
 
   @media (${Variables.mobileS}) {
-    font-size: 12px;
+    font-size: 15px;
     width: 80%;
   }
 `;
