@@ -1,107 +1,146 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-//Assets
 import styled, { css } from "styled-components";
 import Variables from "../../Styles/Variables";
 import GlobalStyles from "../../Styles/GlobalStyles";
 import Logo from "../../Assets/LogoConSombra.png";
-//Icons
 import { Menu } from "@styled-icons/heroicons-solid/Menu";
+import { Cross } from "@styled-icons/entypo/Cross";
 function NavBar() {
   const location = useLocation();
   const [selected, setSelected] = useState(null);
-  const [menu, setMenu] = useState(false);
+  const [drawer, setDrawer] = useState(null);
+  const [scrollDown, setScrollDown] = useState(false);
+  const width = window.innerWidth;
+
   useEffect(() => {
     setSelected(location.pathname);
   }, [location]);
 
-  return (
-    <NavBarContainer menu={menu} >
-      <DrawerIcon>
-        {menu === false ? <MenuIcon onClick={() => setMenu(true)} /> : null}
-      </DrawerIcon>
-      <Container>
-        <HomeLinks to="/">Inicio</HomeLinks>
-        <HomeLinks
-          to="/Nosotros"
-          selected={selected === "/Nosotros" ? true : false}
-        >
-          Nosotros
-        </HomeLinks>
-        <HomeLinks
-          to="/Alfajores"
-          selected={selected === "/Alfajores" ? true : false}
-        >
-          Alfajores
-        </HomeLinks>
-      </Container>
-      <Img src={Logo} alt="" />
-      <Container>
-        <HomeLinks
-          to="/Productos"
-          selected={selected === "/Productos" ? true : false}
-        >
-          Productos
-        </HomeLinks>
-        <HomeLinks
-          to="/Tienda"
-          selected={selected === "/Tienda" ? true : false}
-        >
-          Tienda
-        </HomeLinks>
-        <HomeLinks
-          to="/Contacto"
-          selected={selected === "/Contacto" ? true : false}
-        >
-          Contacto
-        </HomeLinks>
-      </Container>
-      {menu === true ? (
-        <Background onClick={() => setMenu(false)}>
-        <ContainerDrawer>
-          <HomeLinksDrawer to="/" onClick={() => setMenu(false)}>
-            INICIO
-          </HomeLinksDrawer>
-          <HomeLinksDrawer
+  useEffect(() => {
+    const threshold = 0;
+    let lastScrollY = window.pageYOffset;
+    let ticking = false;
+
+    const updateScrollDir = () => {
+      const scrollY = window.pageYOffset;
+
+      if (Math.abs(scrollY - lastScrollY) < threshold) {
+        ticking = false;
+        return;
+      }
+      setScrollDown(scrollY > lastScrollY ? true : false);
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollDir);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrollDown]);
+
+  if (width < 769) {
+    return (
+      <MobileNavBarContainer
+        drawer={drawer}
+        onClick={() => (drawer === "true" ? setDrawer(null) : null)}
+      >
+        {drawer === "true" ? (
+          <CrossIconContainer>
+            <CrossIcon onClick={() => setDrawer(null)} />
+          </CrossIconContainer>
+        ) : (
+          <MenuIcon onClick={() => setDrawer("true")} />
+        )}
+        <Drawer drawer={drawer}>
+          <HomeLinks to="/" drawer={drawer}>
+            Inicio
+          </HomeLinks>
+          <HomeLinks
             to="/Nosotros"
             selected={selected === "/Nosotros" ? true : false}
-            onClick={() => setMenu(false)}
+            drawer={drawer}
           >
-            NOSOTROS
-          </HomeLinksDrawer>
-          <HomeLinksDrawer
+            Nosotros
+          </HomeLinks>
+          <HomeLinks
             to="/Alfajores"
             selected={selected === "/Alfajores" ? true : false}
-            onClick={() => setMenu(false)}
+            drawer={drawer}
           >
-            ALFAJORES
-          </HomeLinksDrawer>
-          <HomeLinksDrawer
+            Alfajores
+          </HomeLinks>
+          <HomeLinks
             to="/Productos"
             selected={selected === "/Productos" ? true : false}
-            onClick={() => setMenu(false)}
+            drawer={drawer}
           >
-            PRODUCTOS
-          </HomeLinksDrawer>
-          <HomeLinksDrawer
-            to="/Tienda"
-            selected={selected === "/Tienda" ? true : false}
-            onClick={() => setMenu(false)}
-            >
-            TIENDA
-          </HomeLinksDrawer>
-          <HomeLinksDrawer
+            Productos
+          </HomeLinks>
+          <HomeLinks
             to="/Contacto"
             selected={selected === "/Contacto" ? true : false}
-            onClick={() => setMenu(false)}
-            >
-            CONTACTO
-          </HomeLinksDrawer>
-        </ContainerDrawer>
-      </Background>
-      ) : null}
-    </NavBarContainer>
-  );
+            drawer={drawer}
+          >
+            Contacto
+          </HomeLinks>
+          <HomeLinksTienda
+            drawer={drawer}
+            href="https://delmontanes.mitiendanube.com/"
+          >
+            Tienda
+          </HomeLinksTienda>
+        </Drawer>
+      </MobileNavBarContainer>
+    );
+  } else {
+    return (
+      <NavBarContainer selected={selected} scrollDown={scrollDown}>
+        <Container>
+          <HomeLinks to="/" home={true}>
+            Inicio
+          </HomeLinks>
+          <HomeLinks
+            to="/Nosotros"
+            selected={selected === "/Nosotros" ? true : false}
+          >
+            Nosotros
+          </HomeLinks>
+          <HomeLinks
+            to="/Alfajores"
+            selected={selected === "/Alfajores" ? true : false}
+          >
+            Alfajores
+          </HomeLinks>
+        </Container>
+        <Img src={Logo} alt="" selected={selected} />
+        <Container>
+          <HomeLinks
+            to="/Productos"
+            selected={selected === "/Productos" ? true : false}
+          >
+            Productos
+          </HomeLinks>
+          <HomeLinks
+            to="/Contacto"
+            selected={selected === "/Contacto" ? true : false}
+          >
+            Contacto
+          </HomeLinks>
+          <HomeLinksTienda href="https://delmontanes.mitiendanube.com/">
+            Tienda
+          </HomeLinksTienda>
+        </Container>
+      </NavBarContainer>
+    );
+  }
 }
 
 export default NavBar;
@@ -111,13 +150,16 @@ const NavBarContainer = styled.div`
   position: fixed;
   justify-content: space-evenly;
   height: ${Variables.navBarHeight};
-  
-  background: ${Variables.navBarTransparentColor};
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+
+  background: ${(props) =>
+    props.selected === "/"
+      ? Variables.navBarTransparentColor
+      : Variables.navBarColor};
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   animation: fadeIn 1s ease-in;
   z-index: 200;
-  transition: all 0.7s ease;
+  transition: all 1s ease;
 
   &:hover {
     background-color: ${Variables.navBarColor};
@@ -141,16 +183,20 @@ const NavBarContainer = styled.div`
       transform: translateY(0px);
     }
   }
-  @media (${Variables.tabletL}) {
-    transition:none;
-    background: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    &:hover {
-      background-color: none;
-    }
-    width: ${(props) => (props.menu ? "80%" : "100%")};
-  }
+
+  ${(props) =>
+    props.scrollDown === true &&
+    css`
+      opacity: 0;
+      transform: translateY(-100%);
+      margin-top: 10px;
+
+      &:hover {
+        opacity: 1;
+        transform: translateY(0);
+        margin-top: 0;
+      }
+    `}
 `;
 
 const Container = styled.div`
@@ -159,10 +205,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-evenly;
   height: 100%;
-  @media (${Variables.tabletL}) {
-    display: none;
-  }
 `;
+
 const HomeLinks = styled(Link)`
   ${GlobalStyles.a}
   color: ${Variables.principalColor};
@@ -180,99 +224,152 @@ const HomeLinks = styled(Link)`
     color: ${Variables.secondaryColor};
   }
 
-  ${NavBarContainer}:hover & {
-    font-size: 1.3rem;
-  }
-`;
+  ${(props) =>
+    props.drawer === "true" &&
+    css`
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      border-bottom: 1px solid ${Variables.secondaryColor};
 
-const Img = styled.img`
-  @media (${Variables.tabletL}) {
-    display: none;
+      @media (${Variables.mobileL}) {
+        font-size: 1.2rem;
+      } ;
+    `}
+`;
+const HomeLinksTienda = styled.a`
+  ${GlobalStyles.a}
+  color: ${Variables.principalColor};
+  transition: all 0.5s ease;
+  font-size: 1.4rem;
+
+  ${(props) =>
+    props.selected === true &&
+    css`
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    `}
+
+  &:hover {
+    color: ${Variables.secondaryColor};
   }
-  width: 130px;
-  margin-top: 20px;
+
+  ${(props) =>
+    props.drawer === "true" &&
+    css`
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      border-bottom: 1px solid ${Variables.secondaryColor};
+
+      @media (${Variables.mobileL}) {
+        font-size: 1.2rem;
+      } ;
+    `}
+`;
+const Img = styled.img`
+  width: 120px;
+  margin-top: 1%;
+  padding-top: 10px;
   transition: all 0.5s ease;
 
-  ${NavBarContainer}:hover & {
-    width: 100px;
-    margin-top: 0px;
-  }
+  ${(props) =>
+    props.selected !== "/" &&
+    css`
+      width: 90px;
+      margin-top: 0px;
+      padding-top: 0;
+    `}
+
+  ${(props) =>
+    props.selected === "/" &&
+    css`
+      ${NavBarContainer}:hover & {
+        width: 90px;
+        margin-top: 0px;
+        padding-top: 0;
+      }
+    `}
 `;
 
-const DrawerIcon = styled.div`
-  display: none;
-  @media (${Variables.tabletL}) {
-    display: flex;
-    width: 100%;
-  }
+const MobileNavBarContainer = styled.div`
+  display: flex;
+  position: fixed;
+  z-index: 0;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+
+  ${(props) =>
+    props.drawer === "true" &&
+    css`
+      background: ${Variables.navBarTransparentColor};
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      align-items: center;
+      z-index: 500;
+      justify-content: space-around;
+
+      animation: fadeIn 0.5s normal;
+
+      @keyframes fadeIn {
+        0% {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0%);
+          opacity: 1;
+        }
+      }
+    `};
 `;
 
 const MenuIcon = styled(Menu)`
   color: ${Variables.principalColor};
-  width: 50px;
-  @media (${Variables.mobileS}) {
+  width: 40px;
+  margin-top: 10px;
+  margin-left: 10px;
+
+  &:hover {
+    color: ${Variables.secondaryColor};
   }
 `;
 
-const ContainerDrawer = styled.div`
-  display: none;
-  @media (${Variables.tabletL}) {
-    display: flex;
-    height: 80vh;
-    position: fixed;
-    width: 80%;
-    left: 0;
-    top: 0;
-    z-index: -100;
-    justify-content: space-around;
-    flex-direction: column;
-    background: ${Variables.navBarColor};
-  }
-  @media (${Variables.mobileL}) {
-    width:90%;
+const CrossIconContainer = styled.div`
+  display: flex;
+  width: 100%;
+  flex: 1;
+  border-bottom: 1px solid ${Variables.secondaryColor};
+`;
+
+const CrossIcon = styled(Cross)`
+  color: ${Variables.principalColor};
+  width: 40px;
+  align-self: flex-start;
+  margin-top: 10px;
+  margin-left: 10px;
+
+  &:hover {
+    color: ${Variables.secondaryColor};
   }
 `;
 
-const HomeLinksDrawer = styled(Link)`
-  @media (${Variables.tabletL}) {
-    padding-left: 20px;
-    display: flex;
-    align-items: center;
-    height: 16.5%;
-    border-bottom: solid 2px ${Variables.principalColor};
-    ${GlobalStyles.a}
-    color: ${Variables.principalColor};
-    transition: all 0.5s ease;
-    font-size: 1.2rem;
-
-    ${(props) =>
-      props.selected === true &&
-      css`
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        color: #d82626;
-      `}
-
-    &:hover {
-      color: ${Variables.secondaryColor};
-    }
-
-    ${NavBarContainer}:hover & {
-      font-size: 1.7rem;
-    }
-  }
-  @media (${Variables.mobileL}) {
-    font-size: 1.4rem;
-  }
-`;
-
-const Background = styled.div`
-   display: none;
-  @media (${Variables.tabletL}) {
-    display: flex;
-    height: 200vh;
-    position: fixed;
-    width: 100vh;
-    background-color: #00000081;
-  }
+const Drawer = styled.div`
+  ${(props) =>
+    props.drawer === "true"
+      ? css`
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          flex: 5;
+          margin-bottom: 1px;
+        `
+      : css`
+          display: none;
+        `}
 `;
