@@ -33,9 +33,12 @@ const StyledContainer = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  padding-top: 8%;
+  padding-top: 10%;
   display: flex;
   background-color: ${Variables.baseColor};
+  @media (max-width: 1024px) {
+    padding-top: 15%;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -117,8 +120,11 @@ const AboutUsTimeLine = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  height: 70%;
+  height: 65vh;
   background-color: ${Variables.baseColor};
+  @media (max-width: 1024px) {
+    height: 50vh;
+  }
   @media (${Variables.desktopXS}) {
     height: 30%;
     align-content: space-around;
@@ -128,7 +134,7 @@ const AboutUsTimeLine = styled.div`
     align-content: space-around;
   }
   @media (${Variables.mobileL}) {
-    height: 100%;
+    height: 70vh;
   }
 `;
 
@@ -145,10 +151,9 @@ const TimeLineContainer = styled.div`
     width: 100%;
   }
   @media (${Variables.tabletL}) {
-    height: 40vh;
+    height: 35vh;
   }
   @media (${Variables.mobileL}) {
-    height: 50vh;
   }
 `;
 
@@ -156,17 +161,23 @@ const CarrouselContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 50%;
-  height: 50vh;
+  height: 90%;
+  align-items: center;
+  @media (max-width: 1024px) {
+    height: 80%;
+  }
   @media (${Variables.desktopXS}) {
     width: 100%;
     height: 30vh;
   }
   @media (${Variables.tabletL}) {
-    height: 30vh;
+    height: 40vh;
     align-items: center;
   }
   @media (${Variables.mobileL}) {
+    height: 30vh;
   }
   @media (${Variables.mobileS}) {
+    height: 20vh;
   }
 `;
