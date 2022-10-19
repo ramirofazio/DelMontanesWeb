@@ -1,5 +1,6 @@
 import React from "react";
 import { alfajoresDetails } from "./alfajoresDetails";
+import CardAlfajores from "../../Card/CardAlfajores";
 import styled from "styled-components";
 import Variables from "../../../Styles/Variables";
 
@@ -8,21 +9,16 @@ function FeaturedProducts() {
     <Container>
       <SubContainer>
         <Title>ALFAJORES</Title>
-
-        <Description>
-          DESCRIPCIÒN ALFAJORES
-        </Description> 
+        <Description>DESCRIPCIÒN ALFAJORES</Description>
       </SubContainer>
       <CardsContainer>
-        {alfajoresDetails?.map(({ title, description, img, link }, index) => (
-          <ProductContainer key={index} href={link}>
-            <ProductSubContainer img={img}>
-              <InfoContainer>
-                <ProductTitle>{title}</ProductTitle>
-                <ProductDescription>{description}</ProductDescription>
-              </InfoContainer>
-            </ProductSubContainer>
-          </ProductContainer>
+        {alfajoresDetails?.map(({ title, description, img }, index) => (
+          <CardAlfajores
+            title={title}
+            description={description}
+            img={img}
+            key={index}
+          />
         ))}
       </CardsContainer>
     </Container>
@@ -37,7 +33,8 @@ const Container = styled.div`
   align-items: center;
   height: 200vh;
   overflow: hidden;
-  padding: 5%;
+  padding: 10px;
+  background-color: ${Variables.baseColor};
 `;
 const SubContainer = styled.div`
   width: 100%;
@@ -68,16 +65,16 @@ const Description = styled.p`
   color: ${Variables.principalColor};
   font-weight: 400;
   font-size: 18px;
-  width: 80%;
+  width: 100%;
   padding: 0;
   margin: 0;
 
   @media (${Variables.mobileL}) {
-    font-size: 12px;
+    font-size: 15px;
     width: 90%;
   }
   @media (${Variables.mobileS}) {
-    font-size: 11px;
+    font-size: 15px;
     width: 100%;
   }
 `;
@@ -94,78 +91,7 @@ const CardsContainer = styled.div`
   @media (${Variables.tabletL}) {
     overflow: scroll;
   }
-`;
-
-const ProductContainer = styled.a`
-  width: 45%;
-  height: 40%;
-  margin: 10px;
-  border-radius: 25px;
-  overflow: hidden;
-  text-decoration: none;
-
-  @media (${Variables.mobileL}) {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-
   @media (${Variables.mobileS}) {
-    height: 35%;
-  }
-`;
-
-const ProductSubContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-image: url(${(props) => props.img});
-  background-size: cover;
-  text-decoration: none;
-  transition: ${Variables.basicTransition};
-
-  &:hover {
-    transform: scale(1.2);
-    justify-content: center;
-  }
-`;
-
-const InfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 25px;
-  color: ${Variables.principalColor};
-  transition: ${Variables.basicTransition};
-
-  ${ProductSubContainer}:hover & {
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    align-items: center;
-    padding-top: 25%;
-  }
-`;
-
-const ProductTitle = styled.h1`
-  font-size: 30px;
-  margin-bottom: 0;
-
-  @media (${Variables.mobileL}) {
-    font-size: 25px;
-  }
-
-  @media (${Variables.mobileS}) {
-    font-size: 20px;
-  }
-`;
-const ProductDescription = styled.p`
-  font-size: 15px;
-
-  @media (${Variables.mobileL}) {
-    font-size: 12px;
+    height: 70%;
   }
 `;
