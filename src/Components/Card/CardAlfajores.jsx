@@ -24,7 +24,6 @@ const CardContainer = styled.div`
   height: 20%;
   width: 80%;
   overflow: hidden;
-  padding: 5px;
   border-radius: 10px;
   background-color: ${Variables.navBarColor};
   @media (${Variables.tabletL}) {
@@ -50,7 +49,7 @@ const InfoContainer = styled.div`
 
 const ImgContainer = styled.div`
   width: 30%;
-  height: 95%;
+  height: 100%;
   @media (max-width: 1024px) {
     width: 40%;
   }
@@ -86,6 +85,5 @@ const DescriptionAlfajores = styled.h1`
 const Img = styled.img`
   width: 100%;
   height: 100%;
-  padding: 0px 5px 0px 5px;
   border-radius: 10px;
 `;
